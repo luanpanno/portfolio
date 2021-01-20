@@ -9,8 +9,13 @@ const Routes = () => {
       <Switch>
         <Layout>
           <Route path="/" component={Home} />
+          <Route path="/about" component={Home} />
+          <Route path="/projects" component={Home} />
+          <Route path="/experience" component={Home} />
+          <Route path="/contact" component={Home} />
+
+          <Redirect to="/" />
         </Layout>
-        <Redirect to="/" />
       </Switch>
     </BrowserRouter>
   );

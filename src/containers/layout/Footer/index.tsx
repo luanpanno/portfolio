@@ -1,9 +1,11 @@
+import { Container } from './styles';
+
 const Footer = () => {
   return (
-    <footer>
-      Site pessoal desenvolvido por Luan Panno - Todos os direitos reservados
-      &copy; {new Date().getFullYear()}
-    </footer>
+    <Container>
+      Desenvolvido por Luan Panno - Todos os direitos reservados &copy;
+      {new Date().getFullYear()}
+    </Container>
   );
 };
 
