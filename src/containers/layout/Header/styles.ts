@@ -12,11 +12,11 @@ export const Container = styled.header`
   a {
     color: black;
     text-decoration: none;
+    padding: 5px 10px;
   }
 
   .logo {
     font-size: 1.5rem;
-    padding: 5px 10px;
   }
 
   & > nav {
