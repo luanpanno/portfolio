@@ -19,7 +19,7 @@ function getColors(color: Colors, theme: DefaultTheme) {
   return COLORS[color];
 }
 
-export const Button = css<Props>`
+const ButtonStyles = css<Props>`
   outline: none;
   padding: 10px 20px;
   border-radius: ${(props) => (props.rounded ? '25px' : '2px')};
@@ -29,7 +29,7 @@ export const Button = css<Props>`
 `;
 
 export const ButtonOutline = styled.button<Props>`
-  ${Button};
+  ${ButtonStyles};
   border: 1px solid
     ${(props) => getColors(props.color ?? 'primary', props.theme)};
   color: ${(props) => getColors(props.color ?? 'primary', props.theme)};
@@ -42,7 +42,7 @@ export const ButtonOutline = styled.button<Props>`
 `;
 
 export const ButtonSolid = styled.button<Props>`
-  ${Button};
+  ${ButtonStyles};
   background-color: ${(props) =>
     getColors(props.color ?? 'primary', props.theme)};
   border: none;

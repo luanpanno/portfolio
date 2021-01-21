@@ -8,4 +8,5 @@ export const Container = styled.footer`
   align-items: center;
   justify-content: center;
   padding: 0 100px;
+  text-align: center;
 `;
