@@ -48,6 +48,6 @@ export const ButtonSolid = styled.button<Props>`
   border: none;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.primaryDark};
+    background-color: ${(props) => props.theme.colors.dark};
   }
 `;
