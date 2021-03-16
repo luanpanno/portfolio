@@ -1,33 +1,22 @@
 import { Link } from 'react-router-dom';
 
-import Button from '../../../components/Button';
+import NavItem from './NavItem';
 import { Container } from './styles';
 
 const Header = () => {
   return (
     <Container>
-      <Link to="/" className="logo">
-        Luan Panno
-      </Link>
+      <div>
+        <Link to="/" className="logo">
+          Luan Panno
+        </Link>
+      </div>
       <nav>
         <ul>
-          <li>
-            <Link to="/">Início</Link>
-          </li>
-          <li>
-            <Link to="/about">Sobre</Link>
-          </li>
-          <li>
-            <Link to="/projects">Projetos</Link>
-          </li>
-          <li>
-            <Link to="/resume">Experiência</Link>
-          </li>
-          <li>
-            <Link to="/contact">
-              <Button rounded>Contato</Button>
-            </Link>
-          </li>
+          <NavItem to="/">Início</NavItem>
+          <NavItem to="/about">Sobre</NavItem>
+          <NavItem to="/projects">Projetos</NavItem>
+          <NavItem to="/contact">Contato</NavItem>
         </ul>
       </nav>
     </Container>
