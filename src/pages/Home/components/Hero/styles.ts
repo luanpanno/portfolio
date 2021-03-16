@@ -13,6 +13,7 @@ export const Container = styled.section`
     gap: 10px;
     font-size: 2.5rem;
     font-weight: 300;
+    width: 500px;
     color: ${(props) => props.theme.colors.text};
 
     .name {
@@ -26,8 +27,16 @@ export const Container = styled.section`
     }
   }
 
-  img {
-    pointer-events: none;
-    user-select: none;
+  .draw {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 70%;
+
+    img {
+      pointer-events: none;
+      user-select: none;
+      width: 65%;
+    }
   }
 `;
