@@ -11,6 +11,7 @@ export const Container = styled.header`
   position: sticky;
   top: 0;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 
   & > div {
     width: 70%;
