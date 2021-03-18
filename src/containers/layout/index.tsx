@@ -5,7 +5,7 @@ import Header from './Header';
 import { Container, Main } from './styles';
 
 const Layout: React.FC = ({ children }) => {
-  const [isInTop, setIsInTop] = useState(false);
+  const [isInTop, setIsInTop] = useState(true);
   const containerRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
   function handleScroll() {
