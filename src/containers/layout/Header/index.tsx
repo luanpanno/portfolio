@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 import NavItem from './NavItem';
 import { Container } from './styles';
 
-const Header = () => {
+interface Props {
+  isInTop: boolean;
+}
+
+const Header: React.FC<Props> = ({ isInTop }) => {
   return (
-    <Container>
+    <Container isInTop={isInTop}>
       <div>
         <Link to="/" className="logo">
           Luan Panno

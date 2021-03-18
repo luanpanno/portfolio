@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.header`
+interface Props {
+  isInTop: boolean;
+}
+
+export const Container = styled.header<Props>`
   height: 75px;
-  background-color: transparent;
+  background-color: ${(props) =>
+    props.isInTop ? 'transparent' : `${props.theme.colors.primary}`};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,6 +16,7 @@ export const Container = styled.header`
   top: 0;
   /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1); */
   z-index: 100;
+  transition: all 200ms;
 
   & > div {
     width: 70%;
@@ -27,6 +33,11 @@ export const Container = styled.header`
       align-items: center;
       justify-content: space-between;
       color: white;
+
+      .active {
+        border-bottom: 3px solid
+          ${(props) => (props.isInTop ? props.theme.colors.primary : 'white')};
+      }
     }
   }
 

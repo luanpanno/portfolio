@@ -11,8 +11,4 @@ export const Item = styled.li`
       border-bottom: 3px solid ${(props) => props.theme.colors.secondary};
     }
   }
-
-  .active {
-    border-bottom: 3px solid ${(props) => props.theme.colors.primary};
-  }
 `;
