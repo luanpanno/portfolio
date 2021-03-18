@@ -2,15 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   height: 75px;
-  /* background-color: white; */
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 150px;
   position: sticky;
   top: 0;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1); */
   z-index: 100;
 
   & > div {
@@ -27,11 +26,12 @@ export const Container = styled.header`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      color: white;
     }
   }
 
   .logo {
-    color: black;
+    color: white;
     text-decoration: none;
     padding: 5px;
     font-size: 1.5rem;

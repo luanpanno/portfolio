@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Item = styled.li`
   a {
-    color: black;
+    color: white;
     text-decoration: none;
     padding: 26px 10px;
     transition: all 100ms;

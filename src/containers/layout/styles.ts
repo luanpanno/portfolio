@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 0 1fr auto;
   overflow-x: hidden;
   overflow-y: auto;
   /* background-color: white; */
@@ -13,5 +13,5 @@ export const Container = styled.div`
 `;
 
 export const Main = styled.main`
-  padding: 0 150px;
+  /* padding: 0 150px; */
 `;

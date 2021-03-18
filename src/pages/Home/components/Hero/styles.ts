@@ -1,12 +1,23 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
+interface Props {
+  imageSrc: string;
+}
+
+export const Container = styled.section<Props>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  height: calc(100vh - 75px);
+  height: 100vh;
+  /* height: calc(100vh - 75px); */
   position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(${(props) => props.imageSrc});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 5;
 
   .text {
     display: flex;
@@ -15,42 +26,25 @@ export const Container = styled.section`
     gap: 10px;
     font-size: 3rem;
     font-weight: 300;
-    color: ${(props) => props.theme.colors.text};
-    position: absolute;
-    top: 38%;
-    left: 13%;
+    color: white;
+    /* color: ${(props) => props.theme.colors.text}; */
+    z-index: 2;
 
     .intro {
       font-size: 2rem;
     }
 
     .name {
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: ${(props) => props.theme.colors.primary};
       font-weight: bold;
     }
 
     .Typewriter {
+      color: white;
       font-size: 3.5rem;
-      color: ${(props) => props.theme.colors.text};
-    }
-  }
-
-  .draw {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: ${(props) => props.theme.colors.primary};
-    position: absolute;
-    right: -350px;
-
-    img {
-      pointer-events: none;
-      user-select: none;
-      width: 100%;
+      /* color: ${(props) => props.theme.colors.text}; */
+      margin: 20px 0;
     }
   }
 `;

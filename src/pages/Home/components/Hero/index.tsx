@@ -1,19 +1,18 @@
-import Draw from '../../../../assets/img/undraw-code-thinking.svg';
+// import Backgroung from '../../../../assets/img/background2.jpg';
+import Backgroung from '../../../../assets/img/background1.jpg';
+import Button from '../../../../components/Button';
 import Typewriter from '../../../../components/Typewriter';
 import { Container } from './styles';
 
 const Hero = () => {
   return (
-    <Container>
+    <Container imageSrc={Backgroung}>
       <div className="text">
         <p className="intro">
           Olá! Eu sou o <span className="name">Luan</span>
         </p>
         <Typewriter text="Desenvolvedor Front-End" />
-      </div>
-
-      <div className="draw">
-        <img src={Draw} alt="" />
+        <Button>Saber mais</Button>
       </div>
     </Container>
   );
