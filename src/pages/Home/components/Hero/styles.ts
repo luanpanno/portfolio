@@ -17,6 +17,7 @@ export const Container = styled.section<Props>`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   z-index: 5;
 
   .text {

@@ -25,7 +25,7 @@ export const Button = css<Props>`
   border-radius: ${(props) => (props.rounded ? '25px' : '2px')};
   color: white;
   cursor: pointer;
-  transition: background 200ms;
+  transition: all 200ms;
 `;
 
 export const ButtonOutline = styled.button<Props>`
@@ -48,6 +48,7 @@ export const ButtonSolid = styled.button<Props>`
   border: none;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.dark};
+    /* background-color: ${(props) => props.theme.colors.primary}; */
+    transform: scale(1.08);
   }
 `;
