@@ -29,6 +29,7 @@ export const Container = styled.section`
         font-size: 1.1rem;
         color: ${(props) => props.theme.colors.text};
         letter-spacing: 0.25px;
+        line-height: 22px;
       }
     }
   }
