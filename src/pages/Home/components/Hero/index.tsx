@@ -1,4 +1,4 @@
-import Backgroung from '@assets/img/background2.jpg';
+import Backgroung from '@assets/img/hero-background.jpg';
 import Button from '@components/Button';
 import Typewriter from '@components/Typewriter';
 

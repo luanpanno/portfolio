@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.section`
   display: flex;
   gap: 25px;
-  padding: 50px 150px;
+  padding: 100px 150px;
   background-color: white;
 
   img {

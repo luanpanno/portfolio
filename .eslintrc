@@ -34,6 +34,7 @@
             "/^@pages/",
             "/^@routes/"
           ],
+          ["/^@utils/"],
           ["parent", "sibling", "index"]
         ],
         "alphabetize": {
