@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "lint": "eslint './src/**/*.ts{,x}' --color",
+    "lint:fix": "eslint './src/**/*.{ts,tsx,json}' --color --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -46,7 +47,9 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "git-commit-msg-linter": "^3.1.0",
     "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "react-app-rewire-alias": "^1.0.3",
+    "react-app-rewired": "^2.1.8"
   },
   "eslintConfig": {
     "extends": [

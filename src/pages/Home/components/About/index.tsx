@@ -6,8 +6,9 @@ import {
   FaReact,
 } from 'react-icons/fa';
 
-import Pfp from '../../../../assets/img/profile-pic.jpg';
-import Title from '../../../../components/Title';
+import Pfp from '@assets/img/profile-pic.jpg';
+import Title from '@components/Title';
+
 import { Container, Icon } from './styles';
 
 const About = () => {

@@ -15,6 +15,7 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
+  "ignorePatterns": ["config-overrides.js"],
   "rules": {
     "react/prop-types": "off",
     "max-len": ["error", 120],
@@ -23,7 +24,18 @@
       "error",
       {
         "newlinesBetween": "always",
-        "groups": ["module", ["parent", "sibling", "index"]],
+        "groups": [
+          "/^react/",
+          "module",
+          [
+            "/^@assets/",
+            "/^@components/",
+            "/^@containers/",
+            "/^@pages/",
+            "/^@routes/"
+          ],
+          ["parent", "sibling", "index"]
+        ],
         "alphabetize": {
           "order": "asc",
           "ignoreCase": true

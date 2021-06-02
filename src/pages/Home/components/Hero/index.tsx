@@ -1,7 +1,7 @@
-import Backgroung from '../../../../assets/img/background2.jpg';
-// import Backgroung from '../../../../assets/img/background1.jpg';
-import Button from '../../../../components/Button';
-import Typewriter from '../../../../components/Typewriter';
+import Backgroung from '@assets/img/background2.jpg';
+import Button from '@components/Button';
+import Typewriter from '@components/Typewriter';
+
 import { Container } from './styles';
 
 const Hero = () => {
