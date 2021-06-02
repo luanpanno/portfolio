@@ -19,33 +19,31 @@ export const Container = styled.section<Props>`
   background-size: cover;
   background-attachment: fixed;
   z-index: 5;
+`;
 
-  .text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    font-size: 3rem;
-    font-weight: 300;
+export const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 3rem;
+  font-weight: 300;
+  color: white;
+  z-index: 2;
+
+  .intro {
+    font-size: 2rem;
+  }
+
+  .name {
+    font-size: 2.5rem;
+    color: ${(props) => props.theme.colors.primary};
+    font-weight: bold;
+  }
+
+  .Typewriter {
     color: white;
-    /* color: ${(props) => props.theme.colors.text}; */
-    z-index: 2;
-
-    .intro {
-      font-size: 2rem;
-    }
-
-    .name {
-      font-size: 2.5rem;
-      color: ${(props) => props.theme.colors.primary};
-      font-weight: bold;
-    }
-
-    .Typewriter {
-      color: white;
-      font-size: 3.5rem;
-      /* color: ${(props) => props.theme.colors.text}; */
-      margin: 20px 0;
-    }
+    font-size: 3.5rem;
+    margin: 20px 0;
   }
 `;

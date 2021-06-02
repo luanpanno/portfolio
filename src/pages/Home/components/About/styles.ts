@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-interface IconProps {
-  color: string;
-}
-
 export const Container = styled.section`
   display: flex;
   gap: 25px;
@@ -44,17 +40,5 @@ export const Container = styled.section`
       align-items: center;
       gap: 75px;
     }
-  }
-`;
-
-export const Icon = styled.div<IconProps>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-
-  svg {
-    font-size: 2.5rem;
-    fill: ${(props) => props.color};
   }
 `;
