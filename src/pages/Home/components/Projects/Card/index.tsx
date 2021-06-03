@@ -8,7 +8,7 @@ interface Props {
 
 export const Card: React.FC<Props> = ({ project }) => {
   return (
-    <Container>
+    <Container href={project.link} target="_blank">
       <div className="img-wrapper">
         <img src={project.image} alt="weather-check" />
       </div>
@@ -16,6 +16,7 @@ export const Card: React.FC<Props> = ({ project }) => {
         <h3>{project.name}</h3>
         <span>{project.stack}</span>
       </div>
+      {/* <a href="teste">Visitar</a> */}
     </Container>
   );
 };
