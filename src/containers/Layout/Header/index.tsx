@@ -17,10 +17,10 @@ const Header: React.FC<Props> = ({ isInTop }) => {
       </div>
       <nav>
         <ul>
-          <NavItem to="/">Início</NavItem>
-          <NavItem to="/about">Sobre</NavItem>
-          <NavItem to="/projects">Projetos</NavItem>
-          <NavItem to="/contact">Contato</NavItem>
+          <NavItem to="#hero">Início</NavItem>
+          <NavItem to="#about">Sobre</NavItem>
+          <NavItem to="#projects">Projetos</NavItem>
+          <NavItem to="#contact">Contato</NavItem>
         </ul>
       </nav>
     </Container>

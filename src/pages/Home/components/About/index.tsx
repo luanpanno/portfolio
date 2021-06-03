@@ -9,7 +9,7 @@ import { Container } from './styles';
 
 const About = () => {
   return (
-    <Container>
+    <Container id="about">
       <img src={Pfp} alt="foto-perfil" />
       <div className="about">
         <div className="text">

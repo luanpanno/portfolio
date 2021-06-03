@@ -7,7 +7,7 @@ import { Container, ProjectsWrapper } from './styles';
 
 const Projects = () => {
   return (
-    <Container>
+    <Container id="projects">
       <Title>Projetos</Title>
 
       <ProjectsWrapper>

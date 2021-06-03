@@ -6,7 +6,7 @@ import { Container, TextContainer } from './styles';
 
 const Hero = () => {
   return (
-    <Container imageSrc={Backgroung}>
+    <Container imageSrc={Backgroung} id="hero">
       <TextContainer>
         <p className="intro">
           Olá! Eu sou o <span className="name">Luan</span>
