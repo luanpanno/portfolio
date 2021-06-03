@@ -1,10 +1,37 @@
-import { Container } from './styles';
+import { AiFillLinkedin, AiFillFacebook } from 'react-icons/ai';
+import { FaGithubSquare } from 'react-icons/fa';
+// import { FaFacebook } from 'react-icons/fa';
+// import { TiSocialLinkedinCircular } from 'react-icons/ti';
+
+import { Container, Icons } from './styles';
 
 const Footer = () => {
   return (
     <Container>
-      Desenvolvido por Luan Panno - Todos os direitos reservados &copy;{' '}
-      {new Date().getFullYear()}
+      <Icons>
+        <a
+          href="https://www.facebook.com/luanpanno"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <AiFillFacebook />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/luanpanno"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <AiFillLinkedin />
+        </a>
+        <a
+          href="https://www.github.com/luanpanno"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaGithubSquare />
+        </a>
+      </Icons>
+      Desenvolvido por Luan Panno &copy; {new Date().getFullYear()}
     </Container>
   );
 };
