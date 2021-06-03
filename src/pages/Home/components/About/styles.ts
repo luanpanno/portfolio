@@ -2,58 +2,52 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
-  gap: 25px;
+  /* flex-direction: column; */
+  align-items: center;
+  gap: 48px;
   padding: 100px 150px;
   background-color: white;
 
   img {
-    width: 350px;
-    border-radius: 20px;
+    max-height: 300px;
+    border-radius: 100%;
+    /* border-radius: 32px; */
   }
 
-  .about {
+  & > div {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-
-    .text {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-
-      p {
-        font-size: 1.1rem;
-        color: ${(props) => props.theme.colors.text};
-        letter-spacing: 0.25px;
-        line-height: 22px;
-      }
-    }
+    justify-content: space-between;
+    gap: 32px;
   }
+`;
 
-  .skills {
+export const AboutContainer = styled.div`
+  display: flex;
+  gap: 8px;
+
+  .text {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
 
-    .icons {
-      display: flex;
-      align-items: center;
-      gap: 75px;
+    p {
+      color: ${(props) => props.theme.colors.text};
+      line-height: 22px;
     }
   }
 `;
 
-export const Info = styled.div`
+export const Skills = styled.div`
   display: flex;
-  align-items: center;
-  gap: 4px;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
 
-  svg {
-    font-size: 1.1rem;
-    color: ${(props) => props.theme.colors.primary};
-  }
-
-  span {
-    color: #555;
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 75px;
   }
 `;

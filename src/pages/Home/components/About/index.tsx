@@ -1,42 +1,36 @@
 import { FaHtml5, FaCss3Alt, FaNode, FaReact } from 'react-icons/fa';
-import { RiMapPin2Line, RiMailLine } from 'react-icons/ri';
 import { SiJavascript, SiTypescript } from 'react-icons/si';
 
 import Pfp from '@assets/img/profile-pic.jpg';
 import Title from '@components/Title';
 
 import { Icon } from './Icon';
-import { Container, Info } from './styles';
+import { Info } from './Info';
+import { Container, AboutContainer, Skills } from './styles';
 
 const About = () => {
   return (
     <Container id="about">
       <img src={Pfp} alt="foto-perfil" />
-      <div className="about">
-        <div className="text">
-          <Title>Sobre mim</Title>
-          <p>
-            Me chamo Luan Panno, sou desenvolvedor Front-End e atualmente
-            trabalho na Metatron. Sou apaixonado por tecnologia e descobri na
-            programação uma oportunidade para concretizar ideias, juntando o que
-            eu mais gosto: tecnologia e design. Comecei a estudar programação em
-            dezembro de 2017, e na metade de 2018 eu iniciei os estudos em
-            Front-End. Comecei o curso de Ciência da Computação em 2019, porém
-            tranquei minha matrícula no início de 2020 por conta da pandemia, e
-            decidi focar totalmente na área de Front-End (e de vez em quando,
-            arranhando em Back-End).
-          </p>
-          <Info>
-            <RiMailLine />
-            <span>luanpanno@gmail.com</span>
-          </Info>
-          <Info>
-            <RiMapPin2Line />
-            <span>Rio de Janeiro, Brasil</span>
-          </Info>
-        </div>
-
-        <div className="skills">
+      <div>
+        <AboutContainer>
+          <div className="text">
+            <Title>Sobre mim</Title>
+            <p>
+              Me chamo Luan Panno, sou desenvolvedor Front-End e atualmente
+              trabalho na Metatron. Sou apaixonado por tecnologia e descobri na
+              programação uma oportunidade para concretizar ideias, juntando o
+              que eu mais gosto: tecnologia e design. Comecei a estudar
+              programação em dezembro de 2017, e na metade de 2018 eu iniciei os
+              estudos em Front-End. Comecei o curso de Ciência da Computação em
+              2019, porém tranquei minha matrícula no início de 2020 por conta
+              da pandemia, e decidi focar totalmente na área de Front-End (e de
+              vez em quando, arranhando em Back-End).
+            </p>
+            <Info />
+          </div>
+        </AboutContainer>
+        <Skills>
           <Title>Skills</Title>
           <div className="icons">
             <Icon color="#f16528" text="HTML5" icon={<FaHtml5 />} />
@@ -46,7 +40,7 @@ const About = () => {
             <Icon color="#80bd00" text="Node.js" icon={<FaNode />} />
             <Icon color="#66d9f8" text="ReactJS" icon={<FaReact />} />
           </div>
-        </div>
+        </Skills>
       </div>
     </Container>
   );

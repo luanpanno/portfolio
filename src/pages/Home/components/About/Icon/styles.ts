@@ -14,4 +14,9 @@ export const Container = styled.div<Props>`
     font-size: 2.5rem;
     fill: ${(props) => props.color};
   }
+
+  span {
+    font-size: 0.9rem;
+    color: ${(props) => props.theme.colors.text};
+  }
 `;
