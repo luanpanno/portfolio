@@ -1,11 +1,12 @@
 import { FaHtml5, FaCss3Alt, FaNode, FaReact } from 'react-icons/fa';
+import { RiMapPin2Line, RiMailLine } from 'react-icons/ri';
 import { SiJavascript, SiTypescript } from 'react-icons/si';
 
 import Pfp from '@assets/img/profile-pic.jpg';
 import Title from '@components/Title';
 
 import { Icon } from './Icon';
-import { Container } from './styles';
+import { Container, Info } from './styles';
 
 const About = () => {
   return (
@@ -25,6 +26,14 @@ const About = () => {
             decidi focar totalmente na área de Front-End (e de vez em quando,
             arranhando em Back-End).
           </p>
+          <Info>
+            <RiMailLine />
+            <span>luanpanno@gmail.com</span>
+          </Info>
+          <Info>
+            <RiMapPin2Line />
+            <span>Rio de Janeiro, Brasil</span>
+          </Info>
         </div>
 
         <div className="skills">

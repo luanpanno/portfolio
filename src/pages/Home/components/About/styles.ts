@@ -42,3 +42,18 @@ export const Container = styled.section`
     }
   }
 `;
+
+export const Info = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    font-size: 1.1rem;
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  span {
+    color: #555;
+  }
+`;
