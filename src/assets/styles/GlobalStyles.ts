@@ -11,7 +11,7 @@ html, body {
   scroll-behavior: smooth;
 
   &, *{
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     outline: 0;
   }
