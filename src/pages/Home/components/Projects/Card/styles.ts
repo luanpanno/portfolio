@@ -17,6 +17,7 @@ export const Container = styled.a`
     justify-content: center;
     overflow: hidden;
     height: 200px;
+    border-bottom: 1px solid rgb(245, 245, 245);
 
     img {
       border-top-left-radius: 4px;

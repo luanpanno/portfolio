@@ -17,7 +17,6 @@ export const Icons = styled.div`
 
   a {
     color: white;
-    /* font-size: 1.8rem; */
     font-size: 2.4rem;
   }
 `;
