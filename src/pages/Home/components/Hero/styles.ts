@@ -26,13 +26,16 @@ export const TextContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  font-size: 3rem;
   font-weight: 300;
   color: white;
   z-index: 2;
 
   .intro {
     font-size: 2rem;
+  }
+
+  p {
+    font-size: 3rem;
   }
 
   .name {
@@ -45,5 +48,20 @@ export const TextContainer = styled.div`
     color: white;
     font-size: 3.5rem;
     margin: 20px 0;
+  }
+
+  a {
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    transition: all 200ms;
+    background-color: ${(props) => props.theme.colors.primary};
+    font-size: 0.9rem;
+
+    &:hover {
+      transform: scale(1.08);
+    }
   }
 `;

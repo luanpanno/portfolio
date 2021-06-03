@@ -1,5 +1,4 @@
 import Backgroung from '@assets/img/hero-background.jpg';
-import Button from '@components/Button';
 import Typewriter from '@components/Typewriter';
 
 import { Container, TextContainer } from './styles';
@@ -12,7 +11,7 @@ const Hero = () => {
           Olá! Eu sou o <span className="name">Luan</span>
         </p>
         <Typewriter text="Desenvolvedor Front-End" />
-        <Button>Saber mais</Button>
+        <a href="#about">Saber mais</a>
       </TextContainer>
     </Container>
   );
