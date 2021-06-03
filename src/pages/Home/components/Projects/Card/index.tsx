@@ -1,17 +1,21 @@
+import { Project } from 'src/shared/models/domain/Project';
+
 import { Container } from './styles';
 
 interface Props {
-  image: string;
-  text: string;
+  project: Project;
 }
 
-export const Card: React.FC<Props> = ({ image, text }) => {
+export const Card: React.FC<Props> = ({ project }) => {
   return (
     <Container>
       <div className="img-wrapper">
-        <img src={image} alt="weather-check" />
+        <img src={project.image} alt="weather-check" />
       </div>
-      <p>{text}</p>
+      <div className="text">
+        <h3>{project.name}</h3>
+        <span>{project.stack}</span>
+      </div>
     </Container>
   );
 };

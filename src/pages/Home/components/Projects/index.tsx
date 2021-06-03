@@ -12,7 +12,7 @@ const Projects = () => {
 
       <ProjectsWrapper>
         {projects?.map((project) => {
-          return <Card image={project?.image} text={project?.text} />;
+          return <Card project={project} />;
         })}
       </ProjectsWrapper>
     </Container>

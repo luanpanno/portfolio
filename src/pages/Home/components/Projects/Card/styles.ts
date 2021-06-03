@@ -5,13 +5,17 @@ export const Container = styled.div`
   border-radius: 4px;
 
   .img-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     overflow: hidden;
+    height: 250px;
   }
 
   img {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    height: 250px;
+    width: 100%;
     transition: all 200ms;
 
     &:hover {

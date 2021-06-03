@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const ProjectsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 48px;
 `;

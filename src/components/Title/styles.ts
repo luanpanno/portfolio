@@ -8,7 +8,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    /* gap: 3.5px; */
+    gap: 4px;
     margin: 5px 0;
 
     h2 {
@@ -21,10 +21,8 @@ export const Container = styled.div`
 
 export const Border = styled.div`
   height: 5px;
-  width: 10%;
-  /* width: 10px; */
+  width: 20%;
   margin-left: 5px;
-  /* margin-left: 10px; */
   border-radius: 50px;
   background-color: ${(props) => props.theme.colors.primary};
 `;
