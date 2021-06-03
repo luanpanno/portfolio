@@ -11,7 +11,7 @@ export const Container = styled.header<Props>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 150px;
+  padding: 0 var(--body-horizontal-gap);
   position: sticky;
   top: 0;
   /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1); */

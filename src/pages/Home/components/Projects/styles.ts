@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 50px 150px 100px 150px;
+  padding: 50px var(--body-horizontal-gap) 100px var(--body-horizontal-gap);
   min-height: 60vh;
   display: flex;
   flex-direction: column;
@@ -14,4 +14,8 @@ export const ProjectsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
+
+  @media screen and (max-width: 1367px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;

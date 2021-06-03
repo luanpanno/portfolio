@@ -8,10 +8,7 @@ export const Container = styled.div`
   grid-template-rows: 0 1fr auto;
   overflow-x: hidden;
   overflow-y: auto;
-  /* background-color: white; */
   background-color: ${(props) => props.theme.colors.background};
 `;
 
-export const Main = styled.main`
-  /* padding: 0 150px; */
-`;
+export const Main = styled.main``;

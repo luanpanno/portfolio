@@ -5,17 +5,37 @@ import { Reset } from './Reset';
 export const GlobalStyles = createGlobalStyle`
   ${Reset}
 
-html, body {
-  width: 100%;
-  height: 100%;
-  scroll-behavior: smooth;
-
-  &, *{
+  html, body {
+    width: 100%;
+    height: 100%;
     scroll-behavior: smooth;
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
-    outline: 0;
+
+    &, *{
+      scroll-behavior: smooth;
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+      outline: 0;
+    }
   }
-}
+
+  :root {
+    --body-horizontal-gap: 150px;
+
+    @media screen and (max-width: 1367px) {
+      --body-horizontal-gap: 100px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      --body-horizontal-gap: 80px;
+    }
+
+    @media screen and (max-width: 894px) {
+      --body-horizontal-gap: 50px;
+    }
+
+    @media screen and (max-width: 831px) {
+      --body-horizontal-gap: 25px;
+    }
+  }
 `;
 export default GlobalStyles;
