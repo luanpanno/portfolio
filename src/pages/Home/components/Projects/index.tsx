@@ -1,4 +1,5 @@
 import Title from '@components/Title';
+import { Content } from '@containers/Content';
 
 import { projects } from '@utils/projects';
 
@@ -7,15 +8,17 @@ import { Container, ProjectsWrapper } from './styles';
 
 const Projects = () => {
   return (
-    <Container id="projects">
-      <Title>Projetos</Title>
+    <Content>
+      <Container id="projects">
+        <Title>Projetos</Title>
 
-      <ProjectsWrapper>
-        {projects?.map((project) => {
-          return <Card project={project} />;
-        })}
-      </ProjectsWrapper>
-    </Container>
+        <ProjectsWrapper>
+          {projects?.map((project) => {
+            return <Card project={project} />;
+          })}
+        </ProjectsWrapper>
+      </Container>
+    </Content>
   );
 };
 

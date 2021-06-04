@@ -6,6 +6,7 @@ export const Container = styled.section`
   gap: 48px;
   padding: 100px var(--body-horizontal-gap);
   background-color: white;
+  max-width: 1600px;
 
   img {
     max-height: 300px;

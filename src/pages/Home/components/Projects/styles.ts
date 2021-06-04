@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: 48px;
+  max-width: 1600px;
 `;
 
 export const ProjectsWrapper = styled.div`
