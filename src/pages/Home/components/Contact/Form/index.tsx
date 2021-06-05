@@ -1,19 +1,43 @@
+import { toast } from 'react-toastify';
+
 import { useFormik } from 'formik';
 
 import { Input } from '@components/Input';
 
+import { isEmptyObject } from '@utils/isEmptyObject';
+
 import { schema } from './schema';
 import { Form } from './styles';
 
-// interface FormFields {
-//   name: string;
-//   email: string;
-//   message: string;
-// }
+interface FormFields {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export const ContactForm = () => {
-  // function onSubmit(data: FormFields) {}
-  function onSubmit() {}
+  async function onSubmit(data: FormFields) {
+    try {
+      const { name, email, message } = data;
+      const formData = new FormData();
+
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('message', message);
+      formData.append('_captcha', 'false');
+
+      await fetch('https://formsubmit.co/luanpanno@gmail.com', {
+        method: 'POST',
+        body: formData,
+      });
+
+      toast.success(
+        'Email enviado com sucesso! Em breve entrarei em contato com você. :)'
+      );
+    } catch (error) {
+      toast.error(error);
+    }
+  }
 
   const formik = useFormik({
     onSubmit,
@@ -37,8 +61,13 @@ export const ContactForm = () => {
     return formik.touched.message && formik.errors.message;
   }
 
+  function isDisabled() {
+    const { name, email, message } = formik.values;
+
+    return !name || !email || !message || !isEmptyObject(formik.errors);
+  }
+
   return (
-    // <Form action="https://formsubmit.co/luanpanno@gmail.com" method="POST">
     <Form onSubmit={formik.handleSubmit}>
       <div className="wrapper">
         <p>Fique à vontade para me mandar um email!</p>
@@ -71,9 +100,12 @@ export const ContactForm = () => {
             hasError={!!getErrorMessage()}
             errorText={getErrorMessage()}
           />
+          <input type="hidden" name="_captcha" value="false" />
         </div>
       </div>
-      <button type="submit">Enviar</button>
+      <button type="submit" disabled={isDisabled()}>
+        Enviar
+      </button>
     </Form>
   );
 };

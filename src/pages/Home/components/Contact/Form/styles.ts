@@ -50,9 +50,15 @@ export const Form = styled.form`
     padding: 16px;
     color: white;
     transition: all 200ms;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.8;
+    }
+
+    &:disabled {
+      background-color: #555;
+      cursor: not-allowed;
     }
   }
 `;
