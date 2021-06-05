@@ -6,6 +6,7 @@ export const Container = styled.a`
   background-color: #fff;
   transition: all 200ms;
   min-width: 300px;
+  max-width: 400px;
 
   &:hover {
     box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.2);
@@ -25,10 +26,6 @@ export const Container = styled.a`
       border-top-right-radius: 4px;
       width: 100%;
       transition: all 200ms;
-
-      /* &:hover {
-        transform: scale(1.2);
-      } */
     }
   }
 

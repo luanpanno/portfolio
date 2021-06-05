@@ -19,4 +19,8 @@ export const ProjectsWrapper = styled.div`
   @media screen and (max-width: 1367px) {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @media screen and (max-width: 710px) {
+    grid-template-columns: 1fr;
+  }
 `;
