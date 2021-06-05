@@ -57,6 +57,11 @@ export const Skills = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 75px;
+
+    @media screen and (max-width: 770px) {
+      justify-content: center;
+    }
   }
 `;
