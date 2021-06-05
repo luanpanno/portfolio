@@ -1,33 +1,43 @@
+import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
+import OutsideClickHandler from 'react-outside-click-handler';
 import { Link } from 'react-router-dom';
 
 import NavItem from './NavItem';
-import { Container } from './styles';
+import { Container, Menu } from './styles';
 
 interface Props {
   isInTop: boolean;
 }
 
 const Header: React.FC<Props> = ({ isInTop }) => {
+  const [openMenu, setOpenMenu] = useState(false);
+
   return (
-    <Container isInTop={isInTop}>
-      <div>
-        <Link to="/" className="logo">
-          Luan Panno
-        </Link>
-      </div>
-      <nav>
-        <ul>
-          <NavItem to="#hero">Início</NavItem>
-          <NavItem to="#about">Sobre</NavItem>
-          <NavItem to="#projects">Projetos</NavItem>
-          <NavItem to="#contact">Contato</NavItem>
-        </ul>
-      </nav>
-      <button type="button" className="burger">
-        <FiMenu />
-      </button>
-    </Container>
+    <OutsideClickHandler onOutsideClick={() => setOpenMenu(false)}>
+      <Container isInTop={isInTop} openMenu={openMenu}>
+        <div>
+          <Link to="/" className="logo">
+            Luan Panno
+          </Link>
+        </div>
+        <Menu isInTop={isInTop} openMenu={openMenu}>
+          <ul className={openMenu ? 'active' : ''}>
+            <NavItem to="#hero">Início</NavItem>
+            <NavItem to="#about">Sobre</NavItem>
+            <NavItem to="#projects">Projetos</NavItem>
+            <NavItem to="#contact">Contato</NavItem>
+          </ul>
+        </Menu>
+        <button
+          type="button"
+          className="burger"
+          onClick={() => setOpenMenu((state) => !state)}
+        >
+          <FiMenu />
+        </button>
+      </Container>
+    </OutsideClickHandler>
   );
 };
 

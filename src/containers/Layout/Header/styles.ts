@@ -2,12 +2,15 @@ import styled from 'styled-components';
 
 interface Props {
   isInTop: boolean;
+  openMenu: boolean;
 }
 
 export const Container = styled.header<Props>`
   height: 75px;
   background-color: ${(props) =>
-    props.isInTop ? 'transparent' : `${props.theme.colors.primary}`};
+    props.isInTop && !props.openMenu
+      ? 'transparent'
+      : `${props.theme.colors.primary}`};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,24 +23,9 @@ export const Container = styled.header<Props>`
 
   & > div {
     width: 70%;
-  }
 
-  & > nav {
-    display: flex;
-    align-items: center;
-    width: 50%;
-
-    ul {
+    &:nth-child(2) {
       width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: white;
-
-      .active {
-        border-bottom: 3px solid
-          ${(props) => (props.isInTop ? props.theme.colors.primary : 'white')};
-      }
     }
   }
 
@@ -61,9 +49,65 @@ export const Container = styled.header<Props>`
     .burger {
       display: flex;
     }
+  }
+`;
 
-    nav {
-      display: none;
+export const Menu = styled.nav<Props>`
+  display: flex;
+  align-items: center;
+  width: 50%;
+  position: relative;
+
+  ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    transition: all 200ms;
+
+    a {
+      border-bottom: 3px solid transparent;
+    }
+
+    .active {
+      border-bottom: 3px solid
+        ${(props) => (props.isInTop ? props.theme.colors.primary : 'white')};
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    ul {
+      /* display: ${(props) => (props.openMenu ? 'flex' : 'none')};
+      opacity: ${(props) => (props.openMenu ? '1' : '0')}; */
+      background-color: ${(props) => props.theme.colors.primary};
+      position: absolute;
+      flex-direction: column;
+      gap: 12px;
+      top: 37px;
+      right: -60px;
+      height: 50vh;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      padding: 32px 0;
+      transform: translateX(360px);
+
+      li {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          display: inline-block;
+          width: 50%;
+          text-align: center;
+        }
+      }
+
+      &.active {
+        transform: translateX(0);
+      }
     }
   }
 `;
