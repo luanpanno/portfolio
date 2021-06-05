@@ -1,3 +1,4 @@
+import { FiMenu } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 import NavItem from './NavItem';
@@ -23,6 +24,9 @@ const Header: React.FC<Props> = ({ isInTop }) => {
           <NavItem to="#contact">Contato</NavItem>
         </ul>
       </nav>
+      <button type="button" className="burger">
+        <FiMenu />
+      </button>
     </Container>
   );
 };

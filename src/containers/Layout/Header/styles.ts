@@ -49,4 +49,21 @@ export const Container = styled.header<Props>`
     text-transform: uppercase;
     letter-spacing: 2px;
   }
+
+  .burger {
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .burger {
+      display: flex;
+    }
+
+    nav {
+      display: none;
+    }
+  }
 `;
