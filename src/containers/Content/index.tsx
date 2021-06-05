@@ -1,5 +1,9 @@
+import { HTMLAttributes } from 'react';
+
 import { Container } from './styles';
 
-export const Content: React.FC = ({ children }) => {
-  return <Container>{children}</Container>;
+interface Props extends HTMLAttributes<HTMLDivElement> {}
+
+export const Content: React.FC<Props> = ({ children, ...props }) => {
+  return <Container {...props}>{children}</Container>;
 };

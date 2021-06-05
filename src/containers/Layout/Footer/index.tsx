@@ -31,7 +31,7 @@ const Footer = () => {
           <FaGithubSquare />
         </a>
       </Icons>
-      Desenvolvido por Luan Panno &copy; {new Date().getFullYear()}
+      <span>Desenvolvido por Luan Panno &copy; {new Date().getFullYear()}</span>
     </Container>
   );
 };

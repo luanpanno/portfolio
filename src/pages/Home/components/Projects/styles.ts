@@ -9,7 +9,6 @@ export const Container = styled.div`
   justify-content: center;
   gap: 48px;
   max-width: 1600px;
-  background-color: ${(props) => props.theme.colors.background};
 `;
 
 export const ProjectsWrapper = styled.div`

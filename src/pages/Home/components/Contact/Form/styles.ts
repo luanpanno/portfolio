@@ -3,12 +3,14 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
   box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
   width: 500px;
   height: 100%;
   margin: 38px 0 32px 0;
   border-radius: 6px;
+  /* width: 100%; */
 
   .wrapper {
     display: flex;
@@ -26,9 +28,13 @@ export const Form = styled.form`
     margin: 16px 0;
   }
 
+  @media screen and (max-width: 564px) {
+    width: 100%;
+  }
+
   p {
-    margin-bottom: 16px;
     align-self: center;
+    color: ${(props) => props.theme.colors.text};
   }
 
   input {
@@ -37,6 +43,7 @@ export const Form = styled.form`
     border-radius: 4px;
     border: 1px solid #eaeaea;
     transition: all 200ms;
+    width: 100%;
 
     &:focus {
       box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.1);

@@ -1,3 +1,5 @@
+import { useTheme } from 'styled-components';
+
 import Title from '@components/Title';
 import { Content } from '@containers/Content';
 
@@ -7,8 +9,10 @@ import { Card } from './Card';
 import { Container, ProjectsWrapper } from './styles';
 
 const Projects = () => {
+  const { colors } = useTheme();
+
   return (
-    <Content>
+    <Content style={{ backgroundColor: colors.background }}>
       <Container id="projects">
         <Title>Projetos</Title>
 
