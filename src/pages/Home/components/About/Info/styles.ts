@@ -23,7 +23,8 @@ export const Container = styled.div`
     color: ${(props) => props.theme.colors.primary};
   }
 
-  span {
+  span,
+  address {
     color: #555;
   }
 `;

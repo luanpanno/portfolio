@@ -41,12 +41,14 @@ export const Info = () => {
         </a>
       </div>
       <div>
-        <RiMailLine />
-        <span>luanpanno@gmail.com</span>
+        <a href="mailto:luanpanno@gmail.com">
+          <RiMailLine />
+          <span>luanpanno@gmail.com</span>
+        </a>
       </div>
       <div>
         <RiMapPin2Line />
-        <span>Rio de Janeiro, Brasil</span>
+        <address>Rio de Janeiro, Brasil</address>
       </div>
     </Container>
   );
