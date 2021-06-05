@@ -7,5 +7,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 32px var(--body-horizontal-gap) 48px var(--body-horizontal-gap);
-  width: 100%;
+  width: 100vw;
+
+  @media screen and (max-width: 500px) {
+    padding: 32px 12px 48px 12px;
+  }
 `;

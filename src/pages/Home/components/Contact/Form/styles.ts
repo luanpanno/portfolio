@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 8px;
   box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
   width: 500px;
@@ -18,6 +17,10 @@ export const Form = styled.form`
     gap: 16px;
     height: 100%;
     padding: 32px 32px 0 32px;
+
+    @media screen and (max-width: 500px) {
+      padding: 32px 12px 0 12px;
+    }
   }
 
   .fields {
@@ -34,6 +37,7 @@ export const Form = styled.form`
 
   p {
     align-self: center;
+    text-align: center;
     color: ${(props) => props.theme.colors.text};
   }
 
