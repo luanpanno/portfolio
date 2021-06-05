@@ -6,26 +6,27 @@ interface Props {
 }
 
 export const Container = styled.header<Props>`
+  display: flex;
+  align-items: center;
   height: 75px;
   background-color: ${(props) =>
     props.isInTop && !props.openMenu
       ? 'transparent'
       : `${props.theme.colors.primary}`};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--body-horizontal-gap);
   position: sticky;
   top: 0;
-  /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1); */
   z-index: 100;
   transition: all 200ms;
 
   & > div {
-    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--body-horizontal-gap);
+    width: 100%;
 
-    &:nth-child(2) {
-      width: 100%;
+    & > div {
+      width: 70%;
     }
   }
 
