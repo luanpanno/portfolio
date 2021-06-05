@@ -24,10 +24,6 @@ export const Container = styled.header<Props>`
     justify-content: space-between;
     padding: 0 var(--body-horizontal-gap);
     width: 100%;
-
-    & > div {
-      width: 70%;
-    }
   }
 
   .logo {
@@ -37,6 +33,11 @@ export const Container = styled.header<Props>`
     font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+
+    @media screen and (max-width: 1280px) {
+      font-size: 1.2rem;
+      text-align: left;
+    }
   }
 
   .burger {
