@@ -8,9 +8,8 @@ export const Container = styled.section<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  /* height: calc(100vh - 75px); */
   position: relative;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url(${(props) => props.imageSrc});
@@ -29,6 +28,7 @@ export const TextContainer = styled.div`
   font-weight: 300;
   color: white;
   z-index: 2;
+  text-align: center;
 
   .intro {
     font-size: 2rem;
@@ -62,6 +62,60 @@ export const TextContainer = styled.div`
 
     &:hover {
       transform: scale(1.08);
+    }
+  }
+
+  @media screen and (max-width: 864px) {
+    .intro {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 2.5rem;
+    }
+
+    .name {
+      font-size: 2.1rem;
+    }
+
+    .Typewriter {
+      font-size: 2.8rem;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .intro {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 2.1rem;
+    }
+
+    .name {
+      font-size: 1.8rem;
+    }
+
+    .Typewriter {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .intro {
+      font-size: 1.4rem;
+    }
+
+    .name {
+      font-size: 1.6rem;
+    }
+
+    .Typewriter {
+      font-size: 1.8rem;
+    }
+
+    a {
+      font-size: 0.8rem;
     }
   }
 `;
