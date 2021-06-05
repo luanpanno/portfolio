@@ -34,10 +34,6 @@ export const TextContainer = styled.div`
     font-size: 2rem;
   }
 
-  p {
-    font-size: 3rem;
-  }
-
   .name {
     font-size: 2.5rem;
     color: ${(props) => props.theme.colors.primary};
@@ -66,6 +62,20 @@ export const TextContainer = styled.div`
     }
   }
 
+  @media screen and (max-width: 1280px) {
+    .intro {
+      font-size: 1.8rem;
+    }
+
+    .name {
+      font-size: 2.2rem;
+    }
+
+    .Typewriter {
+      font-size: 3rem;
+    }
+  }
+
   @media screen and (max-width: 864px) {
     .intro {
       font-size: 1.6rem;
@@ -87,10 +97,6 @@ export const TextContainer = styled.div`
   @media screen and (max-width: 700px) {
     .intro {
       font-size: 1.6rem;
-    }
-
-    p {
-      font-size: 2.1rem;
     }
 
     .name {
