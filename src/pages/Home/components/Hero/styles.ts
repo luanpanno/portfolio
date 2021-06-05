@@ -35,14 +35,14 @@ export const TextContainer = styled.div`
   }
 
   .name {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     color: ${(props) => props.theme.colors.primary};
     font-weight: bold;
   }
 
   .Typewriter {
     color: white;
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     margin: 20px 0;
     padding: 0 12px;
   }
