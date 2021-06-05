@@ -18,6 +18,13 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .__react_component_tooltip {
+    max-width: 350px;
+    white-space: pre-line;
+    font-size: 1rem;
+  }
+
+
   :root {
     --body-horizontal-gap: 150px;
 

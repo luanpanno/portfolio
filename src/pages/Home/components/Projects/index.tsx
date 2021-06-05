@@ -18,7 +18,7 @@ const Projects = () => {
 
         <ProjectsWrapper>
           {projects?.map((project) => {
-            return <Card project={project} />;
+            return <Card key={project.name} project={project} />;
           })}
         </ProjectsWrapper>
       </Container>

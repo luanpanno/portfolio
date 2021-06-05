@@ -44,7 +44,6 @@ export const ContactForm = () => {
         <p>Fique à vontade para me mandar um email!</p>
         <div className="fields">
           <Input
-            type="text"
             name="name"
             placeholder="Insira seu nome"
             value={formik.values.name}
@@ -54,7 +53,6 @@ export const ContactForm = () => {
             errorText={getErrorName()}
           />
           <Input
-            type="text"
             name="email"
             placeholder="Insira seu e-mail"
             value={formik.values.email}
