@@ -48,6 +48,7 @@ export const TextContainer = styled.div`
     color: white;
     font-size: 3.5rem;
     margin: 20px 0;
+    padding: 0 12px;
   }
 
   a {
