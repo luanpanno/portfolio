@@ -92,6 +92,8 @@ export const Menu = styled.nav<Props>`
       border-bottom-right-radius: 5px;
       padding: 32px 0;
       transform: translateX(360px);
+      min-height: 400px;
+      min-width: 200px;
 
       li {
         width: 100%;
