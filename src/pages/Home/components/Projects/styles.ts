@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   padding: 50px var(--body-horizontal-gap) 100px var(--body-horizontal-gap);
   min-height: 60vh;
   display: flex;

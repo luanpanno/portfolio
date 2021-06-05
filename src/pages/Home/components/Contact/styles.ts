@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.section`
   min-height: 60vh;
   background-color: #fff;
   display: flex;
