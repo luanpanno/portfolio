@@ -1,35 +1,34 @@
-# 🚀 Portfolio
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-by Luan Panno
+## Getting Started
 
-## 🔧 How to run the project
+First, run the development server:
 
-1.  Install the repository dependencies by running the following line in your terminal:
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-        yarn
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-2.  Run the project by the following line:
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-        yarn start
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-### ⚙️ Settings
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-✅ [ESLint / Prettier / ImportHelper](https://gist.github.com/erodrigues-dev/ab01d0dc2a960e1f50c3f52b89ac62a9)
+## Learn More
 
-🏁 [Husky / LintStaged](https://gist.github.com/erodrigues-dev/8ec49f3416302a4e4536bd7d3143af36)
+To learn more about Next.js, take a look at the following resources:
 
-🌐 [Git Commit Msg Linter](https://github.com/legend80s/commit-msg-linter#readme)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### 📝︎ VSCODE Extensions
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+## Deploy on Vercel
 
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- [Editor Config](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-
-- [React-Native/React/Redux snippets for es6/es7](https://marketplace.visualstudio.com/items?itemName=EQuimper.react-native-react-redux)
-
-- [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
-
-- [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
