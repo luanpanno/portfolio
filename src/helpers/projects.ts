@@ -1,15 +1,16 @@
 /* eslint-disable max-len */
-import CryptotrackerImg from '../../assets/img/projects/cryptotracker.png';
-import DevRadarImg from '../../assets/img/projects/devradar.png';
-import EcoletaImg from '../../assets/img/projects/ecoleta.png';
-import ElenaJoyImg from '../../assets/img/projects/elena-joy.png';
-import GoogleDocsCloneImg from '../../assets/img/projects/google-docs-clone.png';
-import MovieSearchImg from '../../assets/img/projects/movie-search.jpg';
-import PortfolioImg from '../../assets/img/projects/portfolio.jpg';
-import SpotifyImg from '../../assets/img/projects/spotify.png';
-import TeslaCloneImg from '../../assets/img/projects/tesla-clone.png';
-import WeatherCheckImg from '../../assets/img/projects/weather-check.png';
-import { Project } from '../models/domain/Project';
+import CryptotrackerImg from '@assets/img/projects/cryptotracker.png';
+import DevRadarImg from '@assets/img/projects/devradar.png';
+import EcoletaImg from '@assets/img/projects/ecoleta.png';
+import ElenaJoyImg from '@assets/img/projects/elena-joy.png';
+import GoogleDocsCloneImg from '@assets/img/projects/google-docs-clone.png';
+import MovieSearchImg from '@assets/img/projects/movie-search.jpg';
+import PortfolioImg from '@assets/img/projects/portfolio.jpg';
+import SpotifyImg from '@assets/img/projects/spotify.png';
+import TeslaCloneImg from '@assets/img/projects/tesla-clone.png';
+import WeatherCheckImg from '@assets/img/projects/weather-check.png';
+
+import { Project } from '@models/Project';
 
 export const projects: Project[] = [
   {
