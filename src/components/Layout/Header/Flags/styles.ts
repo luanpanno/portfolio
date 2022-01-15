@@ -11,9 +11,12 @@ export const Container = styled.div<Props>`
   column-gap: 8px;
 
   button {
-    height: 18px;
-    width: 28px;
+    height: 32px;
+    width: 32px;
     transition: all 200ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       filter: grayscale(0);

@@ -47,20 +47,4 @@ export const Container = styled.a`
       font-size: 1rem;
     }
   }
-
-  /* a {
-    display: inline-block;
-    background-color: ${(props) => props.theme.colors.primary};
-    width: 100%;
-    padding: 16px;
-    text-align: center;
-    color: white;
-    transition: all 200ms;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-
-    &:hover {
-      opacity: 0.9;
-    }
-  } */
 `;

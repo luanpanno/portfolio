@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Brazil from '@assets/img/flags/brazil.png';
@@ -8,30 +9,34 @@ import { Container } from './styles';
 
 const Flags = () => {
   const { i18n } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState(
-    navigator.language === 'pt-BR' ? 'pt-BR' : 'en-US'
-  );
+  const [currentLanguage, setCurrentLanguage] = useState('en-US');
 
-  function handleLanguage(language: string) {
+  useEffect(() => {
+    setCurrentLanguage(navigator.language === 'pt-BR' ? 'pt-BR' : 'en-US');
+  }, []);
+
+  const handleLanguage = (language: string) => {
     setCurrentLanguage(language);
     i18n.changeLanguage(language);
-  }
+  };
 
   return (
     <Container language={currentLanguage}>
       <button
         type="button"
-        className="pt-BR"
+        className="pt-BR flag"
         onClick={() => handleLanguage('pt-BR')}
+        title="Mudar para Português"
       >
-        <img src={Brazil} alt="brazilian-flag" />
+        <Image src={Brazil} alt="brazilian-flag" height="650px" />
       </button>
       <button
         type="button"
-        className="en-US"
+        className="en-US flag"
         onClick={() => handleLanguage('en-US')}
+        title="Switch to English"
       >
-        <img src={USA} alt="usa-flag" />
+        <Image src={USA} alt="usa-flag" height="650px" />
       </button>
     </Container>
   );

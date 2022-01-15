@@ -1,12 +1,5 @@
 import Hero from './Hero';
-import { Container } from './styles';
 
-const Home = () => {
-  return (
-    <Container>
-      <Hero />
-    </Container>
-  );
-};
+const Home = () => <Hero />;
 
 export default Home;

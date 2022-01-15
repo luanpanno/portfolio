@@ -1,11 +1,12 @@
+import { useTranslation } from 'react-i18next';
 import { AiFillLinkedin, AiFillFacebook } from 'react-icons/ai';
 import { FaGithubSquare } from 'react-icons/fa';
-// import { FaFacebook } from 'react-icons/fa';
-// import { TiSocialLinkedinCircular } from 'react-icons/ti';
 
 import { Container, Icons } from './styles';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Icons>
@@ -31,7 +32,9 @@ const Footer = () => {
           <FaGithubSquare />
         </a>
       </Icons>
-      <span>Desenvolvido por Luan Panno &copy; {new Date().getFullYear()}</span>
+      <span>
+        {t('footer')} &copy; {new Date().getFullYear()}
+      </span>
     </Container>
   );
 };

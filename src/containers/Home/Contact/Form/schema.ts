@@ -1,10 +1,31 @@
 import * as yup from 'yup';
 
-export const schema = yup.object().shape({
-  name: yup.string().required('Nome é um campo obrigatório'),
-  email: yup
-    .string()
-    .email('Email precisa ter um formato válido')
-    .required('Email é um campo obrigatório'),
-  message: yup.string().required('Mensagem é um campo obrigatório'),
-});
+const makeSchema = (language: string) => {
+  const checkLanguage = (pt: string, en: string) =>
+    language === 'pt-BR' ? pt : en;
+
+  const nameRequired = checkLanguage(
+    'Nome é um campo obrigatório',
+    'Name is a required field'
+  );
+  const emailFormat = checkLanguage(
+    'Email precisa ter um formato válido',
+    'Email needs to be valid'
+  );
+  const emailRequired = checkLanguage(
+    'Email é um campo obrigatório',
+    'Email is a required field'
+  );
+  const messageRequired = checkLanguage(
+    'Mensagem é um campo obrigatório',
+    'Message is a required field'
+  );
+
+  return yup.object().shape({
+    name: yup.string().required(nameRequired),
+    email: yup.string().email(emailFormat).required(emailRequired),
+    message: yup.string().required(messageRequired),
+  });
+};
+
+export default makeSchema;

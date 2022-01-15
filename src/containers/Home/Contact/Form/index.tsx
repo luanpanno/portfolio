@@ -1,21 +1,24 @@
+import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
-import { useFormik } from 'formik';
+import Input from '@components/Input';
 
-import { Input } from '@components/Input';
+import { isObjectEmpty } from '@helpers/objects';
 
-import { isEmptyObject } from '@utils/isEmptyObject';
-
-import { schema } from './schema';
+import makeSchema from './schema';
 import { Form } from './styles';
 
-interface FormFields {
+type Fields = 'name' | 'email' | 'message';
+type FormFields = {
   name: string;
   email: string;
   message: string;
-}
+};
 
-export const ContactForm = () => {
+const ContactForm = () => {
+  const { i18n } = useTranslation();
+
   async function onSubmit(data: FormFields) {
     try {
       const { name, email, message } = data;
@@ -34,14 +37,14 @@ export const ContactForm = () => {
       toast.success(
         'Email enviado com sucesso! Em breve entrarei em contato com você. :)'
       );
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error);
     }
   }
 
   const formik = useFormik({
     onSubmit,
-    validationSchema: schema,
+    validationSchema: makeSchema(i18n.language),
     initialValues: {
       name: '',
       email: '',
@@ -49,23 +52,14 @@ export const ContactForm = () => {
     },
   });
 
-  function getErrorName() {
-    return formik.touched.name && formik.errors.name;
-  }
+  const getFormikError = (field: Fields): string =>
+    (formik.touched[field] && formik.errors[field]) || '';
 
-  function getErrorEmail() {
-    return formik.touched.email && formik.errors.email;
-  }
-
-  function getErrorMessage() {
-    return formik.touched.message && formik.errors.message;
-  }
-
-  function isDisabled() {
+  const isDisabled = () => {
     const { name, email, message } = formik.values;
 
-    return !name || !email || !message || !isEmptyObject(formik.errors);
-  }
+    return !name || !email || !message || !isObjectEmpty(formik.errors);
+  };
 
   return (
     <Form onSubmit={formik.handleSubmit}>
@@ -78,8 +72,8 @@ export const ContactForm = () => {
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            hasError={!!getErrorName()}
-            errorText={getErrorName()}
+            hasError={!!getFormikError('name')}
+            errorText={getFormikError('name')}
           />
           <Input
             name="email"
@@ -87,8 +81,8 @@ export const ContactForm = () => {
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            hasError={!!getErrorEmail()}
-            errorText={getErrorEmail()}
+            hasError={!!getFormikError('email')}
+            errorText={getFormikError('email')}
           />
           <Input
             type="textarea"
@@ -97,8 +91,8 @@ export const ContactForm = () => {
             value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            hasError={!!getErrorMessage()}
-            errorText={getErrorMessage()}
+            hasError={!!getFormikError('message')}
+            errorText={getFormikError('message')}
           />
           <input type="hidden" name="_captcha" value="false" />
         </div>
@@ -109,3 +103,5 @@ export const ContactForm = () => {
     </Form>
   );
 };
+
+export default ContactForm;

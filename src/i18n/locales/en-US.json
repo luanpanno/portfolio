@@ -1,9 +1,15 @@
 {
   "translation": {
-    "Hello": "Hello",
-    "Home": "Home",
-    "Experience": "Experience",
-    "Projects": "Projects",
-    "Contact": "Contact"
+    "websiteTitle": "Luan Panno - Front-End Developer",
+    "websiteDescription": "Portfolio of Luan Panno, showing all his work and experience as a developer.",
+    "navHome": "Home",
+    "navExperience": "Experience",
+    "navProjects": "Projects",
+    "navContact": "Contact",
+    "homeHello": "Hello, I'm",
+    "homeJob": "Front-End Developer",
+    "homeLocation": "Rio de Janeiro, Brazil",
+    "homeDescription": "I’m a Front-End Developer based in Rio de Janeiro, Brazil. Currently working at LovelyStay, a company based in Portugal, and also studying Computer Science at Estácio de Sá University.",
+    "footer": "Developed by Luan Panno"
   }
 }

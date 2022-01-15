@@ -1,14 +1,15 @@
 import { ButtonOutline, ButtonSolid } from './styles';
 
+type Type = 'button' | 'submit' | 'reset' | undefined;
 type Colors = 'primary' | 'secondary' | 'warning' | 'light';
-interface Props {
+type Props = {
   color?: Colors;
   outline?: boolean;
-  type?: 'button' | 'submit' | 'reset' | undefined;
+  type?: Type;
   rounded?: boolean;
   disabled?: boolean;
   onClick?: () => void;
-}
+};
 
 const Button: React.FC<Props> = ({
   color = 'primary',

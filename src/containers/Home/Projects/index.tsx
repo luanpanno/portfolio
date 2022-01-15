@@ -1,11 +1,11 @@
 import { useTheme } from 'styled-components';
 
+import Content from '@components/Content';
 import Title from '@components/Title';
-import { Content } from '@containers/Content';
 
-import { projects } from '@utils/projects';
+import { projects } from '@helpers/projects';
 
-import { Card } from './Card';
+import Card from './Card';
 import { Container, ProjectsWrapper } from './styles';
 
 const Projects = () => {
@@ -17,9 +17,9 @@ const Projects = () => {
         <Title>Projetos</Title>
 
         <ProjectsWrapper>
-          {projects?.map((project) => {
-            return <Card key={project.name} project={project} />;
-          })}
+          {projects?.map((project) => (
+            <Card key={project.name} project={project} />
+          ))}
         </ProjectsWrapper>
       </Container>
     </Content>

@@ -1,22 +1,28 @@
-import { Project } from 'src/shared/models/domain/Project';
+import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
+
+import { Project } from '@models/Project';
 
 import { Container } from './styles';
 
-interface Props {
+type Props = {
   project: Project;
-}
+};
 
-export const Card: React.FC<Props> = ({ project }) => {
+const Card: React.FC<Props> = ({ project }) => {
+  const { t } = useTranslation();
+
   return (
     <Container href={project.link} target="_blank">
       <div className="img-wrapper">
-        <img src={project.image} alt="weather-check" />
+        <Image src={project.image} alt="weather-check" />
       </div>
       <div className="text">
         <h3>{project.name}</h3>
-        <span>{project.stack}</span>
+        <span>{t(project.stack)}</span>
       </div>
-      {/* <a href="teste">Visitar</a> */}
     </Container>
   );
 };
+
+export default Card;

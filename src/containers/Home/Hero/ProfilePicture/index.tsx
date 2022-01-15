@@ -1,15 +1,17 @@
+import Image from 'next/image';
+
 import ProfilePic from '@assets/img/profile-pic.jpg';
 
-import { Container, Border, Image } from './styles';
+import { Container, Border } from './styles';
 
-const ProfilePicture = () => {
-  return (
-    <Container>
-      <Border>
+const ProfilePicture = () => (
+  <Container>
+    <Border>
+      <div className="wrapper">
         <Image src={ProfilePic} alt="profile-picture" />
-      </Border>
-    </Container>
-  );
-};
+      </div>
+    </Border>
+  </Container>
+);
 
 export default ProfilePicture;

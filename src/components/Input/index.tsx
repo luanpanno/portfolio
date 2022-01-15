@@ -1,23 +1,19 @@
 import { HTMLAttributes, useState } from 'react';
 import { IoMdAlert } from 'react-icons/io';
 
-import Tooltip from '@components/Tooltip';
-
-import { generateTooltipId } from '@utils/generateTooltipId';
-
 import { Container, InputWrapper } from './styles';
 
-interface Props extends HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+type Props = HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> & {
   name: string;
   label?: string;
   type?: string;
   id?: string;
   hasError?: boolean;
-  errorText?: unknown;
+  errorText?: string;
   value?: string;
-}
+};
 
-export const Input: React.FC<Props> = ({
+const Input: React.FC<Props> = ({
   name,
   label,
   type = 'text',
@@ -37,10 +33,6 @@ export const Input: React.FC<Props> = ({
     setHasFocus(false);
   }
 
-  function tooltip() {
-    return generateTooltipId(name, String(errorText));
-  }
-
   if (type === 'textarea') {
     return (
       <Container hasError={hasError}>
@@ -53,11 +45,8 @@ export const Input: React.FC<Props> = ({
             name={name}
             {...props}
           />
-          {hasError && errorText && (
-            <IoMdAlert data-tip={errorText} data-for={tooltip()} />
-          )}
+          {hasError && errorText && <IoMdAlert title={errorText} />}
         </InputWrapper>
-        {hasError && errorText && <Tooltip id={tooltip()} />}
       </Container>
     );
   }
@@ -74,11 +63,10 @@ export const Input: React.FC<Props> = ({
           name={name}
           {...props}
         />
-        {hasError && errorText && (
-          <IoMdAlert data-tip={errorText} data-for={tooltip()} />
-        )}
+        {hasError && errorText && <IoMdAlert title={errorText} />}
       </InputWrapper>
-      {hasError && errorText && <Tooltip id={tooltip()} />}
     </Container>
   );
 };
+
+export default Input;

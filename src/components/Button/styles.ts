@@ -1,12 +1,12 @@
 import styled, { DefaultTheme, css } from 'styled-components';
 
 type Colors = 'primary' | 'secondary' | 'warning' | 'light';
-interface Props {
+type Props = {
   color?: Colors;
   outline?: boolean;
   disabled?: boolean;
   rounded?: boolean;
-}
+};
 
 function getColors(color: Colors, theme: DefaultTheme) {
   const COLORS = {

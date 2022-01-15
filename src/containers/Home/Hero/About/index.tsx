@@ -24,12 +24,12 @@ const About = () => {
   return (
     <Container>
       <Hello>
-        <span>{t("Hello, I'm")}</span>
+        <span>{t('homeHello')}</span>
       </Hello>
 
       <Name>Luan Panno</Name>
 
-      <Position>{t('Front-End Developer')}</Position>
+      <Position>{t('homeJob')}</Position>
 
       <BasicInfo>
         <li>
@@ -38,15 +38,11 @@ const About = () => {
           </a>
         </li>
         <li>
-          <RiMapPin2Line /> {t('Rio de Janeiro, Brazil')}
+          <RiMapPin2Line /> {t('homeLocation')}
         </li>
       </BasicInfo>
 
-      <AboutMe>
-        {t(
-          'I’m a Front-End Developer based in Rio de Janeiro, Brazil. Currently working at LovelyStay, a company based in Portugal, and also studying Computer Science at Estácio de Sá University.'
-        )}
-      </AboutMe>
+      <AboutMe>{t('homeDescription')}</AboutMe>
 
       <LinksList>
         <div>

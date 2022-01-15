@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-interface Props {
+type Props = {
   hasError?: boolean;
   hasFocus?: boolean;
-}
+};
 
 export const Container = styled.div<Props>`
   width: 100%;

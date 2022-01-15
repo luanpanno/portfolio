@@ -2,8 +2,10 @@ import { HTMLAttributes } from 'react';
 
 import { Container } from './styles';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {}
+type Props = HTMLAttributes<HTMLDivElement>;
 
-export const Content: React.FC<Props> = ({ children, ...props }) => {
-  return <Container {...props}>{children}</Container>;
-};
+const Content: React.FC<Props> = ({ children, ...props }) => (
+  <Container {...props}>{children}</Container>
+);
+
+export default Content;

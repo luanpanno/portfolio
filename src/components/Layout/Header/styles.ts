@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-interface Props {
+type Props = {
   isInTop: boolean;
   openMenu: boolean;
-}
+};
 
 export const Container = styled.header<Props>`
   display: flex;
@@ -12,7 +12,7 @@ export const Container = styled.header<Props>`
   box-shadow: ${(props) =>
     props.isInTop && !props.openMenu
       ? 'transparent'
-      : `1px -5px 10px 5px rgba(0, 0, 0, .1)`};
+      : '1px -5px 10px 5px rgba(0, 0, 0, .1)'};
   position: sticky;
   top: 0;
   z-index: 100;

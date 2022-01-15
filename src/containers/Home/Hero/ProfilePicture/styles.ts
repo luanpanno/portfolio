@@ -10,19 +10,19 @@ const BorderStyle = css`
 
 export const Container = styled.div`
   ${BorderStyle};
-  height: 250px;
-  width: 250px;
+  height: 300px;
+  width: 300px;
+
+  .wrapper {
+    overflow: hidden;
+    height: 250px;
+    width: 250px;
+    border-radius: 100%;
+  }
 `;
 
 export const Border = styled.div`
   ${BorderStyle};
-  height: 225px;
-  width: 225px;
-`;
-
-export const Image = styled.img`
-  overflow: hidden;
-  height: 200px;
-  width: 200px;
-  border-radius: 100%;
+  height: 275px;
+  width: 275px;
 `;

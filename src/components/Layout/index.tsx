@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-// import Footer from './Footer';
+import Footer from './Footer';
 import Header from './Header';
 import { Container, Main } from './styles';
 
@@ -16,7 +16,7 @@ const Layout: React.FC = ({ children }) => {
     <Container ref={containerRef} onScroll={handleScroll}>
       <Header isInTop={isInTop} />
       <Main>{children}</Main>
-      {/* <Footer /> */}
+      <Footer />
     </Container>
   );
 };
