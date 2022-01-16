@@ -51,6 +51,7 @@ export const AboutMe = styled.p`
   line-height: 28px;
   color: #bebebe;
   max-width: 500px;
+  height: 100px;
 `;
 
 export const LinksList = styled.ul`

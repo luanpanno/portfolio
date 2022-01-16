@@ -65,13 +65,13 @@ export const projects: Project[] = [
   {
     image: 'https://i.imgur.com/sfOtLwL.png',
     name: 'Shopping Cart',
-    stack: 'React e Typescript',
+    stack: 'React e TypeScript',
     link: 'https://github.com/luanpanno/react-shopping-cart',
   },
   {
     image: 'https://i.imgur.com/9uQVja5.png',
     name: 'Github Search',
-    stack: 'React e Typescript',
+    stack: 'React e TypeScript',
     link: 'https://github.com/luanpanno/react-github-search',
   },
 ];

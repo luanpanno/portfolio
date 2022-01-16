@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  height: 100vh;
   position: relative;
   z-index: 5;
-  margin: 200px var(--body-horizontal-gap);
+  margin: 200px var(--body-horizontal-gap) 100px var(--body-horizontal-gap);
 `;
 
 export const Content = styled.div`
