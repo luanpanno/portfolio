@@ -1,5 +1,5 @@
 export type Project = {
-  image: StaticImageData;
+  image: string;
   name: string;
   stack: string;
   link: string;
