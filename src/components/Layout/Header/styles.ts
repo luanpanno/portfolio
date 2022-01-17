@@ -59,7 +59,7 @@ export const Container = styled.header<Props>`
 export const Menu = styled.nav<Props>`
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 40%;
   position: relative;
 
   ul {

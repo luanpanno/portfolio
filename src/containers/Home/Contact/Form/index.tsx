@@ -17,7 +17,7 @@ type FormFields = {
 };
 
 const ContactForm = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   async function onSubmit(data: FormFields) {
     try {
@@ -34,9 +34,7 @@ const ContactForm = () => {
         body: formData,
       });
 
-      toast.success(
-        'Email enviado com sucesso! Em breve entrarei em contato com você. :)'
-      );
+      toast.success(t('contactFormSuccess'));
     } catch (error: any) {
       toast.error(error);
     }
@@ -64,11 +62,11 @@ const ContactForm = () => {
   return (
     <Form onSubmit={formik.handleSubmit}>
       <div className="wrapper">
-        <p>Fique à vontade para me mandar um email!</p>
+        <p>{t('contactFormP')}</p>
         <div className="fields">
           <Input
             name="name"
-            placeholder="Insira seu nome"
+            placeholder={t('contactFormNamePlaceholder')}
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -77,7 +75,7 @@ const ContactForm = () => {
           />
           <Input
             name="email"
-            placeholder="Insira seu e-mail"
+            placeholder={t('contactFormEmailPlaceholder')}
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -87,7 +85,7 @@ const ContactForm = () => {
           <Input
             type="textarea"
             name="message"
-            placeholder="Insira sua mensagem"
+            placeholder={t('contactFormMessagePlaceholder')}
             value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -98,7 +96,7 @@ const ContactForm = () => {
         </div>
       </div>
       <button type="submit" disabled={isDisabled()}>
-        Enviar
+        {t('contactFormSubmit')}
       </button>
     </Form>
   );

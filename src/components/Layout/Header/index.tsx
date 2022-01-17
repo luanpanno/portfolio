@@ -26,7 +26,6 @@ const Header: React.FC<Props> = ({ isInTop }) => {
         <Menu isInTop={isInTop} openMenu={openMenu}>
           <ul className={openMenu ? 'active' : ''}>
             <NavItem to="#home">{t('navHome')}</NavItem>
-            <NavItem to="#experience">{t('navExperience')}</NavItem>
             <NavItem to="#projects">{t('navProjects')}</NavItem>
             <NavItem to="#contact">{t('navContact')}</NavItem>
             <Flags />

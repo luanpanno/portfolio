@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 
 import Content from '@components/Content';
@@ -9,12 +10,13 @@ import Card from './Card';
 import { Container, ProjectsWrapper } from './styles';
 
 const Projects = () => {
+  const { t } = useTranslation();
   const { colors } = useTheme();
 
   return (
     <Content style={{ backgroundColor: colors.background }}>
       <Container id="projects">
-        <Title>Projetos</Title>
+        <Title>{t('titleProjects')}</Title>
 
         <ProjectsWrapper>
           {projects?.map((project) => (

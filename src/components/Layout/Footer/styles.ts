@@ -12,7 +12,7 @@ export const Container = styled.footer`
 
   span,
   a {
-    color: #aaa;
+    color: #dadada;
   }
 
   .grid-2 {

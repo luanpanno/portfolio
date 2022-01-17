@@ -6,7 +6,7 @@ export const Container = styled.div`
   & > div {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     gap: 4px;
     margin: 5px 0;
@@ -20,9 +20,8 @@ export const Container = styled.div`
 `;
 
 export const Border = styled.div`
-  height: 5px;
-  width: 20%;
-  margin-left: 5px;
+  height: 3px;
+  width: 80%;
   border-radius: 50px;
   background-color: ${(props) => props.theme.colors.primary};
 `;
