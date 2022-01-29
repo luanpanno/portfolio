@@ -94,7 +94,7 @@ export const Menu = styled.nav<Props>`
       padding: 32px 0;
       transform: translateX(360px);
       min-width: 200px;
-      width: 30%;
+      width: 0;
       box-shadow: 1px 15px 10px 5px rgba(0, 0, 0, 0.1);
 
       li {
@@ -113,18 +113,19 @@ export const Menu = styled.nav<Props>`
 
       &.active {
         transform: translateX(0);
+        width: 30%;
       }
     }
   }
 
   @media screen and (max-width: 750px) {
-    ul {
+    ul.active {
       width: 50%;
     }
   }
 
   @media screen and (max-width: 650px) {
-    ul {
+    ul.active {
       width: 75%;
     }
   }
