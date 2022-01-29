@@ -23,6 +23,7 @@
       "@i18n/*": ["src/i18n/*"],
       "@models/*": ["src/models/*"],
       "@pages/*": ["src/pages/*"],
+      "@templates/*": ["src/templates/*"],
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

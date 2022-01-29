@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 
-import Content from '@components/Content';
 import Title from '@components/Title';
+
+import Content from '@templates/Content';
 
 import { projects } from '@helpers/projects';
 

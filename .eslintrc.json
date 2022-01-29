@@ -34,6 +34,7 @@
           "/^@assets/",
           "/^@components/",
           "/^@containers/",
+          "/^@templates/",
           "/^@pages/",
           "/^@models/",
           "/^@i18n/",

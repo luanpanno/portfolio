@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 
-import Container from '@containers/Container';
 import Homepage from '@containers/Home';
+
+import Container from '@templates/Container';
 
 const Home: NextPage = () => (
   <Container>

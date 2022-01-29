@@ -3,7 +3,7 @@ import ProfilePicture from './ProfilePicture';
 import { Container, Content } from './styles';
 
 const Hero = () => (
-  <Container>
+  <Container id="home">
     <Content>
       <About />
       <ProfilePicture />
