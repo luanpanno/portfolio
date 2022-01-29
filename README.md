@@ -1,6 +1,6 @@
 # 🚀 My own portfolio (that just me can see the code 🧐)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c4b83dc1-b12a-4c46-b3f1-042007dd94bf/deploy-status)](https://app.netlify.com/sites/github-search-lp/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d7aff8f9-2791-4ea4-882d-69f2bfcde0f2/deploy-status)](https://app.netlify.com/sites/luanpanno-portfolio/deploys)
 
 ## 👋 About
 
