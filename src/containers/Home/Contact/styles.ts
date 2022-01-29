@@ -9,6 +9,10 @@ export const Container = styled.section`
   padding: 32px var(--body-horizontal-gap) 48px var(--body-horizontal-gap);
   width: 100vw;
 
+  @media screen and (max-width: 1400px) {
+    padding: 16px var(--body-horizontal-gap) 48px var(--body-horizontal-gap);
+  }
+
   @media screen and (max-width: 500px) {
     padding: 32px 12px 48px 12px;
   }

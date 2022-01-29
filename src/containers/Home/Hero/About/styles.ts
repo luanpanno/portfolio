@@ -5,6 +5,15 @@ export const Container = styled.div`
   flex-direction: column;
   row-gap: 12px;
   max-width: 50%;
+
+  @media screen and (max-width: 832px) {
+    row-gap: 18px;
+  }
+
+  @media screen and (max-width: 832px) {
+    align-items: center;
+    max-width: 100%;
+  }
 `;
 
 export const Hello = styled.div`
@@ -26,6 +35,10 @@ export const Hello = styled.div`
 export const Name = styled.p`
   font-weight: bold;
   font-size: 2.4rem;
+
+  @media screen and (max-width: 832px) {
+    align-self: center;
+  }
 `;
 
 export const Position = styled.p`
@@ -60,4 +73,9 @@ export const LinksList = styled.ul`
   max-width: 350px;
   font-size: 1.8rem;
   margin: 8px 0;
+
+  @media screen and (max-width: 832px) {
+    max-width: 100%;
+    width: 100%;
+  }
 `;

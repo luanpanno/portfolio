@@ -19,10 +19,26 @@ export const Container = styled.div`
     width: 250px;
     border-radius: 100%;
   }
+
+  @media screen and (max-width: 832px) {
+    order: 1;
+    height: 250px;
+    width: 250px;
+
+    .wrapper {
+      height: 200px;
+      width: 200px;
+    }
+  }
 `;
 
 export const Border = styled.div`
   ${BorderStyle};
   height: 275px;
   width: 275px;
+
+  @media screen and (max-width: 832px) {
+    height: 225px;
+    width: 225px;
+  }
 `;

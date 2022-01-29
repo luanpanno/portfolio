@@ -49,7 +49,7 @@ export const Container = styled.header<Props>`
     display: none;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 832px) {
     .burger {
       display: flex;
     }
@@ -80,21 +80,22 @@ export const Menu = styled.nav<Props>`
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 832px) {
     ul {
       background-color: ${(props) => props.theme.colors.background};
-      position: absolute;
+      position: fixed;
       flex-direction: column;
+      justify-content: flex-start;
       gap: 12px;
-      top: 37px;
-      right: -60px;
-      height: 50vh;
+      top: 75px;
+      right: 0;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
       padding: 32px 0;
       transform: translateX(360px);
-      min-height: 400px;
       min-width: 200px;
+      width: 30%;
+      box-shadow: 1px 15px 10px 5px rgba(0, 0, 0, 0.1);
 
       li {
         width: 100%;
@@ -104,7 +105,8 @@ export const Menu = styled.nav<Props>`
 
         a {
           display: inline-block;
-          width: 50%;
+          width: 100%;
+          padding: 24px;
           text-align: center;
         }
       }
@@ -112,6 +114,18 @@ export const Menu = styled.nav<Props>`
       &.active {
         transform: translateX(0);
       }
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    ul {
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    ul {
+      width: 75%;
     }
   }
 `;

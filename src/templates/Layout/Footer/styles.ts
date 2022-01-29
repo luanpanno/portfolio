@@ -20,4 +20,15 @@ export const Container = styled.footer`
     flex-direction: column;
     row-gap: 24px;
   }
+
+  @media screen and (max-width: 832px) {
+    flex-direction: column;
+    row-gap: 32px;
+    align-items: flex-start;
+    padding: 32px;
+
+    & > div:nth-child(1) {
+      align-self: center;
+    }
+  }
 `;
