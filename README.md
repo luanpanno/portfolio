@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 My own portfolio (that just me can see the code 🧐)
 
-## Getting Started
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4b83dc1-b12a-4c46-b3f1-042007dd94bf/deploy-status)](https://app.netlify.com/sites/github-search-lp/deploys)
 
-First, run the development server:
+## 👋 About
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Firstly my portfolio was made with just HTML and CSS, then I changed it to React, and now it's using Nextjs... really cool, tho! In this version (can I call it v4.0.0?) I just simplified the website styles, and added the internacionalization (by now, just two languages: portuguese and english).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<hr />
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🔧 How to start the project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+First of all, you need Yarn to run this project. [Click here](https://classic.yarnpkg.com/en/docs/install#debian-stable) to see how to install Yarn
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1.  Install the project dependencies by running the following command:
 
-## Learn More
+        yarn
 
-To learn more about Next.js, take a look at the following resources:
+2.  Start the project by the following command:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+        yarn dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<hr />
 
-## Deploy on Vercel
+## 📋 Specs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next 12.0.8
+- React 17.0.2
+- TypeScript 4.5.4
+- Node 17.3.1
+- Yarn 1.22.17
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<hr />
+
+## ⚙️ Setup
+
+- [ESLint](https://eslint.org/)
+- [ESLint Config Airbnb](https://github.com/airbnb/javascript)
+- [Prettier](https://prettier.io/)
+- [EditorConfig](https://editorconfig.org/)
+- [Git Commit Msg Linter](https://github.com/legend80s/commit-msg-linter#readme)
+
+<hr />
+
+## 📝︎ Recommended extensions for VSCode
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+
+- [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
+
+- [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
