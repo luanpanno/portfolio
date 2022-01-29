@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import ProfilePic from '@assets/img/profile-pic.jpg';
+import ProfilePic from '@assets/imgs/profile-pic.jpg';
 
 import { Container, Border } from './styles';
 

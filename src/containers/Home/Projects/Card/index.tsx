@@ -18,8 +18,8 @@ const Card: React.FC<Props> = ({ project }) => {
         <Image
           src={project.image}
           alt="weather-check"
-          height="250"
-          width="350"
+          height="350"
+          width="650"
         />
       </div>
       <div className="text">

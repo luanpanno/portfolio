@@ -2,8 +2,8 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Brazil from '@assets/img/flags/brazil.png';
-import USA from '@assets/img/flags/usa.png';
+import Brazil from '@assets/imgs/flags/brazil.png';
+import USA from '@assets/imgs/flags/usa.png';
 
 import { Container } from './styles';
 
