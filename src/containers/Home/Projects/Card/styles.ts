@@ -17,7 +17,7 @@ export const Container = styled.a`
     align-items: flex-start;
     justify-content: center;
     overflow: hidden;
-    height: 200px;
+    height: 162px;
     border-bottom: 1px solid rgb(245, 245, 245);
 
     img {
