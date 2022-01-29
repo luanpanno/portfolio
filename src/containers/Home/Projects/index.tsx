@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { useTheme } from 'styled-components';
 
 import Title from '@components/Title';
@@ -11,7 +11,7 @@ import Card from './Card';
 import { Container, ProjectsWrapper } from './styles';
 
 const Projects = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const { colors } = useTheme();
 
   return (

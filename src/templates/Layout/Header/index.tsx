@@ -1,6 +1,6 @@
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { FiMenu } from 'react-icons/fi';
 import OutsideClickHandler from 'react-outside-click-handler';
 
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Header: React.FC<Props> = ({ isInTop }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const [openMenu, setOpenMenu] = useState(false);
 
   return (

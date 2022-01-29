@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { toast } from 'react-toastify';
 
 import Input from '@components/Input';
@@ -17,7 +17,7 @@ type FormFields = {
 };
 
 const ContactForm = () => {
-  const { i18n, t } = useTranslation();
+  const { i18n, t } = useTranslation('common');
 
   async function onSubmit(data: FormFields) {
     try {

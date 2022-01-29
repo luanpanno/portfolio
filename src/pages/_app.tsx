@@ -1,10 +1,9 @@
+import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import { ToastContainer } from 'react-toastify';
 import { ThemeProvider } from 'styled-components';
 
 import { theme, GlobalStyles } from '@assets/styles';
-
-import '../i18n';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <ThemeProvider theme={theme}>
@@ -14,4 +13,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
   </ThemeProvider>
 );
 
-export default MyApp;
+export default appWithTranslation(MyApp);

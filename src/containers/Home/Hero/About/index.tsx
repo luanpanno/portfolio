@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import {
   AiFillFacebook,
   AiFillGithub,
@@ -20,7 +20,7 @@ import {
 } from './styles';
 
 const About = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   return (
     <Container>

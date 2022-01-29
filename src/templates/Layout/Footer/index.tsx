@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import { Container } from './styles';
 
 const Footer = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   return (
     <Container>

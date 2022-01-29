@@ -1,5 +1,5 @@
+import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
-import { useTranslation } from 'react-i18next';
 
 import { Project } from '@models/Project';
 
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Card: React.FC<Props> = ({ project }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   return (
     <Container href={project.link} target="_blank">

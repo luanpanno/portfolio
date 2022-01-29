@@ -37,7 +37,6 @@
           "/^@templates/",
           "/^@pages/",
           "/^@models/",
-          "/^@i18n/",
           "/^@helpers/",
           ["parent", "sibling", "index"]
         ],
