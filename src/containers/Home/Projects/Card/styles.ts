@@ -5,7 +5,7 @@ export const Container = styled.a`
   border-radius: 4px;
   background-color: #fff;
   transition: all 200ms;
-  max-width: 300px;
+  max-width: 350px;
 
   &:hover {
     box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.2);

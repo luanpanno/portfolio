@@ -35,9 +35,10 @@ export const Form = styled.form`
   }
 
   p {
-    align-self: center;
     text-align: center;
-    color: ${(props) => props.theme.colors.text};
+    letter-spacing: 0.4px;
+    line-height: 28px;
+    color: #bebebe;
   }
 
   button {

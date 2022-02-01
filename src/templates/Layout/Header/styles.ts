@@ -8,6 +8,7 @@ type Props = {
 export const Container = styled.header<Props>`
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 75px;
   box-shadow: ${(props) =>
     props.isInTop && !props.openMenu
@@ -26,6 +27,7 @@ export const Container = styled.header<Props>`
     justify-content: space-between;
     padding: 0 var(--body-horizontal-gap);
     width: 100%;
+    max-width: var(--body-max-width);
   }
 
   .logo {

@@ -20,7 +20,7 @@ export const Container = styled.div`
     border-radius: 100%;
   }
 
-  @media screen and (max-width: 832px) {
+  @media screen and (max-width: 1000px) {
     order: 1;
     height: 250px;
     width: 250px;
@@ -37,7 +37,7 @@ export const Border = styled.div`
   height: 275px;
   width: 275px;
 
-  @media screen and (max-width: 832px) {
+  @media screen and (max-width: 1000px) {
     height: 225px;
     width: 225px;
   }

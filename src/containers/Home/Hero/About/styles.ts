@@ -6,11 +6,11 @@ export const Container = styled.div`
   row-gap: 12px;
   max-width: 50%;
 
-  @media screen and (max-width: 832px) {
+  @media screen and (max-width: 1000px) {
     row-gap: 18px;
   }
 
-  @media screen and (max-width: 832px) {
+  @media screen and (max-width: 1000px) {
     align-items: center;
     max-width: 100%;
   }
@@ -36,7 +36,7 @@ export const Name = styled.p`
   font-weight: bold;
   font-size: 2.4rem;
 
-  @media screen and (max-width: 832px) {
+  @media screen and (max-width: 1000px) {
     align-self: center;
   }
 `;
@@ -74,7 +74,7 @@ export const LinksList = styled.ul`
   font-size: 1.8rem;
   margin: 8px 0;
 
-  @media screen and (max-width: 832px) {
+  @media screen and (max-width: 1000px) {
     max-width: 100%;
     width: 100%;
   }
