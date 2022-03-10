@@ -1,10 +1,9 @@
-# 🚀 My own portfolio (that just me can see the code 🧐)
-
+# 🚀 My own portfolio
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d7aff8f9-2791-4ea4-882d-69f2bfcde0f2/deploy-status)](https://app.netlify.com/sites/luanpanno-portfolio/deploys)
 
 ## 👋 About
 
-Firstly my portfolio was made with just HTML and CSS, then I changed it to React, and now it's using Nextjs... really cool, tho! In this version (can I call it v4.0.0?) I just simplified the website styles, and added the internacionalization (by now, just two languages: portuguese and english).
+Firstly my portfolio was made with HTML and CSS, then I changed it to React, and now it's using Nextjs. In this version (can I call it v4.0.0?) I simplified the website styles, and added the internationalization (by now, just two languages: Portuguese and English).
 
 <hr />
 
