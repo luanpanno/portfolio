@@ -3,7 +3,7 @@
 
 ## 👋 About
 
-Firstly my portfolio was made with HTML and CSS, then I changed it to React, and now it's using Nextjs. In this version (can I call it v4.0.0?) I simplified the website styles, and added the internationalization (by now, just two languages: Portuguese and English).
+Portfolio created with Next.js, stylized by using styled-components and internationalization with next-i18next. Available in Portuguese and English.
 
 <hr />
 
@@ -18,37 +18,3 @@ First of all, you need Yarn to run this project. [Click here](https://classic.ya
 2.  Start the project by the following command:
 
         yarn dev
-
-<hr />
-
-## 📋 Specs
-
-- Next 12.0.8
-- React 17.0.2
-- TypeScript 4.5.4
-- Node 17.3.1
-- Yarn 1.22.17
-
-<hr />
-
-## ⚙️ Setup
-
-- [ESLint](https://eslint.org/)
-- [ESLint Config Airbnb](https://github.com/airbnb/javascript)
-- [Prettier](https://prettier.io/)
-- [EditorConfig](https://editorconfig.org/)
-- [Git Commit Msg Linter](https://github.com/legend80s/commit-msg-linter#readme)
-
-<hr />
-
-## 📝︎ Recommended extensions for VSCode
-
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-
-- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-
-- [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
-
-- [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
