@@ -2,10 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 import 'react-toastify/dist/ReactToastify.css';
 
+import { ReactToggle } from './ReactToggle';
 import { Reset } from './Reset';
 
 export const GlobalStyles = createGlobalStyle`
   ${Reset}
+  ${ReactToggle}
 
   html, body {
     width: 100%;

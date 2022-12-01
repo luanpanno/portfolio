@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import OutsideClickHandler from 'react-outside-click-handler';
 
+import ThemeSwitch from '@components/ThemeSwitch';
+
 import Flags from './Flags';
 import NavItem from './NavItem';
 import { Container, Menu } from './styles';
@@ -29,6 +31,7 @@ const Header: React.FC<Props> = ({ isAtTop }) => {
             <NavItem to="#projects">{t('navProjects')}</NavItem>
             <NavItem to="#contact">{t('navContact')}</NavItem>
             <Flags />
+            <ThemeSwitch />
           </ul>
         </Menu>
 

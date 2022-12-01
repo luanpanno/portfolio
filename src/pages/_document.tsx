@@ -11,6 +11,8 @@ import Document, {
 import React from 'react';
 import { ServerStyleSheet } from 'styled-components';
 
+import { ThemeProvider } from '@contexts/ThemeContext';
+
 export default class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext
@@ -56,8 +58,10 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-          <Main />
-          <NextScript />
+          <ThemeProvider>
+            <Main />
+            <NextScript />
+          </ThemeProvider>
         </body>
       </Html>
     );

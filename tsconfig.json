@@ -23,7 +23,8 @@
       "@models/*": ["src/models/*"],
       "@pages/*": ["src/pages/*"],
       "@templates/*": ["src/templates/*"],
-    },
+      "@contexts/*": ["src/contexts/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

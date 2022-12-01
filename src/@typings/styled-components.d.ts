@@ -1,4 +1,4 @@
-import { theme } from '../assets/styles/theme';
+import { theme } from '../assets/styles/themes';
 
 type CustomTheme = typeof theme;
 
