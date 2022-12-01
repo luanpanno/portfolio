@@ -18,6 +18,10 @@ export const Container = styled.div`
     height: 250px;
     width: 250px;
     border-radius: 100%;
+
+    img {
+      transform: scale(1.2);
+    }
   }
 
   @media screen and (max-width: 1000px) {
