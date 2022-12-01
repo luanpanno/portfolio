@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type Props = {
-  isInTop: boolean;
+  isAtTop: boolean;
   openMenu: boolean;
 };
 
@@ -11,7 +11,7 @@ export const Container = styled.header<Props>`
   justify-content: center;
   height: 75px;
   box-shadow: ${(props) =>
-    props.isInTop && !props.openMenu
+    props.isAtTop && !props.openMenu
       ? 'transparent'
       : '1px -5px 10px 5px rgba(0, 0, 0, .1)'};
   position: sticky;
@@ -78,7 +78,7 @@ export const Menu = styled.nav<Props>`
 
     & > .active {
       border-bottom: 3px solid
-        ${(props) => (props.isInTop ? props.theme.colors.primary : 'white')};
+        ${(props) => (props.isAtTop ? props.theme.colors.primary : 'white')};
     }
   }
 
