@@ -5,8 +5,8 @@ export const Container = styled.footer`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 32px;
-  padding: 32px 0;
+  row-gap: 24px;
+  padding: 24px 0;
 
   span {
     color: ${(props) => props.theme.colors.text};
