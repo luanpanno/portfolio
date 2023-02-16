@@ -61,7 +61,7 @@ export const BasicInfo = styled.ul`
 
 export const AboutMe = styled.p`
   letter-spacing: 0.4px;
-  line-height: 28px;
+  line-height: 22px;
   color: #bebebe;
   max-width: 500px;
 `;

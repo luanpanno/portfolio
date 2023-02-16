@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react';
+import { PropsWithChildren, useRef, useState } from 'react';
 
 import Footer from './Footer';
 import Header from './Header';
 import { Container, Main } from './styles';
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   const [isInTop, setIsInTop] = useState(true);
   const containerRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 

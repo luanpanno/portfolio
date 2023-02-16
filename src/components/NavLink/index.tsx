@@ -8,14 +8,16 @@ const NavLink: React.FC<React.PropsWithChildren<LinkProps>> = ({
   locale,
   ...props
 }) => {
-  const child = React.Children.only(children) as any;
   const router = useRouter();
 
   return (
-    <Link href={href} locale={locale} {...props}>
-      {React.cloneElement(child, {
-        className: router.locale === locale ? 'active' : '',
-      })}
+    <Link
+      href={href}
+      locale={locale}
+      {...props}
+      className={router.locale === locale ? 'active' : ''}
+    >
+      {children}
     </Link>
   );
 };

@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
+import { PropsWithChildren } from 'react';
 
 import Layout from '@templates/Layout';
 
-const Container: NextPage = ({ children }) => {
+const Container: NextPage<PropsWithChildren> = ({ children }) => {
   const { t } = useTranslation('common');
 
   return (

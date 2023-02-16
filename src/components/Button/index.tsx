@@ -1,3 +1,5 @@
+import { PropsWithChildren } from 'react';
+
 import { ButtonOutline, ButtonSolid } from './styles';
 
 type Type = 'button' | 'submit' | 'reset' | undefined;
@@ -11,7 +13,7 @@ type Props = {
   onClick?: () => void;
 };
 
-const Button: React.FC<Props> = ({
+const Button: React.FC<PropsWithChildren<Props>> = ({
   color = 'primary',
   outline = false,
   type = 'button',

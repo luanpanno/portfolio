@@ -10,13 +10,10 @@ export const Container = styled.div<Props>`
   justify-content: center;
   column-gap: 8px;
 
-  button {
-    height: 32px;
-    width: 32px;
+  a {
+    width: 36px;
+    height: 27px;
     transition: all 200ms;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     filter: grayscale(100);
 
     &:hover {
@@ -26,6 +23,12 @@ export const Container = styled.div<Props>`
 
     &.active {
       filter: grayscale(0);
+    }
+
+    .flag {
+      display: inline-block;
+      width: 32px;
+      height: 24px;
     }
   }
 `;

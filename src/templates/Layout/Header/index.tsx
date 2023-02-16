@@ -19,8 +19,8 @@ const Header: React.FC<Props> = ({ isInTop }) => {
   return (
     <Container isInTop={isInTop} openMenu={openMenu}>
       <OutsideClickHandler onOutsideClick={() => setOpenMenu(false)}>
-        <Link href="/">
-          <a className="logo">Luan Panno</a>
+        <Link href="/" className="logo">
+          Luan Panno
         </Link>
 
         <Menu isInTop={isInTop} openMenu={openMenu}>

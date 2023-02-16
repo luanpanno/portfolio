@@ -1,11 +1,10 @@
-const path = require('path');
-
 module.exports = {
   i18n: {
-    defaultLocale: 'pt',
-    locales: ['pt', 'en'],
-    browserLanguageDetection: true,
-    serverLanguageDetection: true,
-    localePath: path.resolve('./public/locales')
+    defaultLocale: 'en',
+    locales: ['en', 'pt'],
   },
+  debug: process.env.NODE_ENV === 'development',
+  browserLanguageDetection: true,
+  serverLanguageDetection: true,
+  localePath: require('path').resolve('./public/locales'),
 };

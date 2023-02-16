@@ -17,6 +17,8 @@
   "contactFormSubmit": "Submit",
   "contactFormSuccess": "Email sent successfully! Soon I'll be in touch with you. :)",
   "contactFormError": "Oops! Something went wrong. Please, try again later.",
+  "React": "React",
+  "Next.js": "Next.js",
   "HTML and CSS": "HTML and CSS",
   "HTML, CSS and Bootstrap": "HTML, CSS and Bootstrap",
   "Node.js, React and React Native": "Node.js, React and React Native",

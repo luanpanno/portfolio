@@ -17,6 +17,8 @@
   "contactFormSubmit": "Enviar",
   "contactFormSuccess": "Email enviado com sucesso! Em breve entrarei em contato com você. :)",
   "contactFormError": "Ops! Algo de errado aconteceu. Por favor, tente novamente mais tarde.",
+  "React": "HTML e CSS",
+  "Next.js": "Next.js",
   "HTML and CSS": "HTML e CSS",
   "HTML, CSS and Bootstrap": "HTML, CSS e Bootstrap",
   "Node.js, React and React Native": "Node.js, React e React Native",
