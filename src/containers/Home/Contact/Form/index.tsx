@@ -16,8 +16,15 @@ type FormFields = {
   message: string;
 };
 
+const initialValues: FormFields = {
+  name: '',
+  email: '',
+  message: '',
+};
+
 const ContactForm = () => {
-  const { i18n, t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const validationSchema = makeSchema(i18n.language);
 
   async function onSubmit(data: FormFields) {
     try {
@@ -42,12 +49,8 @@ const ContactForm = () => {
 
   const formik = useFormik({
     onSubmit,
-    validationSchema: makeSchema(i18n.language),
-    initialValues: {
-      name: '',
-      email: '',
-      message: '',
-    },
+    validationSchema,
+    initialValues,
   });
 
   const getFormikError = (field: Fields): string =>
@@ -70,8 +73,7 @@ const ContactForm = () => {
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            hasError={!!getFormikError('name')}
-            errorText={getFormikError('name')}
+            errorMessage={t(getFormikError('name'))}
           />
           <Input
             name="email"
@@ -79,8 +81,7 @@ const ContactForm = () => {
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            hasError={!!getFormikError('email')}
-            errorText={getFormikError('email')}
+            errorMessage={getFormikError('email')}
           />
           <Input
             type="textarea"
@@ -89,8 +90,7 @@ const ContactForm = () => {
             value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            hasError={!!getFormikError('message')}
-            errorText={getFormikError('message')}
+            errorMessage={getFormikError('message')}
           />
           <input type="hidden" name="_captcha" value="false" />
         </div>

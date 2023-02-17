@@ -57,7 +57,7 @@ export const Form = styled.form`
     }
 
     &:disabled {
-      background-color: #555;
+      background-color: #ccc;
       cursor: not-allowed;
     }
   }

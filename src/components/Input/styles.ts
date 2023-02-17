@@ -7,6 +7,12 @@ type Props = {
 
 export const Container = styled.div<Props>`
   width: 100%;
+
+  .error {
+    color: ${(props) => props.theme.colors.red};
+    font-size: 0.8rem;
+    margin: 0 4px;
+  }
 `;
 
 export const InputWrapper = styled.div<Props>`
@@ -16,7 +22,6 @@ export const InputWrapper = styled.div<Props>`
   border: 1px solid
     ${(props) => (props.hasError ? props.theme.colors.red : '#eaeaea')};
   width: 100%;
-  position: relative;
   border-radius: 4px;
   box-shadow: ${(props) =>
     props.hasFocus && '0 1px 5px 1px rgba(0, 0, 0, 0.1)'};
@@ -36,12 +41,5 @@ export const InputWrapper = styled.div<Props>`
   textarea {
     min-height: 120px;
     resize: none;
-  }
-
-  svg {
-    position: absolute;
-    right: 8px;
-    font-size: 1.3rem;
-    color: ${(props) => props.theme.colors.red};
   }
 `;

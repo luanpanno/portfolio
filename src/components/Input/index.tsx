@@ -1,25 +1,20 @@
 import { HTMLAttributes, useState } from 'react';
-import { IoMdAlert } from 'react-icons/io';
 
 import { Container, InputWrapper } from './styles';
 
 type Props = HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> & {
   name: string;
-  label?: string;
   type?: string;
   id?: string;
-  hasError?: boolean;
-  errorText?: string;
+  errorMessage?: string;
   value?: string;
 };
 
 const Input: React.FC<Props> = ({
   name,
-  label,
   type = 'text',
   id,
-  hasError,
-  errorText,
+  errorMessage,
   onBlur,
   ...props
 }) => {
@@ -33,11 +28,10 @@ const Input: React.FC<Props> = ({
     setHasFocus(false);
   }
 
-  if (type === 'textarea') {
-    return (
-      <Container hasError={hasError}>
-        <label htmlFor={id ?? name}>{label}</label>
-        <InputWrapper hasError={hasError} hasFocus={hasFocus}>
+  return (
+    <Container hasError={!!errorMessage}>
+      <InputWrapper hasError={!!errorMessage} hasFocus={hasFocus}>
+        {type === 'textarea' ? (
           <textarea
             id={id}
             onFocus={() => setHasFocus(true)}
@@ -45,26 +39,18 @@ const Input: React.FC<Props> = ({
             name={name}
             {...props}
           />
-          {hasError && errorText && <IoMdAlert title={errorText} />}
-        </InputWrapper>
-      </Container>
-    );
-  }
-
-  return (
-    <Container hasError={hasError}>
-      <label htmlFor={id ?? name}>{label}</label>
-      <InputWrapper hasError={hasError} hasFocus={hasFocus}>
-        <input
-          type={type}
-          onFocus={() => setHasFocus(true)}
-          onBlur={handleBlur}
-          id={id}
-          name={name}
-          {...props}
-        />
-        {hasError && errorText && <IoMdAlert title={errorText} />}
+        ) : (
+          <input
+            type={type}
+            onFocus={() => setHasFocus(true)}
+            onBlur={handleBlur}
+            id={id}
+            name={name}
+            {...props}
+          />
+        )}
       </InputWrapper>
+      {errorMessage && <span className="error">{errorMessage}</span>}
     </Container>
   );
 };

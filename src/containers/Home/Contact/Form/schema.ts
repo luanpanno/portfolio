@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 const makeSchema = (language: string) => {
   const checkLanguage = (pt: string, en: string) =>
-    language === 'pt-BR' ? pt : en;
+    language.includes('pt') ? pt : en;
 
   const nameRequired = checkLanguage(
     'Nome é um campo obrigatório',
