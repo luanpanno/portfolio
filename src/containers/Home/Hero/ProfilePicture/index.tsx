@@ -13,6 +13,7 @@ const ProfilePicture = () => (
           alt="profile picture"
           height="300"
           width="300"
+          priority
         />
       </div>
     </div>
