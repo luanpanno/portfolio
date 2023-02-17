@@ -1,8 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
-import { Project } from '@models/Project';
-
+import { Project } from '../projects';
 import { Container } from './styles';
 
 type Props = {
@@ -18,8 +17,8 @@ const Card: React.FC<Props> = ({ project }) => {
         <Image
           src={project.image}
           alt="weather-check"
-          height="350"
-          width="650"
+          width={1920}
+          height={165}
         />
       </div>
       <div className="text">

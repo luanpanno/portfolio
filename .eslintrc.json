@@ -35,7 +35,6 @@
           "/^@components/",
           "/^@views/",
           "/^@pages/",
-          "/^@models/",
           "/^@utils/",
           ["parent", "sibling", "index"]
         ],
