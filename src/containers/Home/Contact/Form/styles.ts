@@ -38,7 +38,7 @@ export const Form = styled.form`
     text-align: center;
     letter-spacing: 0.4px;
     line-height: 28px;
-    color: #bebebe;
+    color: ${(props) => props.theme.colors.text};
   }
 
   button {

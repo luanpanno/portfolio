@@ -28,13 +28,16 @@ const Header: React.FC<Props> = ({ isInTop }) => {
             <NavItem to="#home">{t('navHome')}</NavItem>
             <NavItem to="#projects">{t('navProjects')}</NavItem>
             <NavItem to="#contact">{t('navContact')}</NavItem>
-            <Flags />
+            <li>
+              <Flags />
+            </li>
           </ul>
         </Menu>
 
         <button
           type="button"
           className="burger"
+          title="Menu"
           onClick={() => setOpenMenu((state) => !state)}
         >
           <FiMenu />

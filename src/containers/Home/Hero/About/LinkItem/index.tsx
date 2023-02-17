@@ -10,9 +10,11 @@ const LinkItem: React.FC<PropsWithChildren<Props>> = ({
   title,
   children,
 }) => (
-  <a href={href} target="_blank" rel="noreferrer" title={title}>
-    {children}
-  </a>
+  <li>
+    <a href={href} target="_blank" rel="noreferrer" title={title}>
+      {children}
+    </a>
+  </li>
 );
 
 export default LinkItem;
