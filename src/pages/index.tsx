@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import Homepage from '@containers/Home';
+import Container from '@components/layout/Container';
 
-import Container from '@templates/Container';
+import Homepage from '@views/Home';
 
 const Home: NextPage = () => (
   <Container>

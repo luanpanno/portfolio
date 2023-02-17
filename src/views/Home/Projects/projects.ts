@@ -1,5 +1,10 @@
 /* eslint-disable max-len */
-import { Project } from '@models/Project';
+export type Project = {
+  image: string;
+  name: string;
+  stack: string;
+  link: string;
+};
 
 export const projects: Project[] = [
   {

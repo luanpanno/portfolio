@@ -1,13 +1,11 @@
 import { useTranslation } from 'next-i18next';
 import { useTheme } from 'styled-components';
 
+import Content from '@components/layout/Content';
 import Title from '@components/Title';
 
-import Content from '@templates/Content';
-
-import { projects } from '@helpers/projects';
-
 import Card from './Card';
+import { projects } from './projects';
 import { Container, ProjectsWrapper } from './styles';
 
 const Projects = () => {

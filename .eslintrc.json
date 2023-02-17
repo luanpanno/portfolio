@@ -20,7 +20,7 @@
     "no-plusplus": "off",
     "class-methods-use-this": "off",
     "react/jsx-props-no-spreading": "off",
-    "semi":"error",
+    "semi": "error",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/indent": "off",
@@ -33,11 +33,10 @@
           "module",
           "/^@assets/",
           "/^@components/",
-          "/^@containers/",
-          "/^@templates/",
+          "/^@views/",
           "/^@pages/",
           "/^@models/",
-          "/^@helpers/",
+          "/^@utils/",
           ["parent", "sibling", "index"]
         ],
         "alphabetize": {

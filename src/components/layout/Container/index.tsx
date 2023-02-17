@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import { PropsWithChildren } from 'react';
 
-import Layout from '@templates/Layout';
+import Layout from '../Layout';
 
 const Container: NextPage<PropsWithChildren> = ({ children }) => {
   const { t } = useTranslation('common');

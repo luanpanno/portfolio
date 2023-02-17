@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 import Input from '@components/Input';
 
-import { isObjectEmpty } from '@helpers/objects';
+import { isObjectEmpty } from '@utils/objects';
 
 import makeSchema from './schema';
 import { Form } from './styles';

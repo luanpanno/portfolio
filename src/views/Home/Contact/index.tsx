@@ -1,8 +1,7 @@
 import { useTranslation } from 'next-i18next';
 
+import Content from '@components/layout/Content';
 import Title from '@components/Title';
-
-import Content from '@templates/Content';
 
 import ContactForm from './Form';
 import { Container } from './styles';
