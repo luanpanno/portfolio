@@ -43,19 +43,6 @@ export const Container = styled.header<Props>`
       text-align: left;
     }
   }
-
-  .burger {
-    align-items: center;
-    color: white;
-    font-size: 2rem;
-    display: none;
-  }
-
-  @media screen and (max-width: 832px) {
-    .burger {
-      display: flex;
-    }
-  }
 `;
 
 export const Menu = styled.nav<Props>`

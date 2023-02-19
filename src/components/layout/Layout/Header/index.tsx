@@ -1,10 +1,10 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useState } from 'react';
-import { FiMenu } from 'react-icons/fi';
 import OutsideClickHandler from 'react-outside-click-handler';
 
 import Flags from './Flags';
+import HamburgerMenu from './HamburgerMenu';
 import NavItem from './NavItem';
 import { Container, Menu } from './styles';
 
@@ -34,14 +34,10 @@ const Header: React.FC<Props> = ({ isInTop }) => {
           </ul>
         </Menu>
 
-        <button
-          type="button"
-          className="burger"
-          title="Menu"
+        <HamburgerMenu
+          isMenuOpen={openMenu}
           onClick={() => setOpenMenu((state) => !state)}
-        >
-          <FiMenu />
-        </button>
+        />
       </OutsideClickHandler>
     </Container>
   );
