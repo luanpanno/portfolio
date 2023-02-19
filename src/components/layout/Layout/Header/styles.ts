@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 type Props = {
   isInTop: boolean;
-  openMenu: boolean;
+  isMenuOpen: boolean;
 };
 
 export const Container = styled.header<Props>`
@@ -11,7 +11,7 @@ export const Container = styled.header<Props>`
   justify-content: center;
   height: 75px;
   box-shadow: ${(props) =>
-    props.isInTop && !props.openMenu
+    props.isInTop && !props.isMenuOpen
       ? 'transparent'
       : '1px -5px 10px 5px rgba(0, 0, 0, .1)'};
   position: sticky;
@@ -41,19 +41,6 @@ export const Container = styled.header<Props>`
     @media screen and (max-width: 1280px) {
       font-size: 1.2rem;
       text-align: left;
-    }
-  }
-
-  .burger {
-    align-items: center;
-    color: white;
-    font-size: 2rem;
-    display: none;
-  }
-
-  @media screen and (max-width: 832px) {
-    .burger {
-      display: flex;
     }
   }
 `;

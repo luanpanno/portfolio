@@ -1,10 +1,10 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useState } from 'react';
-import { FiMenu } from 'react-icons/fi';
 import OutsideClickHandler from 'react-outside-click-handler';
 
 import Flags from './Flags';
+import HamburgerMenu from './HamburgerMenu';
 import NavItem from './NavItem';
 import { Container, Menu } from './styles';
 
@@ -14,17 +14,17 @@ type Props = {
 
 const Header: React.FC<Props> = ({ isInTop }) => {
   const { t } = useTranslation('common');
-  const [openMenu, setOpenMenu] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <Container isInTop={isInTop} openMenu={openMenu}>
-      <OutsideClickHandler onOutsideClick={() => setOpenMenu(false)}>
+    <Container isInTop={isInTop} isMenuOpen={isMenuOpen}>
+      <OutsideClickHandler onOutsideClick={() => setIsMenuOpen(false)}>
         <Link href="/" className="logo">
           Luan Panno
         </Link>
 
-        <Menu isInTop={isInTop} openMenu={openMenu}>
-          <ul className={openMenu ? 'active' : ''}>
+        <Menu isInTop={isInTop} isMenuOpen={isMenuOpen}>
+          <ul className={isMenuOpen ? 'active' : ''}>
             <NavItem to="#home">{t('navHome')}</NavItem>
             <NavItem to="#projects">{t('navProjects')}</NavItem>
             <NavItem to="#contact">{t('navContact')}</NavItem>
@@ -34,14 +34,10 @@ const Header: React.FC<Props> = ({ isInTop }) => {
           </ul>
         </Menu>
 
-        <button
-          type="button"
-          className="burger"
-          title="Menu"
-          onClick={() => setOpenMenu((state) => !state)}
-        >
-          <FiMenu />
-        </button>
+        <HamburgerMenu
+          isMenuOpen={isMenuOpen}
+          onClick={() => setIsMenuOpen((state) => !state)}
+        />
       </OutsideClickHandler>
     </Container>
   );
