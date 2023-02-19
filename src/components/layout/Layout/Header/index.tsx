@@ -14,17 +14,17 @@ type Props = {
 
 const Header: React.FC<Props> = ({ isInTop }) => {
   const { t } = useTranslation('common');
-  const [openMenu, setOpenMenu] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <Container isInTop={isInTop} openMenu={openMenu}>
-      <OutsideClickHandler onOutsideClick={() => setOpenMenu(false)}>
+    <Container isInTop={isInTop} isMenuOpen={isMenuOpen}>
+      <OutsideClickHandler onOutsideClick={() => setIsMenuOpen(false)}>
         <Link href="/" className="logo">
           Luan Panno
         </Link>
 
-        <Menu isInTop={isInTop} openMenu={openMenu}>
-          <ul className={openMenu ? 'active' : ''}>
+        <Menu isInTop={isInTop} isMenuOpen={isMenuOpen}>
+          <ul className={isMenuOpen ? 'active' : ''}>
             <NavItem to="#home">{t('navHome')}</NavItem>
             <NavItem to="#projects">{t('navProjects')}</NavItem>
             <NavItem to="#contact">{t('navContact')}</NavItem>
@@ -35,8 +35,8 @@ const Header: React.FC<Props> = ({ isInTop }) => {
         </Menu>
 
         <HamburgerMenu
-          isMenuOpen={openMenu}
-          onClick={() => setOpenMenu((state) => !state)}
+          isMenuOpen={isMenuOpen}
+          onClick={() => setIsMenuOpen((state) => !state)}
         />
       </OutsideClickHandler>
     </Container>
