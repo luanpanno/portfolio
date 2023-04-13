@@ -11,6 +11,8 @@ import Document, {
 import React from 'react';
 import { ServerStyleSheet } from 'styled-components';
 
+import i18nextConfig from '../../next-i18next.config';
+
 export default class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext
@@ -41,14 +43,17 @@ export default class MyDocument extends Document {
   }
 
   render(): JSX.Element {
+    const currentLocale =
+      this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
+
     return (
-      <Html>
+      <Html lang={currentLocale}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin=""
+            crossOrigin="anonymous"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
