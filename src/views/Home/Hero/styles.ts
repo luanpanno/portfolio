@@ -11,6 +11,10 @@ export const Container = styled.section`
   @media screen and (max-width: 1000px) {
     margin: 100px var(--body-horizontal-gap) 50px var(--body-horizontal-gap);
   }
+
+  @media screen and (max-width: 350px) {
+    margin: 100px 0 25px;
+  }
 `;
 
 export const Content = styled.div`

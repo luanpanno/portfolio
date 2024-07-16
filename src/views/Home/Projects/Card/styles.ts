@@ -37,7 +37,6 @@ export const Container = styled.a`
     h3 {
       font-size: 1.2rem;
       text-transform: uppercase;
-      /* text-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.2); */
       color: ${(props) => props.theme.colors.primary};
     }
 
@@ -45,5 +44,14 @@ export const Container = styled.a`
       color: #aaa;
       font-size: 1rem;
     }
+  }
+
+  @media screen and (max-width: 710px) {
+    width: 350px;
+  }
+
+  @media screen and (max-width: 500px) {
+    max-width: 100%;
+    width: 100%;
   }
 `;

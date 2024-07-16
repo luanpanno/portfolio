@@ -8,7 +8,6 @@ export const Form = styled.form`
   width: 500px;
   height: 100%;
   border-radius: 6px;
-  /* width: 100%; */
 
   .wrapper {
     display: flex;

@@ -8,4 +8,8 @@ export const Container = styled.section`
   width: 100vw;
   padding: 32px var(--body-horizontal-gap);
   row-gap: 32px;
+
+  @media screen and (max-width: 350px) {
+    /* padding: 32px 8px; */
+  }
 `;

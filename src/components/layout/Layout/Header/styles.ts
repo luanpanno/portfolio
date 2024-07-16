@@ -37,6 +37,7 @@ export const Container = styled.header<Props>`
     font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    white-space: nowrap;
 
     @media screen and (max-width: 1280px) {
       font-size: 1.2rem;
@@ -103,6 +104,7 @@ export const Menu = styled.nav<Props>`
       &.active {
         transform: translateX(0);
         width: 30%;
+        margin-top: -2px;
       }
     }
   }
