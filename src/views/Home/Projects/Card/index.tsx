@@ -16,7 +16,7 @@ const Card: React.FC<Props> = ({ project }) => {
       <div className="img-wrapper">
         <Image
           src={project.image}
-          alt="weather-check"
+          alt={project.name}
           width={1920}
           height={165}
         />
