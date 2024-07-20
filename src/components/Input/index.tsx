@@ -29,8 +29,8 @@ const Input: React.FC<Props> = ({
   }
 
   return (
-    <Container $hasError={!!errorMessage}>
-      <InputWrapper $hasError={!!errorMessage} $hasFocus={hasFocus}>
+    <Container hasError={!!errorMessage}>
+      <InputWrapper hasError={!!errorMessage} hasFocus={hasFocus}>
         {type === 'textarea' ? (
           <textarea
             id={id}
