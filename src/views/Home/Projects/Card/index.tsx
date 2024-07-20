@@ -15,7 +15,7 @@ const Card: React.FC<Props> = ({ project }) => {
     <Container href={project.link} target="_blank">
       <div className="img-wrapper">
         <Image
-          src={project.image}
+          src={project.imageUrl}
           alt={project.name}
           width={1920}
           height={165}
