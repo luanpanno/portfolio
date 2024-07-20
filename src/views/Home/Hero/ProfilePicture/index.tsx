@@ -7,7 +7,7 @@ const ProfilePicture = () => (
     <div className="border">
       <div className="wrapper">
         <Image
-          src="/images/profile-pic.jpg"
+          src="/images/profile-pic.webp"
           alt="profile picture"
           height="300"
           width="300"
