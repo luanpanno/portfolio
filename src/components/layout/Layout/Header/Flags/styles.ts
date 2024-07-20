@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type Props = {
-  language: string;
+  $language: string;
 };
 
 export const Container = styled.div<Props>`

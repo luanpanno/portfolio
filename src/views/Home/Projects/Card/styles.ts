@@ -24,8 +24,9 @@ export const Container = styled.a`
     img {
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
-      width: 100%;
       transition: all 200ms;
+      width: 100%;
+      height: 100%;
     }
   }
 

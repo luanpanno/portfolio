@@ -6,14 +6,15 @@ import NavLink from '@components/NavLink';
 import { Container } from './styles';
 
 const Flags = () => (
-  <Container language={'pt-BR'}>
+  <Container $language={'pt-BR'}>
     <NavLink href="/" locale="pt" passHref>
       <Image
         src="/images/flags/br_4x3.svg"
         alt="Brazilian flag"
         className="flag"
-        width={32}
-        height={24}
+        width={0}
+        height={0}
+        priority
       />
     </NavLink>
     <NavLink href="/" locale="en" passHref>
@@ -21,8 +22,9 @@ const Flags = () => (
         src="/images/flags/us_4x3.svg"
         alt="USA flag"
         className="flag"
-        width={32}
-        height={24}
+        width={0}
+        height={0}
+        priority
       />
     </NavLink>
   </Container>

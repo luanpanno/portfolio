@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 type Props = {
-  hasError?: boolean;
-  hasFocus?: boolean;
+  $hasError?: boolean;
+  $hasFocus?: boolean;
 };
 
 export const Container = styled.div<Props>`
@@ -20,11 +20,11 @@ export const InputWrapper = styled.div<Props>`
   align-items: center;
   width: 100%;
   border: 1px solid
-    ${(props) => (props.hasError ? props.theme.colors.red : '#eaeaea')};
+    ${(props) => (props.$hasError ? props.theme.colors.red : '#eaeaea')};
   width: 100%;
   border-radius: 4px;
   box-shadow: ${(props) =>
-    props.hasFocus && '0 1px 5px 1px rgba(0, 0, 0, 0.1)'};
+    props.$hasFocus && '0 1px 5px 1px rgba(0, 0, 0, 0.1)'};
 
   input,
   textarea {

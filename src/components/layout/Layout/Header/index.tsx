@@ -9,21 +9,21 @@ import NavItem from './NavItem';
 import { Container, Menu } from './styles';
 
 type Props = {
-  isInTop: boolean;
+  isAtTop: boolean;
 };
 
-const Header: React.FC<Props> = ({ isInTop }) => {
+const Header: React.FC<Props> = ({ isAtTop }) => {
   const { t } = useTranslation('common');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <Container isInTop={isInTop} isMenuOpen={isMenuOpen}>
+    <Container $isAtTop={isAtTop} $isMenuOpen={isMenuOpen}>
       <OutsideClickHandler onOutsideClick={() => setIsMenuOpen(false)}>
         <Link href="/" className="logo">
           Luan Panno
         </Link>
 
-        <Menu isInTop={isInTop} isMenuOpen={isMenuOpen}>
+        <Menu $isAtTop={isAtTop} $isMenuOpen={isMenuOpen}>
           <ul className={isMenuOpen ? 'active' : ''}>
             <NavItem to="#home">{t('navHome')}</NavItem>
             <NavItem to="#projects">{t('navProjects')}</NavItem>

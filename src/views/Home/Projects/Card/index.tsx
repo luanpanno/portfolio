@@ -19,6 +19,7 @@ const Card: React.FC<Props> = ({ project }) => {
           alt={project.name}
           width={1920}
           height={165}
+          priority
         />
       </div>
       <div className="text">
