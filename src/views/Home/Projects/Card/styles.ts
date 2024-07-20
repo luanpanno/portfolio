@@ -19,6 +19,7 @@ export const Container = styled.a`
     overflow: hidden;
     height: 162px;
     border-bottom: 1px solid rgb(245, 245, 245);
+    max-width: calc(100vw - 50px);
 
     img {
       border-top-left-radius: 4px;

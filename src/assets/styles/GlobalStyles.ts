@@ -42,6 +42,7 @@ export const GlobalStyles = createGlobalStyle`
 
     @media screen and (max-width: 894px) {
       --body-horizontal-gap: 50px;
+      --body-max-width: 100vw;
     }
 
     @media screen and (max-width: 831px) {
