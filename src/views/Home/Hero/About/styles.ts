@@ -70,7 +70,7 @@ export const LinksList = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 350px;
+  max-width: 200px;
   font-size: 1.8rem;
   margin: 8px 0;
 

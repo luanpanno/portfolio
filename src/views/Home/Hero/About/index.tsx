@@ -46,14 +46,8 @@ const About = () => {
       <AboutMe>{t('homeDescription')}</AboutMe>
 
       <LinksList>
-        <LinkItem title="Facebook" href="https://www.facebook.com/luanpanno">
-          <AiFillFacebook />
-        </LinkItem>
         <LinkItem title="Linkedin" href="https://www.linkedin.com/in/luanpanno">
           <AiFillLinkedin />
-        </LinkItem>
-        <LinkItem title="Twitter" href="https://www.twitter.com/dev_luan">
-          <AiFillTwitterSquare />
         </LinkItem>
         <LinkItem title="Github" href="https://www.github.com/luanpanno">
           <AiFillGithub />
