@@ -12,13 +12,13 @@ export const Container = styled.div`
   ${BorderStyle};
   height: 300px;
   width: 300px;
-  transition: all 300ms;
+  transition: all 50ms;
 
   .border {
     ${BorderStyle};
     height: 275px;
     width: 275px;
-    transition: all 250ms;
+    transition: all 50ms;
 
     &:hover {
       height: 290px;
@@ -44,7 +44,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 200ms;
+    transition: all 50ms;
 
     img {
       margin-top: 15px;
