@@ -17,6 +17,8 @@ import { env } from '@utils/env';
 
 import i18nextConfig from '../../next-i18next.config';
 
+declare const window: any;
+
 export default class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext
@@ -63,6 +65,28 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
             rel="stylesheet"
           />
+          {typeof window !== 'undefined' && (
+            <Script id="hotjar-script">
+              {`${(function (h, o, t, j, a, r) {
+                h.hj =
+                  h.hj ||
+                  function () {
+                    (h.hj.q = h.hj.q || []).push(arguments);
+                  };
+                h._hjSettings = { hjid: env.hotjarProjectId, hjsv: 6 };
+                a = o.getElementsByTagName('head')[0];
+                r = o.createElement('script');
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+              })(
+                window,
+                document,
+                'https://static.hotjar.com/c/hotjar-',
+                '.js?sv='
+              )}`}
+            </Script>
+          )}
         </Head>
         <body>
           <Main />
