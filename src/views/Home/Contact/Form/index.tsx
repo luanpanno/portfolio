@@ -41,6 +41,7 @@ const ContactForm = () => {
         body: formData,
       });
 
+      formik.resetForm();
       toast.success(t('contactFormSuccess'));
     } catch (error: any) {
       toast.error(error);
