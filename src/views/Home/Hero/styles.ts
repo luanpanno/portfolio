@@ -6,7 +6,7 @@ export const Container = styled.section`
   justify-content: center;
   position: relative;
   z-index: 5;
-  margin: 200px 0 100px 0;
+  margin: 100px 0;
 
   @media screen and (max-width: 1000px) {
     margin: 100px var(--body-horizontal-gap) 50px var(--body-horizontal-gap);
