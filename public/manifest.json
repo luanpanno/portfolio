@@ -1,0 +1,16 @@
+{
+  "short_name": "Luan Panno",
+  "name": "Luan Panno - Front-End Developer",
+  "description": "Portfolio of Luan Panno, showing all his work and experience as a developer.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1f9cf0",
+  "background_color": "#1a1a1a"
+}
