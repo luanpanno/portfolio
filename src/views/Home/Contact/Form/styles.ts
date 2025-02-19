@@ -4,10 +4,11 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 5px 1px ${(props) => props.theme.colors.light};
   width: 500px;
   height: 100%;
   border-radius: 6px;
+  background-color: ${(props) => props.theme.colors.background};
 
   .wrapper {
     display: flex;
@@ -47,7 +48,7 @@ export const Form = styled.form`
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     padding: 16px;
-    color: white;
+    color: #fff;
     transition: all 200ms;
     cursor: pointer;
 
@@ -56,7 +57,7 @@ export const Form = styled.form`
     }
 
     &:disabled {
-      background-color: #ccc;
+      background-color: ${(props) => props.theme.colors.light};
       cursor: not-allowed;
     }
   }

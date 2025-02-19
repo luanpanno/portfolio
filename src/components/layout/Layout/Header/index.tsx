@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 
+import ThemeToggle from '@components/ThemeToggle';
+
 import Flags from './Flags';
 import HamburgerMenu from './HamburgerMenu';
 import NavItem from './NavItem';
@@ -39,6 +41,9 @@ const Header = () => {
             <NavItem to="#contact">{t('navContact')}</NavItem>
             <li>
               <Flags />
+            </li>
+            <li>
+              <ThemeToggle />
             </li>
           </ul>
         </Menu>

@@ -12,7 +12,7 @@ export const Container = styled.div`
     margin: 5px 0;
 
     h2 {
-      color: #333;
+      color: ${(props) => props.theme.colors.title};
       font-size: 1.4rem;
       text-transform: uppercase;
     }

@@ -33,6 +33,7 @@
           "module",
           "/^@assets/",
           "/^@components/",
+          "/^@contexts/",
           "/^@views/",
           "/^@pages/",
           "/^@utils/",

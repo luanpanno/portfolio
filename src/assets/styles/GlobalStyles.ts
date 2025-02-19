@@ -11,6 +11,8 @@ export const GlobalStyles = createGlobalStyle`
     width: 100%;
     height: 100%;
     scroll-behavior: smooth;
+    background-color: ${(props) => props.theme.colors.background};
+    transition: background-color 0.3s ease-in-out;
 
     &, *{
       scroll-behavior: smooth;

@@ -16,6 +16,8 @@
   "contactFormMessagePlaceholder": "Insira sua mensagem",
   "contactFormSubmit": "Enviar",
   "sending": "Enviando...",
+  "enableDarkMode": "Ativar modo escuro",
+  "enableLightMode": "Ativar modo claro",
   "contactFormSuccess": "Email enviado com sucesso! Em breve entrarei em contato com você. :)",
   "contactFormError": "Ops! Algo de errado aconteceu. Por favor, tente novamente mais tarde.",
   "React": "HTML e CSS",

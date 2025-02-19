@@ -10,6 +10,7 @@ export const Container = styled.section`
   row-gap: 32px;
   width: 100%;
   max-width: var(--body-max-width);
+  background-color: ${(props) => props.theme.colors.background};
 `;
 
 export const ProjectsWrapper = styled.div`

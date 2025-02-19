@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.a`
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 5px 1px ${(props) => props.theme.colors.light};
   border-radius: 4px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.background};
   transition: all 200ms;
   max-width: 350px;
 
   &:hover {
-    box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 10px 5px ${(props) => props.theme.colors.light};
     transform: scale(1.05);
   }
 
@@ -18,7 +18,7 @@ export const Container = styled.a`
     justify-content: center;
     overflow: hidden;
     height: 162px;
-    border-bottom: 1px solid rgb(245, 245, 245);
+    border-bottom: 1px solid ${(props) => props.theme.colors.light};
     max-width: calc(100vw - 50px);
 
     img {
@@ -42,7 +42,7 @@ export const Container = styled.a`
     }
 
     span {
-      color: #aaa;
+      color: ${(props) => props.theme.colors.text};
       font-size: 1rem;
     }
   }
