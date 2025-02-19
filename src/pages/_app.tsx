@@ -25,7 +25,18 @@ const AppContent = ({ Component, pageProps }: AppProps) => {
         <meta name="robots" content="index, follow" />
         <meta name="author" content={t('metaAuthor')} />
         <meta name="keywords" content={t('metaKeywords')} />
+        <meta name="application-name" content={t('websiteTitle')} />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content={t('websiteTitle')} />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#1f9cf0" />
+        <meta name="msapplication-tap-highlight" content="no" />
         <link rel="canonical" href="https://www.luanpanno.dev" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <Component {...pageProps} />
       <GlobalStyles />

@@ -14,6 +14,29 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>{t('websiteTitle')}</title>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Luan Panno',
+              jobTitle: t('homeJob'),
+              description: t('websiteDescription'),
+              email: 'luanpanno@gmail.com',
+              url: 'https://www.luanpanno.dev',
+              sameAs: [
+                'https://www.linkedin.com/in/luanpanno',
+                'https://www.github.com/luanpanno',
+              ],
+              image: 'https://www.luanpanno.dev/og-image.jpg',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: t('homeLocation'),
+              },
+            }),
+          }}
+        />
         <meta name="description" content={t('websiteDescription')} />
         <meta property="og:title" content={t('websiteTitle')} />
         <meta property="og:description" content={t('websiteDescription')} />

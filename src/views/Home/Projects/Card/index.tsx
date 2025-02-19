@@ -23,7 +23,7 @@ const Card: React.FC<Props> = ({ project }) => {
       <div className="img-wrapper">
         <Image
           src={project.imageUrl}
-          alt={t(project.name)}
+          alt={t('projectImageAlt', { projectName: t(project.name) })}
           width={1920}
           height={165}
         />

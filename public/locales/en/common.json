@@ -47,5 +47,7 @@
   "socialMediaLinkedin": "LinkedIn",
   "socialMediaGithub": "GitHub",
   "socialMediaCurriculum": "Curriculum",
-  "emailAddress": "Email address"
+  "emailAddress": "Email address",
+  "contentSection": "Content section",
+  "projectImageAlt": "Screenshot or preview of {projectName} project"
 }
