@@ -15,6 +15,7 @@
   "contactFormEmailPlaceholder": "Insert your e-mail",
   "contactFormMessagePlaceholder": "Insert your message",
   "contactFormSubmit": "Submit",
+  "sending": "Sending...",
   "contactFormSuccess": "Email sent successfully! Soon I'll be in touch with you. :)",
   "contactFormError": "Oops! Something went wrong. Please, try again later.",
   "React": "React",

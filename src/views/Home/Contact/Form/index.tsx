@@ -59,7 +59,13 @@ const ContactForm = () => {
   const isDisabled = () => {
     const { name, email, message } = formik.values;
 
-    return !name || !email || !message || !isObjectEmpty(formik.errors);
+    return (
+      !name ||
+      !email ||
+      !message ||
+      !isObjectEmpty(formik.errors) ||
+      formik.isSubmitting
+    );
   };
 
   return (
@@ -96,7 +102,7 @@ const ContactForm = () => {
         </div>
       </div>
       <button type="submit" disabled={isDisabled()}>
-        {t('contactFormSubmit')}
+        {formik.isSubmitting ? t('sending') : t('contactFormSubmit')}
       </button>
     </Form>
   );
