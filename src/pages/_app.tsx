@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { GlobalStyles } from '@assets/styles';
+import { ToastStyles } from '@assets/styles/toast';
 
 import { ThemeProvider, useTheme } from '@contexts/ThemeContext';
 
@@ -18,7 +19,16 @@ const AppContent = ({ Component, pageProps }: AppProps) => {
     <StyledThemeProvider theme={theme}>
       <Component {...pageProps} />
       <GlobalStyles />
-      <ToastContainer />
+      <ToastStyles />
+      <ToastContainer
+        theme={theme.colors.background === '#1a1a1a' ? 'dark' : 'light'}
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
       <Script id="hotjar-script" strategy="afterInteractive">
         {`
           (function(h,o,t,j,a,r){
