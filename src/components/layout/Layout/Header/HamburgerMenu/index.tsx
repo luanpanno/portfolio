@@ -6,7 +6,13 @@ type Props = {
 };
 
 const HamburgerMenu: React.FC<Props> = ({ isMenuOpen, onClick }) => (
-  <HamburgerMenuButton type="button" title="Menu" onClick={onClick}>
+  <HamburgerMenuButton
+    type="button"
+    aria-label="Toggle navigation menu"
+    aria-expanded={isMenuOpen}
+    aria-controls="main-navigation"
+    onClick={onClick}
+  >
     <BarsContainer className={`container ${isMenuOpen ? 'active' : ''}`.trim()}>
       <div className="bar" />
       <div className="bar" />

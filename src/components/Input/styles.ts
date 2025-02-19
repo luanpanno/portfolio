@@ -7,6 +7,15 @@ type Props = {
 
 export const Container = styled.div<Props>`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  label {
+    font-size: 0.9rem;
+    color: ${(props) => props.theme.colors.text};
+    margin-left: 4px;
+  }
 
   .error {
     color: ${(props) => props.theme.colors.red};

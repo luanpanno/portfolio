@@ -12,7 +12,14 @@ const Card: React.FC<Props> = ({ project }) => {
   const { t } = useTranslation('common');
 
   return (
-    <Container href={project.link} target="_blank">
+    <Container
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-labelledby={`project-${project.name
+        .toLowerCase()
+        .replace(/\s+/g, '-')}`}
+    >
       <div className="img-wrapper">
         <Image
           src={project.imageUrl}
@@ -22,8 +29,12 @@ const Card: React.FC<Props> = ({ project }) => {
         />
       </div>
       <div className="text">
-        <h3>{project.name}</h3>
-        <span>{t(project.stack)}</span>
+        <h3 id={`project-${project.name.toLowerCase().replace(/\s+/g, '-')}`}>
+          {project.name}
+        </h3>
+        <span role="text" aria-label={`Built with ${t(project.stack)}`}>
+          {t(project.stack)}
+        </span>
       </div>
     </Container>
   );

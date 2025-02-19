@@ -6,6 +6,7 @@ type Props = HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> & {
   name: string;
   type?: string;
   id?: string;
+  label?: string;
   errorMessage?: string;
   value?: string;
 };
@@ -13,7 +14,8 @@ type Props = HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> & {
 const Input: React.FC<Props> = ({
   name,
   type = 'text',
-  id,
+  id: providedId,
+  label,
   errorMessage,
   onBlur,
   ...props
@@ -28,8 +30,11 @@ const Input: React.FC<Props> = ({
     setHasFocus(false);
   }
 
+  const id = providedId || name;
+
   return (
     <Container hasError={!!errorMessage}>
+      {label && <label htmlFor={id}>{label}</label>}
       <InputWrapper hasError={!!errorMessage} hasFocus={hasFocus}>
         {type === 'textarea' ? (
           <textarea

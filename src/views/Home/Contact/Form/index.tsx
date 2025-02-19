@@ -26,32 +26,30 @@ const ContactForm = () => {
   const { t, i18n } = useTranslation('common');
   const validationSchema = makeSchema(i18n.language);
 
-  async function onSubmit(data: FormFields) {
-    try {
-      const { name, email, message } = data;
-      const formData = new FormData();
-
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('message', message);
-      formData.append('_captcha', 'false');
-
-      await fetch('https://formsubmit.co/luanpanno@gmail.com', {
-        method: 'POST',
-        body: formData,
-      });
-
-      formik.resetForm();
-      toast.success(t('contactFormSuccess'));
-    } catch (error: any) {
-      toast.error(error);
-    }
-  }
-
   const formik = useFormik({
-    onSubmit,
-    validationSchema,
     initialValues,
+    validationSchema,
+    onSubmit: async (data: FormFields) => {
+      try {
+        const { name, email, message } = data;
+        const formData = new FormData();
+
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('message', message);
+        formData.append('_captcha', 'false');
+
+        await fetch('https://formsubmit.co/luanpanno@gmail.com', {
+          method: 'POST',
+          body: formData,
+        });
+
+        formik.resetForm();
+        toast.success(t('contactFormSuccess'));
+      } catch (error: any) {
+        toast.error(error);
+      }
+    },
   });
 
   const getFormikError = (field: Fields): string =>
@@ -70,13 +68,19 @@ const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={formik.handleSubmit}>
+    <Form
+      onSubmit={formik.handleSubmit}
+      role="form"
+      aria-label={t('contactFormTitle')}
+    >
       <div className="wrapper">
         <p>{t('contactFormP')}</p>
         <div className="fields">
           <Input
             name="name"
+            label={t('contactFormNamePlaceholder')}
             placeholder={t('contactFormNamePlaceholder')}
+            aria-required="true"
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -84,7 +88,10 @@ const ContactForm = () => {
           />
           <Input
             name="email"
+            type="email"
+            label={t('contactFormEmailPlaceholder')}
             placeholder={t('contactFormEmailPlaceholder')}
+            aria-required="true"
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -93,7 +100,9 @@ const ContactForm = () => {
           <Input
             type="textarea"
             name="message"
+            label={t('contactFormMessagePlaceholder')}
             placeholder={t('contactFormMessagePlaceholder')}
+            aria-required="true"
             value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

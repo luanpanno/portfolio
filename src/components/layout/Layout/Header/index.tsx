@@ -28,14 +28,25 @@ const Header = () => {
   }, []);
 
   return (
-    <Container isAtTop={isAtTop} isMenuOpen={isMenuOpen}>
+    <Container
+      as="header"
+      role="banner"
+      isAtTop={isAtTop}
+      isMenuOpen={isMenuOpen}
+    >
       <OutsideClickHandler onOutsideClick={() => setIsMenuOpen(false)}>
-        <Link href="/" className="logo">
+        <Link href="/" className="logo" aria-label="Home">
           Luan Panno
         </Link>
 
-        <Menu isAtTop={isAtTop} isMenuOpen={isMenuOpen}>
-          <ul className={isMenuOpen ? 'active' : ''}>
+        <Menu
+          as="nav"
+          role="navigation"
+          aria-label="Main navigation"
+          isAtTop={isAtTop}
+          isMenuOpen={isMenuOpen}
+        >
+          <ul className={isMenuOpen ? 'active' : ''} role="menubar">
             <NavItem to="#home">{t('navHome')}</NavItem>
             <NavItem to="#projects">{t('navProjects')}</NavItem>
             <NavItem to="#contact">{t('navContact')}</NavItem>
