@@ -13,6 +13,24 @@ export const Container = styled.a`
   }
 
   .img-wrapper {
+    background-color: #f0f0f0;
+    transition: opacity 0.3s ease-in-out;
+
+    &.loading {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.4;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
     display: flex;
     align-items: flex-start;
     justify-content: center;

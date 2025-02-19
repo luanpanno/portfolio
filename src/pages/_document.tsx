@@ -59,6 +59,16 @@ export default class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+          <link
             rel="preload"
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
             as="style"
