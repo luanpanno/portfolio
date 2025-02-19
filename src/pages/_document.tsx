@@ -51,15 +51,6 @@ export default class MyDocument extends Document {
       <Html lang={currentLocale}>
         <Head>
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="theme-color" content="#1f9cf0" />
-          <meta name="robots" content="index, follow" />
-          <meta name="author" content="Luan Panno" />
-          <meta
-            name="keywords"
-            content="Luan Panno, Front-End Developer, Web Developer, React Developer, TypeScript, Next.js, Portfolio"
-          />
-          <link rel="canonical" href="https://www.luanpanno.dev" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
           <link

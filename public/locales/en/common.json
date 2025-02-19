@@ -1,6 +1,8 @@
 {
   "websiteTitle": "Luan Panno - Front-End Developer - Portfolio",
   "websiteDescription": "Portfolio of Luan Panno, showing all his work and experience as a developer.",
+  "metaKeywords": "Luan Panno, Front-End Developer, Web Developer, React Developer, TypeScript, Next.js, Portfolio",
+  "metaAuthor": "Luan Panno",
   "navHome": "Home",
   "navProjects": "Projects",
   "navContact": "Contact",
@@ -27,5 +29,23 @@
   "HTML, CSS and Bootstrap": "HTML, CSS and Bootstrap",
   "Node.js, React and React Native": "Node.js, React and React Native",
   "React with TypeScript": "React with TypeScript",
-  "Node.js, Socket.io, MongoDB, React and Quill": "Node.js, Socket.io, MongoDB, React and Quill"
+  "Node.js, Socket.io, MongoDB, React and Quill": "Node.js, Socket.io, MongoDB, React and Quill",
+
+  "projectElenaJoy": "Elena Joy",
+  "projectPortfolio": "Portfolio",
+  "projectSpotify": "Spotify",
+  "projectDevRadar": "Dev Radar",
+  "projectEcoleta": "Ecoleta",
+  "projectMovieSearch": "Movie Search",
+  "projectWeatherCheck": "Weather Check",
+  "projectTeslaClone": "Tesla Clone",
+  "projectGoogleDocsClone": "Google Docs Clone",
+  "projectCryptotracker": "Cryptotracker",
+  "projectShoppingCart": "Shopping Cart",
+  "projectGithubSearch": "Github Search",
+
+  "socialMediaLinkedin": "LinkedIn",
+  "socialMediaGithub": "GitHub",
+  "socialMediaCurriculum": "Curriculum",
+  "emailAddress": "Email address"
 }

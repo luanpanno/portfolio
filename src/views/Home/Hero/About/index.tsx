@@ -1,11 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import {
-  AiFillFacebook,
-  AiFillGithub,
-  AiFillLinkedin,
-  AiFillTwitterSquare,
-  AiFillFileText,
-} from 'react-icons/ai';
+import { AiFillGithub, AiFillLinkedin, AiFillFileText } from 'react-icons/ai';
 import { RiMapPin2Line, RiMailLine } from 'react-icons/ri';
 
 import LinkItem from './LinkItem';
@@ -34,7 +28,7 @@ const About = () => {
 
       <BasicInfo>
         <li>
-          <a href="mailto:luanpanno@gmail.com">
+          <a href="mailto:luanpanno@gmail.com" aria-label={t('emailAddress')}>
             <RiMailLine /> luanpanno@gmail.com
           </a>
         </li>
@@ -46,14 +40,20 @@ const About = () => {
       <AboutMe>{t('homeDescription')}</AboutMe>
 
       <LinksList>
-        <LinkItem title="Linkedin" href="https://www.linkedin.com/in/luanpanno">
+        <LinkItem
+          title={t('socialMediaLinkedin')}
+          href="https://www.linkedin.com/in/luanpanno"
+        >
           <AiFillLinkedin />
         </LinkItem>
-        <LinkItem title="Github" href="https://www.github.com/luanpanno">
+        <LinkItem
+          title={t('socialMediaGithub')}
+          href="https://www.github.com/luanpanno"
+        >
           <AiFillGithub />
         </LinkItem>
         <LinkItem
-          title="Curriculum"
+          title={t('socialMediaCurriculum')}
           // eslint-disable-next-line max-len
           href="https://docs.google.com/document/d/1tHqI4b59Vd-MK_ayUIlvYxXfJVbmzWAnXDkun5ox2LE/edit?usp=sharing"
         >

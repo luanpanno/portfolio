@@ -23,14 +23,14 @@ const Card: React.FC<Props> = ({ project }) => {
       <div className="img-wrapper">
         <Image
           src={project.imageUrl}
-          alt={project.name}
+          alt={t(project.name)}
           width={1920}
           height={165}
         />
       </div>
       <div className="text">
         <h3 id={`project-${project.name.toLowerCase().replace(/\s+/g, '-')}`}>
-          {project.name}
+          {t(project.name)}
         </h3>
         <span role="text" aria-label={`Built with ${t(project.stack)}`}>
           {t(project.stack)}

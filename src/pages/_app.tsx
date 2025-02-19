@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
-import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation, useTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import Script from 'next/script';
 import { ToastContainer } from 'react-toastify';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
@@ -14,9 +15,18 @@ import { env } from '@utils/env';
 
 const AppContent = ({ Component, pageProps }: AppProps) => {
   const { theme } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <StyledThemeProvider theme={theme}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#1f9cf0" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content={t('metaAuthor')} />
+        <meta name="keywords" content={t('metaKeywords')} />
+        <link rel="canonical" href="https://www.luanpanno.dev" />
+      </Head>
       <Component {...pageProps} />
       <GlobalStyles />
       <ToastStyles />

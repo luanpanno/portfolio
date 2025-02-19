@@ -1,6 +1,8 @@
 {
   "websiteTitle": "Luan Panno - Desenvolvedor Front-End - Portfólio",
   "websiteDescription": "Portfólio de Luan Panno, mostrando todo seu trabalho e experiência como desenvolvedor.",
+  "metaKeywords": "Luan Panno, Desenvolvedor Front-End, Desenvolvedor Web, Desenvolvedor React, TypeScript, Next.js, Portfólio",
+  "metaAuthor": "Luan Panno",
   "navHome": "Início",
   "navProjects": "Projetos",
   "navContact": "Contato",
@@ -27,5 +29,23 @@
   "HTML, CSS and Bootstrap": "HTML, CSS e Bootstrap",
   "Node.js, React and React Native": "Node.js, React e React Native",
   "React with TypeScript": "React com TypeScript",
-  "Node.js, Socket.io, MongoDB, React and Quill": "Node.js, Socket.io, MongoDB, React e Quill"
+  "Node.js, Socket.io, MongoDB, React and Quill": "Node.js, Socket.io, MongoDB, React e Quill",
+
+  "projectElenaJoy": "Elena Joy",
+  "projectPortfolio": "Portfólio",
+  "projectSpotify": "Spotify",
+  "projectDevRadar": "Dev Radar",
+  "projectEcoleta": "Ecoleta",
+  "projectMovieSearch": "Busca de Filmes",
+  "projectWeatherCheck": "Previsão do Tempo",
+  "projectTeslaClone": "Clone da Tesla",
+  "projectGoogleDocsClone": "Clone do Google Docs",
+  "projectCryptotracker": "Rastreador de Criptomoedas",
+  "projectShoppingCart": "Carrinho de Compras",
+  "projectGithubSearch": "Busca do Github",
+
+  "socialMediaLinkedin": "LinkedIn",
+  "socialMediaGithub": "GitHub",
+  "socialMediaCurriculum": "Currículo",
+  "emailAddress": "Endereço de email"
 }
