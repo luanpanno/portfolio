@@ -30,7 +30,6 @@
   "Node.js, React and React Native": "Node.js, React and React Native",
   "React with TypeScript": "React with TypeScript",
   "Node.js, Socket.io, MongoDB, React and Quill": "Node.js, Socket.io, MongoDB, React and Quill",
-
   "projectElenaJoy": "Elena Joy",
   "projectPortfolio": "Portfolio",
   "projectSpotify": "Spotify",
@@ -43,11 +42,13 @@
   "projectCryptotracker": "Cryptotracker",
   "projectShoppingCart": "Shopping Cart",
   "projectGithubSearch": "Github Search",
-
   "socialMediaLinkedin": "LinkedIn",
   "socialMediaGithub": "GitHub",
   "socialMediaCurriculum": "Curriculum",
   "emailAddress": "Email address",
   "contentSection": "Content section",
-  "projectImageAlt": "Screenshot or preview of {projectName} project"
+  "projectImageAlt": "Screenshot or preview of {projectName} project",
+  "cookieConsentText": "This website uses cookies to enhance your experience. By continuing to use this site, you agree to our use of cookies.",
+  "cookieConsentAccept": "Accept",
+  "cookieConsentReject": "Reject"
 }
