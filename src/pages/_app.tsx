@@ -35,7 +35,6 @@ const AppContent = ({ Component, pageProps }: AppProps) => {
         <meta name="msapplication-TileColor" content="#1f9cf0" />
         <meta name="msapplication-tap-highlight" content="no" />
         <link rel="canonical" href="https://www.luanpanno.dev" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <Component {...pageProps} />
