@@ -1,9 +1,10 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import OutsideClickHandler from 'react-outside-click-handler';
 
 import ThemeToggle from '@components/ThemeToggle';
+
+import { useOutsideClick } from '@hooks/useOutsideClick';
 
 import Flags from './Flags';
 import HamburgerMenu from './HamburgerMenu';
@@ -34,7 +35,7 @@ const Header = () => {
       isAtTop={isAtTop}
       isMenuOpen={isMenuOpen}
     >
-      <OutsideClickHandler onOutsideClick={() => setIsMenuOpen(false)}>
+      <div ref={useOutsideClick(() => setIsMenuOpen(false))}>
         <Link href="/" className="logo" aria-label="Home">
           Luan Panno
         </Link>
@@ -63,7 +64,7 @@ const Header = () => {
           isMenuOpen={isMenuOpen}
           onClick={() => setIsMenuOpen((state) => !state)}
         />
-      </OutsideClickHandler>
+      </div>
     </Container>
   );
 };

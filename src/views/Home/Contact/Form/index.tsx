@@ -80,7 +80,7 @@ const ContactForm = () => {
             name="name"
             label={t('contactFormNamePlaceholder')}
             placeholder={t('contactFormNamePlaceholder')}
-            aria-required="true"
+            required
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -91,7 +91,7 @@ const ContactForm = () => {
             type="email"
             label={t('contactFormEmailPlaceholder')}
             placeholder={t('contactFormEmailPlaceholder')}
-            aria-required="true"
+            required
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
@@ -102,7 +102,7 @@ const ContactForm = () => {
             name="message"
             label={t('contactFormMessagePlaceholder')}
             placeholder={t('contactFormMessagePlaceholder')}
-            aria-required="true"
+            required
             value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

@@ -16,7 +16,10 @@
   },
   "rules": {
     "max-len": ["error", 80],
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "prettier/prettier": [
+      "error",
+      { "endOfLine": "auto", "trailingComma": "all" }
+    ],
     "no-plusplus": "off",
     "class-methods-use-this": "off",
     "react/jsx-props-no-spreading": "off",
@@ -34,6 +37,7 @@
           "/^@assets/",
           "/^@components/",
           "/^@contexts/",
+          "/^@hooks/",
           "/^@views/",
           "/^@pages/",
           "/^@utils/",

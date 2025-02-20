@@ -9,6 +9,8 @@ type Props = HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> & {
   label?: string;
   errorMessage?: string;
   value?: string;
+  placeholder?: string;
+  required?: boolean;
 };
 
 const Input: React.FC<Props> = ({
@@ -18,12 +20,13 @@ const Input: React.FC<Props> = ({
   label,
   errorMessage,
   onBlur,
+  required,
   ...props
 }) => {
   const [hasFocus, setHasFocus] = useState(false);
 
   function handleBlur(
-    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     if (onBlur) onBlur(e);
 
@@ -42,6 +45,7 @@ const Input: React.FC<Props> = ({
             onFocus={() => setHasFocus(true)}
             onBlur={handleBlur}
             name={name}
+            aria-required={required}
             {...props}
           />
         ) : (
@@ -51,6 +55,7 @@ const Input: React.FC<Props> = ({
             onBlur={handleBlur}
             id={id}
             name={name}
+            aria-required={required}
             {...props}
           />
         )}
