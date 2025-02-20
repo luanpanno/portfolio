@@ -25,13 +25,15 @@ export const CookieConsentProvider: React.FC<{ children: React.ReactNode }> = ({
     setHasConsent(localStorage.getItem(COOKIE_CONSENT_KEY) === 'true');
   }, []);
 
+  useEffect(() => {
+    if (hasConsent && typeof window !== 'undefined' && 'clarity' in window) {
+      window.clarity('consent');
+    }
+  }, [hasConsent]);
+
   const acceptCookies = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, 'true');
     setHasConsent(true);
-
-    if (typeof window !== 'undefined' && 'clarity' in window) {
-      window.clarity('consent');
-    }
   };
 
   const rejectCookies = () => {
