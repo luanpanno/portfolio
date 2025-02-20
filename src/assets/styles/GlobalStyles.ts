@@ -21,6 +21,7 @@ export const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
     background-color: ${(props) => props.theme.colors.background};
     transition: background-color 0.3s ease-in-out;
+    overflow-x: hidden;
 
     &, *{
       scroll-behavior: smooth;
@@ -29,6 +30,11 @@ export const GlobalStyles = createGlobalStyle`
       outline: 0;
       color: ${(props) => props.theme.colors.text};
     }
+  }
+
+  #__next {
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .__react_component_tooltip {
