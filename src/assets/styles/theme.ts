@@ -4,6 +4,7 @@ export type Theme = {
     light: string;
     background: string;
     text: string;
+    lightText: string;
     red: string;
     green: string;
     yellow: string;
@@ -11,12 +12,13 @@ export type Theme = {
   };
 };
 
-export const lightTheme: Theme = {
+export const defaultTheme: Theme = {
   colors: {
     primary: '#1f9cf0',
     light: '#dbe2ef',
     background: '#fff',
     text: '#232323',
+    lightText: '#aaaaaa',
     red: '#ff3333',
     green: '#28a745',
     yellow: '#ffc107',
@@ -24,15 +26,17 @@ export const lightTheme: Theme = {
   },
 };
 
+export const lightTheme: Theme = {
+  ...defaultTheme,
+};
+
 export const darkTheme: Theme = {
+  ...defaultTheme,
   colors: {
-    primary: '#1f9cf0',
+    ...defaultTheme.colors,
     light: '#3a3a3a',
     background: '#1a1a1a',
     text: '#ffffff',
-    red: '#ff3333',
-    green: '#28a745',
-    yellow: '#ffc107',
     title: '#ffffff',
   },
 };

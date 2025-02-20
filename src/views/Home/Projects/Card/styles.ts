@@ -2,19 +2,26 @@ import styled from 'styled-components';
 
 export const Container = styled.a`
   box-shadow: 0 1px 5px 1px ${(props) => props.theme.colors.light};
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: ${(props) => props.theme.colors.background};
-  transition: all 200ms;
+  transition: all 200ms ease-in-out;
+  width: 100%;
   max-width: 350px;
+  overflow: hidden;
 
-  &:hover {
-    box-shadow: 0 1px 10px 5px ${(props) => props.theme.colors.light};
-    transform: scale(1.05);
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0 1px 15px 5px ${(props) => props.theme.colors.light};
+      transform: translateY(-5px);
+    }
   }
 
   .img-wrapper {
     background-color: #f0f0f0;
     transition: opacity 0.3s ease-in-out;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
 
     &.loading {
       animation: pulse 1.5s infinite;
@@ -31,19 +38,21 @@ export const Container = styled.a`
         opacity: 1;
       }
     }
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    overflow: hidden;
-    height: 162px;
-    border-bottom: 1px solid ${(props) => props.theme.colors.light};
-    max-width: calc(100vw - 50px);
 
     img {
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      transition: all 200ms;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @media (hover: hover) {
+      &:hover img {
+        transform: scale(1.05);
+      }
     }
   }
 
@@ -55,22 +64,32 @@ export const Container = styled.a`
 
     h3 {
       font-size: 1.2rem;
+      font-weight: 600;
       text-transform: uppercase;
       color: ${(props) => props.theme.colors.primary};
+      line-height: 1.4;
     }
 
     span {
-      color: ${(props) => props.theme.colors.text};
+      color: ${(props) => props.theme.colors.lightText};
       font-size: 1rem;
+      line-height: 1.6;
     }
   }
 
-  @media screen and (max-width: 710px) {
-    width: 350px;
-  }
-
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 480px) {
     max-width: 100%;
-    width: 100%;
+
+    .text {
+      padding: var(--content-spacing);
+
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      span {
+        font-size: 0.9rem;
+      }
+    }
   }
 `;
