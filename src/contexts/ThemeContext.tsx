@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 import { darkTheme, lightTheme, Theme } from '@assets/styles/theme';
 
@@ -11,15 +11,13 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'light') {
-      setIsDarkMode(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window === 'undefined') {
+      return true;
     }
-  }, []);
+
+    return localStorage.getItem('theme') !== 'light';
+  });
 
   const toggleTheme = () => {
     const newTheme = !isDarkMode;

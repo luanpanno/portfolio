@@ -1,6 +1,4 @@
-/* eslint-disable prefer-rest-params */
 /* eslint-disable max-len */
-/* eslint-disable @next/next/no-page-custom-font */
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -43,7 +41,7 @@ export default class MyDocument extends Document {
     }
   }
 
-  render(): JSX.Element {
+  render(): React.ReactElement {
     const currentLocale =
       this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
 
