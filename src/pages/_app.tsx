@@ -16,6 +16,8 @@ import { ThemeProvider, useTheme } from '@contexts/ThemeContext';
 
 import { env } from '@utils/env';
 
+import nextI18NextConfig from '../../next-i18next.config';
+
 const AppContent = ({ Component, pageProps }: AppProps) => {
   const { theme } = useTheme();
   const { t } = useTranslation('common');
@@ -89,4 +91,4 @@ const MyApp = (props: AppProps) => (
   </ThemeProvider>
 );
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, nextI18NextConfig);

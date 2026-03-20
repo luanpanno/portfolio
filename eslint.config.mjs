@@ -9,7 +9,12 @@ const config = [
   ...nextVitals,
   ...nextTypescript,
   {
-    ignores: ['eslint.config.mjs', 'next.config.js', 'next-i18next.config.js'],
+    ignores: [
+      'eslint.config.mjs',
+      'next.config.js',
+      'next-i18next.config.js',
+      '**/*.d.ts',
+    ],
   },
   {
     files: ['**/*.{js,jsx}'],
