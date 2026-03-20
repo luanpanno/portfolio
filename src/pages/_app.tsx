@@ -3,9 +3,13 @@ import { appWithTranslation, useTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
-import '@fontsource/roboto/latin-300.css';
-import '@fontsource/roboto/latin-400.css';
-import '@fontsource/roboto/latin-700.css';
+import '@fontsource/newsreader/latin-400.css';
+import '@fontsource/newsreader/latin-500.css';
+import '@fontsource/newsreader/latin-600.css';
+import '@fontsource/plus-jakarta-sans/latin-400.css';
+import '@fontsource/plus-jakarta-sans/latin-500.css';
+import '@fontsource/plus-jakarta-sans/latin-600.css';
+import '@fontsource/plus-jakarta-sans/latin-700.css';
 import { ToastContainer } from 'react-toastify';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
@@ -14,57 +18,61 @@ import { ToastStyles } from '@assets/styles/toast';
 
 import CookieConsent from '@components/CookieConsent';
 
-import { CookieConsentProvider } from '@contexts/CookieConsentContext';
+import {
+  CookieConsentProvider,
+  useCookieConsent,
+} from '@contexts/CookieConsentContext';
 import { ThemeProvider, useTheme } from '@contexts/ThemeContext';
 
 import { env } from '@utils/env';
 
 import nextI18NextConfig from '../../next-i18next.config';
 
-const AppContent = ({ Component, pageProps }: AppProps) => {
-  const { theme } = useTheme();
+const AppShell = ({ Component, pageProps }: AppProps) => {
+  const { theme, isDarkMode } = useTheme();
   const { t } = useTranslation('common');
+  const { hasConsent } = useCookieConsent();
 
   return (
     <StyledThemeProvider theme={theme}>
-      <CookieConsentProvider>
-        <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="theme-color" content="#1f9cf0" />
-          <meta name="color-scheme" content="dark light" />
-          <meta name="robots" content="index, follow" />
-          <meta name="author" content={t('metaAuthor')} />
-          <meta name="keywords" content={t('metaKeywords')} />
-          <meta name="application-name" content={t('websiteTitle')} />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="default"
-          />
-          <meta name="apple-mobile-web-app-title" content={t('websiteTitle')} />
-          <meta name="format-detection" content="telephone=no" />
-          <meta name="mobile-web-app-capable" content="yes" />
-          <meta name="msapplication-config" content="/browserconfig.xml" />
-          <meta name="msapplication-TileColor" content="#1f9cf0" />
-          <meta name="msapplication-tap-highlight" content="no" />
-          <link rel="manifest" href="/manifest.json" />
-        </Head>
-        <a className="skip-link" href="#main-content">
-          {t('skipToContent')}
-        </a>
-        <Component {...pageProps} />
-        <GlobalStyles />
-        <ToastStyles />
-        <ToastContainer
-          theme={theme.colors.background === '#1a1a1a' ? 'dark' : 'light'}
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          closeOnClick
-          pauseOnHover
-          draggable
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content={theme.colors.background} />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content={t('metaAuthor')} />
+        <meta name="keywords" content={t('metaKeywords')} />
+        <meta name="application-name" content={t('websiteTitle')} />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content={t('websiteTitle')} />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta
+          name="msapplication-TileColor"
+          content={theme.colors.background}
         />
-        <CookieConsent />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
+      <a className="skip-link" href="#main-content">
+        {t('skipToContent')}
+      </a>
+      <Component {...pageProps} />
+      <GlobalStyles />
+      <ToastStyles />
+      <ToastContainer
+        theme={isDarkMode ? 'dark' : 'light'}
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
+      <CookieConsent />
+      {hasConsent && env.hotjarProjectId && (
         <Script id="hotjar-script" strategy="afterInteractive">
           {`
           (function(h,o,t,j,a,r){
@@ -77,6 +85,8 @@ const AppContent = ({ Component, pageProps }: AppProps) => {
           })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         `}
         </Script>
+      )}
+      {hasConsent && env.clarityProjectId && (
         <Script id="clarity-script" strategy="afterInteractive">
           {`
         (function(c,l,a,r,i,t,y){
@@ -86,10 +96,16 @@ const AppContent = ({ Component, pageProps }: AppProps) => {
         })(window, document, "clarity", "script", "${env.clarityProjectId}");
         `}
         </Script>
-      </CookieConsentProvider>
+      )}
     </StyledThemeProvider>
   );
 };
+
+const AppContent = (props: AppProps) => (
+  <CookieConsentProvider>
+    <AppShell {...props} />
+  </CookieConsentProvider>
+);
 
 const MyApp = (props: AppProps) => (
   <ThemeProvider>

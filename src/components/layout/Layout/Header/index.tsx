@@ -48,34 +48,52 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined;
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [isMenuOpen]);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <Container
-      as="header"
-      role="banner"
-      $isAtTop={isAtTop}
-      $isMenuOpen={isMenuOpen}
-    >
+    <Container as="header" $isAtTop={isAtTop} $isMenuOpen={isMenuOpen}>
       <div ref={useOutsideClick(() => setIsMenuOpen(false))}>
-        <Link href="/" className="logo" aria-label="Home">
+        <Link href="/" className="logo" aria-label={t('navHome')}>
           Luan Panno
         </Link>
 
         <Menu
           as="nav"
           id="main-navigation"
-          role="navigation"
-          aria-label="Main navigation"
+          aria-label={t('mainNavigation')}
           $isAtTop={isAtTop}
           $isMenuOpen={isMenuOpen}
         >
-          <ul className={isMenuOpen ? 'active' : ''} role="menubar">
-            <NavItem to="#home">{t('navHome')}</NavItem>
-            <NavItem to="#projects">{t('navProjects')}</NavItem>
-            <NavItem to="#contact">{t('navContact')}</NavItem>
-            <li>
+          <ul className={isMenuOpen ? 'active' : ''}>
+            <NavItem to="#home" onClick={closeMenu}>
+              {t('navHome')}
+            </NavItem>
+            <NavItem to="#projects" onClick={closeMenu}>
+              {t('navProjects')}
+            </NavItem>
+            <NavItem to="#contact" onClick={closeMenu}>
+              {t('navContact')}
+            </NavItem>
+            <li className="menu-actions">
               <Flags />
-            </li>
-            <li>
               <ThemeToggle />
             </li>
           </ul>

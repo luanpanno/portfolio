@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { AiFillGithub, AiFillLinkedin, AiFillFileText } from 'react-icons/ai';
-import { RiMapPin2Line, RiMailLine } from 'react-icons/ri';
+import { RiGraduationCapLine, RiMapPin2Line, RiMailLine } from 'react-icons/ri';
 
 import LinkItem from './LinkItem';
 import {
@@ -22,8 +22,7 @@ const coreSkills = [
   'Redux',
   'SASS',
   'Testing',
-  'UI',
-  'UX',
+  'UI/UX',
   'C#',
   '.NET',
 ];
@@ -43,9 +42,7 @@ const About = () => {
 
       <BasicInfo>
         <li>
-          <a href="mailto:luanpanno@gmail.com" aria-label={t('emailAddress')}>
-            <RiMailLine /> luanpanno@gmail.com
-          </a>
+          <RiGraduationCapLine /> {t('homeDegree')}
         </li>
         <li>
           <RiMapPin2Line /> {t('homeLocation')}
@@ -53,36 +50,55 @@ const About = () => {
       </BasicInfo>
 
       <AboutMe>{t('homeDescription')}</AboutMe>
-      <SkillsList>
-        {coreSkills.map((skill) => (
-          <li key={skill}>{skill}</li>
-        ))}
-      </SkillsList>
 
-      <LinksList>
-        <LinkItem
-          title={t('socialMediaLinkedin')}
-          ariaLabel={t('socialMediaLinkedinLinkLabel')}
-          href="https://www.linkedin.com/in/luanpanno"
-        >
-          <AiFillLinkedin />
-        </LinkItem>
-        <LinkItem
-          title={t('socialMediaGithub')}
-          ariaLabel={t('socialMediaGithubLinkLabel')}
-          href="https://www.github.com/luanpanno"
-        >
-          <AiFillGithub />
-        </LinkItem>
-        <LinkItem
-          title={t('socialMediaCurriculum')}
-          ariaLabel={t('socialMediaCurriculumLinkLabel')}
-          // eslint-disable-next-line max-len
-          href="https://docs.google.com/document/d/1tHqI4b59Vd-MK_ayUIlvYxXfJVbmzWAnXDkun5ox2LE/edit?usp=sharing"
-        >
-          <AiFillFileText />
-        </LinkItem>
-      </LinksList>
+      <div className="skills-block">
+        <span className="skills-title">{t('homeSkillsTitle')}</span>
+        <SkillsList>
+          {coreSkills.map((skill) => (
+            <li key={skill}>{skill}</li>
+          ))}
+        </SkillsList>
+      </div>
+
+      <div className="skills-block">
+        <span className="skills-title">{t('homeLinksTitle')}</span>
+        <LinksList>
+          <LinkItem
+            title={t('socialMediaEmail')}
+            ariaLabel={t('socialMediaEmailLinkLabel')}
+            label={t('socialMediaEmail')}
+            href="mailto:luanpanno@gmail.com"
+            openInNewTab={false}
+          >
+            <RiMailLine />
+          </LinkItem>
+          <LinkItem
+            title={t('socialMediaLinkedin')}
+            ariaLabel={t('socialMediaLinkedinLinkLabel')}
+            label={t('socialMediaLinkedin')}
+            href="https://www.linkedin.com/in/luanpanno"
+          >
+            <AiFillLinkedin />
+          </LinkItem>
+          <LinkItem
+            title={t('socialMediaGithub')}
+            ariaLabel={t('socialMediaGithubLinkLabel')}
+            label={t('socialMediaGithub')}
+            href="https://www.github.com/luanpanno"
+          >
+            <AiFillGithub />
+          </LinkItem>
+          <LinkItem
+            title={t('socialMediaCurriculum')}
+            ariaLabel={t('socialMediaCurriculumLinkLabel')}
+            label={t('socialMediaCurriculum')}
+            // eslint-disable-next-line max-len
+            href="https://docs.google.com/document/d/1tHqI4b59Vd-MK_ayUIlvYxXfJVbmzWAnXDkun5ox2LE/edit?usp=sharing"
+          >
+            <AiFillFileText />
+          </LinkItem>
+        </LinksList>
+      </div>
     </Container>
   );
 };

@@ -16,6 +16,7 @@ const ProfilePicture = () => {
             height={300}
             width={300}
             priority
+            sizes="(max-width: 1000px) 280px, 390px"
           />
         </div>
       </div>

@@ -2,77 +2,89 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
   z-index: 999;
-  background-color: ${(props) => props.theme.colors.background};
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  padding: var(--content-spacing);
+  display: flex;
+  justify-content: center;
   animation: slideUp 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
 
   @keyframes slideUp {
     from {
-      transform: translateY(100%);
+      opacity: 0;
+      transform: translateY(18px);
     }
     to {
+      opacity: 1;
       transform: translateY(0);
     }
   }
 `;
 
 export const Content = styled.div`
-  max-width: var(--body-max-width);
-  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--content-spacing);
+  gap: 20px;
+  padding: 18px 20px;
+  border: 1px solid ${(props) => props.theme.colors.borderStrong};
+  border-radius: 24px;
+  background-color: ${(props) => props.theme.colors.surface};
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: ${(props) => props.theme.colors.shadowStrong};
 
   p {
-    font-size: 0.9rem;
-    line-height: 1.5;
     color: ${(props) => props.theme.colors.text};
+    font-size: 0.95rem;
+    line-height: 1.7;
   }
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    text-align: center;
+    align-items: stretch;
+    text-align: left;
   }
 `;
 
 export const Actions = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   white-space: nowrap;
 
   button {
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 12px 16px;
+    border-radius: 999px;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+  }
 
-    &.accept {
-      background-color: ${(props) => props.theme.colors.primary};
-      color: #fff;
+  button.accept {
+    background-color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => (props.theme.mode === 'dark' ? '#0d1419' : '#ffffff')};
+  }
 
-      &:hover {
-        opacity: 0.9;
-      }
-    }
+  button.reject {
+    background-color: ${(props) => props.theme.colors.surfaceElevated};
+    color: ${(props) => props.theme.colors.title};
+    border: 1px solid ${(props) => props.theme.colors.border};
+  }
 
-    &.reject {
-      background-color: transparent;
-      color: ${(props) => props.theme.colors.text};
-      border: 1px solid ${(props) => props.theme.colors.light};
+  button:hover {
+    transform: translateY(-1px);
+  }
 
-      &:hover {
-        background-color: ${(props) => props.theme.colors.light};
-      }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+
+    button {
+      flex: 1;
+      justify-content: center;
     }
   }
 `;

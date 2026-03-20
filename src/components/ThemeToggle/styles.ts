@@ -1,23 +1,29 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-  background: none;
-  border: none;
   cursor: pointer;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s;
-  margin-bottom: 2px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background-color: ${({ theme }) => theme.colors.surfaceAccent};
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
-    opacity: 0.8;
+    transform: translateY(-1px);
+    border-color: ${({ theme }) => theme.colors.borderStrong};
+    box-shadow: ${({ theme }) => theme.colors.shadow};
   }
 
   svg {
-    width: 20px;
-    height: 20px;
-    color: ${({ theme }) => theme.colors.text};
+    width: 18px;
+    height: 18px;
+    color: ${({ theme }) => theme.colors.title};
   }
 `;

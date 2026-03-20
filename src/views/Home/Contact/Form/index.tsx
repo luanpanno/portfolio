@@ -84,6 +84,8 @@ const ContactForm = () => {
       onSubmit={formik.handleSubmit}
       role="form"
       aria-label={t('contactFormTitle')}
+      aria-busy={formik.isSubmitting}
+      noValidate
     >
       <div className="wrapper">
         <p>{t('contactFormP')}</p>
@@ -97,7 +99,7 @@ const ContactForm = () => {
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            errorMessage={t(getFormikError('name'))}
+            errorMessage={getFormikError('name')}
           />
           <Input
             name="email"
@@ -123,10 +125,10 @@ const ContactForm = () => {
             errorMessage={getFormikError('message')}
           />
         </div>
+        <button type="submit" disabled={isDisabled()}>
+          {formik.isSubmitting ? t('sending') : t('contactFormSubmit')}
+        </button>
       </div>
-      <button type="submit" disabled={isDisabled()}>
-        {formik.isSubmitting ? t('sending') : t('contactFormSubmit')}
-      </button>
     </Form>
   );
 };

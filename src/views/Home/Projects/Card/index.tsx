@@ -39,7 +39,10 @@ const Card: React.FC<Props> = ({ project }) => {
         <h3 id={`project-${project.name.toLowerCase().replace(/\s+/g, '-')}`}>
           {t(project.name)}
         </h3>
-        <span role="text" aria-label={`Built with ${t(project.stack)}`}>
+        <span
+          role="text"
+          aria-label={t('builtWith', { stack: t(project.stack) })}
+        >
           {t(project.stack)}
         </span>
       </div>

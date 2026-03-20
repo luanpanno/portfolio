@@ -4,23 +4,28 @@ type Props = {
   href: string;
   title: string;
   ariaLabel: string;
+  label: string;
+  openInNewTab?: boolean;
 };
 
 const LinkItem: React.FC<PropsWithChildren<Props>> = ({
   href,
   title,
   ariaLabel,
+  label,
+  openInNewTab = true,
   children,
 }) => (
   <li>
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={openInNewTab ? '_blank' : undefined}
+      rel={openInNewTab ? 'noopener noreferrer' : undefined}
       title={title}
       aria-label={ariaLabel}
     >
-      {children}
+      <span className="icon">{children}</span>
+      <span className="label">{label}</span>
     </a>
   </li>
 );

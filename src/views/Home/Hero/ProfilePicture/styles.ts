@@ -1,78 +1,70 @@
-import styled, { css } from 'styled-components';
-
-const BorderStyle = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 100%;
-`;
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  ${BorderStyle};
-  height: 300px;
-  width: 300px;
-  transition: all 200ms;
+  position: relative;
+  width: min(100%, 390px);
+  margin-left: auto;
+  padding: 18px;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 34px;
+  background: linear-gradient(
+    145deg,
+    ${(props) => props.theme.colors.surfaceElevated} 0%,
+    ${(props) => props.theme.colors.surfaceAccent} 100%
+  );
+  box-shadow: ${(props) => props.theme.colors.shadowStrong};
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 12px auto auto 12px;
+    width: 90px;
+    height: 90px;
+    border-radius: 24px;
+    background: ${(props) => props.theme.colors.primarySoft};
+    filter: blur(4px);
+    opacity: 0.9;
+  }
 
   .border {
-    ${BorderStyle};
-    height: 275px;
-    width: 275px;
-    transition: all 200ms;
-
-    &:hover {
-      height: 290px;
-      width: 290px;
-    }
-
-    @media screen and (max-width: 1000px) {
-      height: 225px;
-      width: 225px;
-
-      &:hover {
-        height: 240px;
-        width: 240px;
-      }
-    }
+    position: relative;
+    padding: 16px;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    border-radius: 26px;
+    background: ${(props) => props.theme.colors.surface};
   }
 
   .wrapper {
+    position: relative;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
-    height: 250px;
-    width: 250px;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 200ms;
+    border-radius: 22px;
+    background: ${(props) => props.theme.colors.surfaceAccent};
+  }
 
-    img {
-      margin-top: 15px;
-    }
-
-    &:hover {
-      height: 280px;
-      width: 280px;
-    }
+  .wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.03);
   }
 
   @media screen and (max-width: 1000px) {
     order: 1;
-    height: 250px;
-    width: 250px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 14px;
+    border-radius: 28px;
+
+    .border {
+      padding: 12px;
+      border-radius: 22px;
+    }
 
     .wrapper {
-      height: 200px;
-      width: 200px;
-
-      img {
-        margin-top: 30px;
-      }
-
-      &:hover {
-        height: 230px;
-        width: 230px;
-      }
+      border-radius: 18px;
     }
   }
 `;

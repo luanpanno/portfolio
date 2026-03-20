@@ -12,6 +12,14 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 const THEME_STORAGE_KEY = 'theme';
 const THEME_CHANGE_EVENT = 'theme-change';
 
+const getStoredTheme = () => {
+  if (typeof window === 'undefined') {
+    return 'light';
+  }
+
+  return localStorage.getItem(THEME_STORAGE_KEY) === 'dark' ? 'dark' : 'light';
+};
+
 const subscribeToTheme = (callback: () => void) => {
   if (typeof window === 'undefined') {
     return () => {};
@@ -30,13 +38,13 @@ const subscribeToTheme = (callback: () => void) => {
 
 const getThemeSnapshot = () => {
   if (typeof window === 'undefined') {
-    return true;
+    return false;
   }
 
-  return localStorage.getItem(THEME_STORAGE_KEY) !== 'light';
+  return getStoredTheme() === 'dark';
 };
 
-const getServerThemeSnapshot = () => true;
+const getServerThemeSnapshot = () => false;
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const isDarkMode = useSyncExternalStore(
@@ -48,7 +56,12 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
 
-    localStorage.setItem(THEME_STORAGE_KEY, newTheme ? 'dark' : 'light');
+    if (newTheme) {
+      localStorage.setItem(THEME_STORAGE_KEY, 'dark');
+    } else {
+      localStorage.removeItem(THEME_STORAGE_KEY);
+    }
+
     window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
   };
 

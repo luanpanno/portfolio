@@ -15,7 +15,11 @@ const CookieConsent = () => {
   }
 
   return (
-    <Container role="alert">
+    <Container
+      role="dialog"
+      aria-live="polite"
+      aria-label={t('cookieConsentText')}
+    >
       <Content>
         <p>{t('cookieConsentText')}</p>
         <Actions>

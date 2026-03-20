@@ -2,8 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 export const ToastStyles = createGlobalStyle`
   :root {
-    --toastify-color-light: ${({ theme }) => theme.colors.background};
-    --toastify-color-dark: ${({ theme }) => theme.colors.background};
+    --toastify-color-light: ${({ theme }) => theme.colors.surfaceElevated};
+    --toastify-color-dark: ${({ theme }) => theme.colors.surfaceElevated};
     --toastify-color-info: ${({ theme }) => theme.colors.primary};
     --toastify-color-success: ${({ theme }) => theme.colors.green};
     --toastify-color-warning: ${({ theme }) => theme.colors.yellow};
@@ -15,10 +15,11 @@ export const ToastStyles = createGlobalStyle`
   }
 
   .Toastify__toast {
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.surfaceElevated};
     color: ${({ theme }) => theme.colors.text};
-    border: 1px solid ${({ theme }) => theme.colors.light};
-    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: 18px;
+    box-shadow: ${({ theme }) => theme.colors.shadow};
     font-family: inherit;
   }
 

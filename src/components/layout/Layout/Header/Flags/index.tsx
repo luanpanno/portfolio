@@ -10,7 +10,7 @@ const Flags = () => {
   const { t } = useTranslation('common');
 
   return (
-    <Container $language="pt-BR">
+    <Container>
       <NavLink
         href="/"
         locale="pt"
@@ -21,8 +21,8 @@ const Flags = () => {
           src="/images/flags/br_4x3.svg"
           alt={t('brazilianFlagAlt')}
           className="flag"
-          width={32}
-          height={24}
+          width={24}
+          height={18}
         />
       </NavLink>
       <NavLink href="/" locale="en" passHref aria-label={t('switchToEnglish')}>
@@ -30,8 +30,8 @@ const Flags = () => {
           src="/images/flags/us_4x3.svg"
           alt={t('usaFlagAlt')}
           className="flag"
-          width={32}
-          height={24}
+          width={24}
+          height={18}
         />
       </NavLink>
     </Container>

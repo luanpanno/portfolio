@@ -14,12 +14,6 @@ export const projects: Project[] = [
     link: 'https://luanpanno-projetos.netlify.app/projetos/elena-joy/index.html',
   },
   {
-    imageUrl: '/images/projects/portfolio.webp',
-    name: 'projectPortfolio',
-    stack: 'HTML and CSS',
-    link: 'https://luanpanno-projetos.netlify.app/projetos/portfolio/index.html',
-  },
-  {
     imageUrl: '/images/projects/spotify.webp',
     name: 'projectSpotify',
     stack: 'HTML, CSS and Bootstrap',
@@ -42,18 +36,6 @@ export const projects: Project[] = [
     name: 'projectMovieSearch',
     stack: 'React',
     link: 'https://github.com/luanpanno/movie-search',
-  },
-  {
-    imageUrl: '/images/projects/weather-check.webp',
-    name: 'projectWeatherCheck',
-    stack: 'React with TypeScript',
-    link: 'https://github.com/luanpanno/weather-check',
-  },
-  {
-    imageUrl: '/images/projects/tesla-clone.webp',
-    name: 'projectTeslaClone',
-    stack: 'React with TypeScript',
-    link: 'https://github.com/luanpanno/tesla-homepage-clone',
   },
   {
     imageUrl: '/images/projects/google-docs-clone.webp',

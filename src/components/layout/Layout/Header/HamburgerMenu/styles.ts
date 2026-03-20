@@ -4,8 +4,15 @@ export const HamburgerMenuButton = styled.button`
   display: none;
 
   @media screen and (max-width: 832px) {
-    display: flex;
-    padding: 10px 5px;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    cursor: pointer;
+    border-radius: 999px;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    background-color: ${(props) => props.theme.colors.surfaceElevated};
+    box-shadow: ${(props) => props.theme.colors.shadow};
   }
 `;
 
@@ -16,16 +23,16 @@ export const BarsContainer = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  height: 20px;
-  width: 28px;
+  height: 18px;
+  width: 24px;
 
   .bar {
-    width: 28px;
-    height: 3px;
-    background-color: ${(props) => props.theme.colors.text};
-    border-radius: 5px;
+    width: 24px;
+    height: 2px;
+    background-color: ${(props) => props.theme.colors.title};
+    border-radius: 999px;
     position: absolute;
-    transition: all 100ms;
+    transition: all 150ms ease;
     right: 0;
   }
 

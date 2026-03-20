@@ -6,42 +6,55 @@ type Props = {
 };
 
 export const Container = styled.header<Props>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 75px;
-  box-shadow: ${(props) =>
-    props.$isAtTop && !props.$isMenuOpen
-      ? 'transparent'
-      : '1px -5px 10px 5px rgba(0, 0, 0, .1)'};
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: all 200ms;
-  max-width: 100vw;
-  background-color: ${(props) => props.theme.colors.background};
+  width: 100%;
+  padding: 18px var(--body-horizontal-gap) 0;
+  transition: transform 0.2s ease;
 
   & > div {
+    width: 100%;
+    max-width: var(--body-max-width);
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 var(--body-horizontal-gap);
-    width: 100%;
-    max-width: var(--body-max-width);
+    gap: 20px;
+    padding: 12px 18px;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    border-radius: 999px;
+    background: ${(props) => props.theme.colors.surface};
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: ${(props) =>
+      props.$isAtTop && !props.$isMenuOpen
+        ? '0 16px 40px rgba(0, 0, 0, 0.04)'
+        : props.theme.colors.shadow};
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
   .logo {
-    color: ${(props) => props.theme.colors.text};
-    text-decoration: none;
-    padding: 5px;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    color: ${(props) => props.theme.colors.title};
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: -0.04em;
     white-space: nowrap;
+  }
 
-    @media screen and (max-width: 1280px) {
-      font-size: 1.2rem;
-      text-align: left;
+  @media screen and (max-width: 832px) {
+    padding-top: 12px;
+
+    & > div {
+      padding: 10px 12px 10px 16px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
     }
   }
 `;
@@ -49,75 +62,61 @@ export const Container = styled.header<Props>`
 export const Menu = styled.nav<Props>`
   display: flex;
   align-items: center;
-  width: 40%;
-  position: relative;
+  justify-content: flex-end;
+  flex: 1;
 
   ul {
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: white;
-    transition: all 200ms;
+    gap: 6px;
+  }
 
-    a {
-      border-bottom: 3px solid transparent;
-    }
-
-    & > .active {
-      border-bottom: 3px solid
-        ${(props) => (props.$isAtTop ? props.theme.colors.primary : 'white')};
-    }
+  .menu-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 8px;
+    padding-left: 16px;
+    border-left: 1px solid ${(props) => props.theme.colors.border};
   }
 
   @media screen and (max-width: 832px) {
     ul {
-      background-color: ${(props) => props.theme.colors.background};
       position: fixed;
+      top: 82px;
+      right: var(--body-horizontal-gap);
       flex-direction: column;
-      justify-content: flex-start;
-      gap: 12px;
-      top: 75px;
-      right: 0;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      padding: 32px 0;
-      transform: translateX(360px);
-      min-width: 200px;
-      width: 0;
-      box-shadow: 1px 15px 10px 5px rgba(0, 0, 0, 0.1);
-
-      li {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        a {
-          display: inline-block;
-          width: 100%;
-          padding: 24px;
-          text-align: center;
-        }
-      }
-
-      &.active {
-        transform: translateX(0);
-        width: 30%;
-        margin-top: -2px;
-      }
+      align-items: stretch;
+      gap: 10px;
+      width: min(360px, calc(100vw - (var(--body-horizontal-gap) * 2)));
+      padding: 18px;
+      border-radius: 28px;
+      border: 1px solid ${(props) => props.theme.colors.borderStrong};
+      background: ${(props) => props.theme.colors.surfaceElevated};
+      box-shadow: ${(props) => props.theme.colors.shadowStrong};
+      -webkit-backdrop-filter: blur(18px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px) scale(0.98);
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
     }
-  }
 
-  @media screen and (max-width: 750px) {
     ul.active {
-      width: 50%;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
     }
-  }
 
-  @media screen and (max-width: 650px) {
-    ul.active {
-      width: 75%;
+    .menu-actions {
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 0;
+      padding-left: 0;
+      padding-top: 12px;
+      border-left: none;
+      border-top: 1px solid ${(props) => props.theme.colors.border};
     }
   }
 `;

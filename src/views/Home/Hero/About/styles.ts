@@ -3,90 +3,169 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
-  max-width: 50%;
+  gap: 18px;
+  max-width: 620px;
 
-  @media screen and (max-width: 1000px) {
-    row-gap: 18px;
+  .skills-block {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .skills-title {
+    color: ${(props) => props.theme.colors.lightText};
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
 
   @media screen and (max-width: 1000px) {
     align-items: center;
     max-width: 100%;
+    text-align: center;
   }
 `;
 
 export const Hello = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 25px;
-  width: 150px;
-  border-radius: 50px 50px 50px 0;
-  background-color: ${(props) => props.theme.colors.primary};
-  font-size: 1.2rem;
-  padding: 20px 8px;
+  width: fit-content;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  background-color: ${(props) => props.theme.colors.primarySoft};
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 
   span {
-    color: white;
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
 
 export const Name = styled.h1`
-  font-weight: bold;
-  font-size: 2.4rem;
-
-  @media screen and (max-width: 1000px) {
-    align-self: center;
-  }
+  font-size: clamp(3.5rem, 8vw, 5.8rem);
+  font-weight: 500;
+  line-height: 0.92;
 `;
 
 export const Position = styled.p`
-  font-size: 1.2rem;
+  color: ${(props) => props.theme.colors.mutedText};
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 `;
 
 export const BasicInfo = styled.ul`
   display: flex;
-  flex-direction: column;
-  margin: 4px 0;
-  row-gap: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 2px 0;
 
-  li,
-  a {
-    display: flex;
+  li {
+    display: inline-flex;
     align-items: center;
-    column-gap: 4px;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    border-radius: 999px;
+    background-color: ${(props) => props.theme.colors.surfaceAccent};
+    color: ${(props) => props.theme.colors.title};
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+  }
+
+  svg {
+    font-size: 1rem;
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  @media screen and (max-width: 1000px) {
+    justify-content: center;
   }
 `;
 
 export const AboutMe = styled.p`
-  letter-spacing: 0.4px;
-  line-height: 22px;
-  color: #888;
-  max-width: 500px;
+  max-width: 58ch;
+  color: ${(props) => props.theme.colors.mutedText};
+  font-size: 1.05rem;
+  line-height: 1.85;
 `;
 
 export const SkillsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
-  max-width: 560px;
 
   li {
-    padding: 10px 14px;
+    padding: 11px 16px;
     border-radius: 999px;
-    background-color: ${(props) => props.theme.colors.light};
-    color: ${(props) => props.theme.colors.text};
-    font-size: 0.92rem;
-    font-weight: 500;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    background-color: ${(props) => props.theme.colors.surfaceElevated};
+    color: ${(props) => props.theme.colors.title};
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    box-shadow: ${(props) => props.theme.colors.shadow};
+  }
+
+  @media screen and (max-width: 1000px) {
+    justify-content: center;
   }
 `;
 
 export const LinksList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
-  font-size: 1.8rem;
-  margin: 8px 0;
+  gap: 14px;
+  margin-top: 4px;
+
+  li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    background-color: ${(props) => props.theme.colors.surfaceElevated};
+    color: ${(props) => props.theme.colors.title};
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: ${(props) => props.theme.colors.shadow};
+  }
+
+  li a:hover {
+    transform: translateY(-2px);
+    border-color: ${(props) => props.theme.colors.borderStrong};
+    box-shadow: ${(props) => props.theme.colors.shadowStrong};
+  }
+
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  .label {
+    color: inherit;
+  }
+
+  @media screen and (max-width: 1000px) {
+    justify-content: center;
+  }
 `;

@@ -1,95 +1,124 @@
 import styled from 'styled-components';
 
 export const Container = styled.a`
-  box-shadow: 0 1px 5px 1px ${(props) => props.theme.colors.light};
-  border-radius: 8px;
-  background-color: ${(props) => props.theme.colors.background};
-  transition: all 200ms ease-in-out;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 350px;
+  height: 100%;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 28px;
+  background: linear-gradient(
+    180deg,
+    ${(props) => props.theme.colors.surfaceElevated} 0%,
+    ${(props) => props.theme.colors.surface} 100%
+  );
+  box-shadow: ${(props) => props.theme.colors.shadow};
   overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 
   @media (hover: hover) {
     &:hover {
-      box-shadow: 0 1px 15px 5px ${(props) => props.theme.colors.light};
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      border-color: ${(props) => props.theme.colors.borderStrong};
+      box-shadow: ${(props) => props.theme.colors.shadowStrong};
     }
   }
 
   .img-wrapper {
-    background-color: #f0f0f0;
-    transition: opacity 0.3s ease-in-out;
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 64%;
+    background-color: ${(props) => props.theme.colors.surfaceAccent};
+    overflow: hidden;
+  }
 
-    &.loading {
-      animation: pulse 1.5s infinite;
+  .img-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: 38%;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(
+        17,
+        24,
+        28,
+        ${(props) => (props.theme.mode === 'dark' ? 0.22 : 0.08)}
+      )
+    );
+    pointer-events: none;
+  }
+
+  .img-wrapper.loading {
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
     }
-
-    @keyframes pulse {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.4;
-      }
-      100% {
-        opacity: 1;
-      }
+    50% {
+      opacity: 0.55;
     }
-
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease-in-out;
+    100% {
+      opacity: 1;
     }
+  }
 
-    @media (hover: hover) {
-      &:hover img {
-        transform: scale(1.05);
-      }
+  .img-wrapper img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  @media (hover: hover) {
+    &:hover .img-wrapper img {
+      transform: scale(1.04);
     }
   }
 
   .text {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 16px;
+    gap: 14px;
+    height: 100%;
+    padding: 22px;
+  }
 
-    h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: ${(props) => props.theme.colors.primary};
-      line-height: 1.4;
-    }
+  .text h3 {
+    font-size: 1.55rem;
+    font-weight: 500;
+    line-height: 1.05;
+  }
 
-    span {
-      color: ${(props) => props.theme.colors.lightText};
-      font-size: 1rem;
-      line-height: 1.6;
-    }
+  .text span {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    background-color: ${(props) => props.theme.colors.primarySoft};
+    color: ${(props) => props.theme.colors.title};
+    font-size: 0.84rem;
+    font-weight: 600;
   }
 
   @media screen and (max-width: 480px) {
-    max-width: 100%;
+    border-radius: 24px;
 
     .text {
-      padding: var(--content-spacing);
+      padding: 18px;
+    }
 
-      h3 {
-        font-size: 1.1rem;
-      }
-
-      span {
-        font-size: 0.9rem;
-      }
+    .text h3 {
+      font-size: 1.4rem;
     }
   }
 `;

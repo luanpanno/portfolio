@@ -9,49 +9,67 @@ export const Container = styled.div<Props>`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 
   label {
-    font-size: 0.9rem;
-    color: ${(props) => props.theme.colors.text};
-    margin-left: 4px;
+    padding-left: 4px;
+    color: ${(props) => props.theme.colors.lightText};
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   .error {
     color: ${(props) => props.theme.colors.red};
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
     margin: 0 4px;
   }
 `;
 
 export const InputWrapper = styled.div<Props>`
   display: flex;
-  align-items: center;
+  align-items: stretch;
   width: 100%;
   border: 1px solid
-    ${(props) =>
-      props.$hasError ? props.theme.colors.red : props.theme.colors.light};
-  width: 100%;
-  border-radius: 4px;
+    ${(props) => {
+      if (props.$hasError) {
+        return props.theme.colors.red;
+      }
+
+      if (props.$hasFocus) {
+        return props.theme.colors.primary;
+      }
+
+      return props.theme.colors.border;
+    }};
+  border-radius: 18px;
+  background-color: ${(props) => props.theme.colors.surfaceElevated};
   box-shadow: ${(props) =>
-    props.$hasFocus && `0 1px 5px 1px ${props.theme.colors.light}`};
+    props.$hasFocus ? `0 0 0 4px ${props.theme.colors.primarySoft}` : 'none'};
 
   input,
   textarea {
-    background-color: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.text};
-    border-radius: 4px;
-    font-size: 0.9rem;
-    padding: 12px 16px;
     width: 100%;
-    transition: all 200ms;
+    min-width: 0;
     border: none;
     outline: none;
-    height: 100%;
+    background-color: transparent;
+    color: ${(props) => props.theme.colors.title};
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 16px 18px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: ${(props) => props.theme.colors.lightText};
+    opacity: 0.8;
   }
 
   textarea {
-    min-height: 120px;
-    resize: none;
+    min-height: 170px;
+    resize: vertical;
   }
 `;

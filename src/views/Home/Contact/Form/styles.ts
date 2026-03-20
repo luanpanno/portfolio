@@ -1,88 +1,73 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: var(--content-spacing);
-  box-shadow: 0 1px 10px 1px ${(props) => props.theme.colors.light};
   width: 100%;
-  max-width: 500px;
-  height: 100%;
-  border-radius: 12px;
-  background-color: ${(props) => props.theme.colors.background};
-  transition: box-shadow 0.3s ease-in-out;
-
-  @media (hover: hover) {
-    &:hover {
-      box-shadow: 0 2px 15px 2px ${(props) => props.theme.colors.light};
-    }
-  }
+  max-width: 760px;
+  padding: 34px;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 30px;
+  background: linear-gradient(
+    180deg,
+    ${(props) => props.theme.colors.surfaceElevated} 0%,
+    ${(props) => props.theme.colors.surface} 100%
+  );
+  box-shadow: ${(props) => props.theme.colors.shadow};
 
   .wrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--content-spacing);
-    height: 100%;
-    padding: 32px 32px 0 32px;
-
-    @media screen and (max-width: 768px) {
-      padding: calc(var(--section-padding) * 0.75)
-        calc(var(--section-padding) * 0.75) 0;
-    }
-
-    @media screen and (max-width: 480px) {
-      padding: var(--content-spacing) var(--content-spacing) 0;
-    }
+    gap: 24px;
   }
 
   .fields {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    height: 100%;
-    margin: calc(var(--content-spacing) * 0.5) 0;
+    gap: 18px;
   }
 
   p {
-    text-align: center;
-    letter-spacing: 0.4px;
-    line-height: 1.6;
-    color: ${(props) => props.theme.colors.text};
-
-    @media screen and (max-width: 480px) {
-      font-size: 0.9rem;
-    }
+    max-width: 40rem;
+    color: ${(props) => props.theme.colors.mutedText};
+    line-height: 1.8;
   }
 
   button {
-    width: 100%;
-    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    min-width: 180px;
+    padding: 14px 22px;
+    border-radius: 999px;
     background-color: ${(props) => props.theme.colors.primary};
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    padding: calc(var(--content-spacing) * 0.75);
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    transition: all 0.2s ease-in-out;
+    color: ${(props) => (props.theme.mode === 'dark' ? '#0d1419' : '#ffffff')};
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     cursor: pointer;
+    box-shadow: ${(props) => props.theme.colors.shadow};
+  }
 
-    @media (hover: hover) {
-      &:hover {
-        opacity: 0.9;
-        transform: translateY(-2px);
-      }
-    }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: ${(props) => props.theme.colors.shadowStrong};
+  }
 
-    &:disabled {
-      background-color: ${(props) => props.theme.colors.light};
-      cursor: not-allowed;
-      transform: none;
-    }
+  button:disabled {
+    background-color: ${(props) => props.theme.colors.surfaceAccent};
+    color: ${(props) => props.theme.colors.lightText};
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
 
-    @media screen and (max-width: 480px) {
-      padding: var(--content-spacing);
-      font-size: 0.9rem;
+  @media screen and (max-width: 480px) {
+    padding: 22px;
+    border-radius: 24px;
+
+    button {
+      width: 100%;
+      align-self: stretch;
     }
   }
 `;

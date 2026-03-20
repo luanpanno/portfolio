@@ -1,13 +1,14 @@
 import Contact from './Contact';
 import Hero from './Hero';
 import Projects from './Projects';
+import { Container } from './styles';
 
 const Home = () => (
-  <div>
+  <Container>
     <Hero />
     <Projects />
     <Contact />
-  </div>
+  </Container>
 );
 
 export default Home;

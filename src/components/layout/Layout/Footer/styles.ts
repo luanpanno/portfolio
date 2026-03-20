@@ -6,11 +6,13 @@ export const Container = styled.footer`
   align-items: center;
   justify-content: center;
   row-gap: 24px;
-  padding: 24px 0;
+  padding: 8px var(--body-horizontal-gap) 24px;
 
   span {
-    color: ${(props) => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.lightText};
+    font-size: 0.82rem;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 0.18em;
+    text-align: center;
   }
 `;
