@@ -5,7 +5,7 @@ import Title from '@components/Title';
 
 import Card from './Card';
 import { projects } from './projects';
-import { Container, ProjectsWrapper } from './styles';
+import { Container, Intro, ProjectsWrapper } from './styles';
 
 const Projects = () => {
   const { t } = useTranslation('common');
@@ -14,6 +14,7 @@ const Projects = () => {
     <Content>
       <Container id="projects" aria-labelledby="projects-heading">
         <Title id="projects-heading">{t('titleProjects')}</Title>
+        <Intro>{t('projectsIntro')}</Intro>
 
         <ProjectsWrapper>
           {projects?.map((project) => (

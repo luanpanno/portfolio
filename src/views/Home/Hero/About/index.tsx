@@ -10,8 +10,23 @@ import {
   Position,
   BasicInfo,
   AboutMe,
+  SkillsList,
   LinksList,
 } from './styles';
+
+const coreSkills = [
+  'React',
+  'Next.js',
+  'TypeScript',
+  'Node.js',
+  'Redux',
+  'SASS',
+  'Testing',
+  'UI',
+  'UX',
+  'C#',
+  '.NET',
+];
 
 const About = () => {
   const { t } = useTranslation('common');
@@ -38,6 +53,11 @@ const About = () => {
       </BasicInfo>
 
       <AboutMe>{t('homeDescription')}</AboutMe>
+      <SkillsList>
+        {coreSkills.map((skill) => (
+          <li key={skill}>{skill}</li>
+        ))}
+      </SkillsList>
 
       <LinksList>
         <LinkItem

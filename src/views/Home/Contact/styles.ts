@@ -9,3 +9,10 @@ export const Container = styled.section`
   padding: 32px var(--body-horizontal-gap);
   row-gap: 32px;
 `;
+
+export const Intro = styled.p`
+  max-width: 640px;
+  text-align: center;
+  line-height: 1.7;
+  color: ${(props) => props.theme.colors.lightText};
+`;

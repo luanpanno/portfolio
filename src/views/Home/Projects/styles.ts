@@ -13,6 +13,13 @@ export const Container = styled.section`
   background-color: ${(props) => props.theme.colors.background};
 `;
 
+export const Intro = styled.p`
+  max-width: 760px;
+  text-align: center;
+  line-height: 1.7;
+  color: ${(props) => props.theme.colors.lightText};
+`;
+
 export const ProjectsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

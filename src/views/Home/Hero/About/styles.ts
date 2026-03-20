@@ -66,16 +66,27 @@ export const AboutMe = styled.p`
   max-width: 500px;
 `;
 
+export const SkillsList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  max-width: 560px;
+
+  li {
+    padding: 10px 14px;
+    border-radius: 999px;
+    background-color: ${(props) => props.theme.colors.light};
+    color: ${(props) => props.theme.colors.text};
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+`;
+
 export const LinksList = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 200px;
+  gap: 20px;
   font-size: 1.8rem;
   margin: 8px 0;
-
-  @media screen and (max-width: 1000px) {
-    max-width: 100%;
-    width: 100%;
-  }
 `;
