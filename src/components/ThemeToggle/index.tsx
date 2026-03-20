@@ -1,5 +1,6 @@
 import { useTranslation } from 'next-i18next';
-import { BsMoon, BsSun } from 'react-icons/bs';
+
+import { MoonIcon, SunIcon } from '@components/Icons';
 
 import { useTheme } from '@contexts/ThemeContext';
 
@@ -16,7 +17,7 @@ const ThemeToggle = () => {
       aria-label={isDarkMode ? t('enableLightMode') : t('enableDarkMode')}
       title={isDarkMode ? t('enableLightMode') : t('enableDarkMode')}
     >
-      {isDarkMode ? <BsSun /> : <BsMoon />}
+      {isDarkMode ? <SunIcon /> : <MoonIcon />}
     </Container>
   );
 };

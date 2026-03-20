@@ -1,20 +1,13 @@
-import { useFormik } from 'formik';
 import { useTranslation } from 'next-i18next';
-import { toast } from 'react-toastify';
+import { ChangeEvent, FocusEvent, FormEvent, useState } from 'react';
 
 import Input from '@components/Input';
 
-import { isObjectEmpty } from '@utils/objects';
-
-import makeSchema from './schema';
 import { Form } from './styles';
 
-type Fields = 'name' | 'email' | 'message';
-type FormFields = {
-  name: string;
-  email: string;
-  message: string;
-};
+type Field = 'name' | 'email' | 'message';
+type FormFields = Record<Field, string>;
+type FormErrors = Partial<Record<Field, string>>;
 
 const initialValues: FormFields = {
   name: '',
@@ -22,69 +15,136 @@ const initialValues: FormFields = {
   message: '',
 };
 
+const initialTouched: Record<Field, boolean> = {
+  name: false,
+  email: false,
+  message: false,
+};
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const ContactForm = () => {
   const { t } = useTranslation('common');
-  const validationSchema = makeSchema({
-    emailFormat: t('validationEmailFormat'),
-    emailRequired: t('validationEmailRequired'),
-    messageRequired: t('validationMessageRequired'),
-    nameRequired: t('validationNameRequired'),
-  });
+  const [values, setValues] = useState<FormFields>(initialValues);
+  const [touched, setTouched] = useState(initialTouched);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle');
 
-  const formik = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit: async (data: FormFields) => {
-      try {
-        const { name, email, message } = data;
-        const formData = new FormData();
+  const getErrors = (currentValues: FormFields): FormErrors => {
+    const errors: FormErrors = {};
 
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('message', message);
-        formData.append('_captcha', 'false');
+    if (!currentValues.name.trim()) {
+      errors.name = t('validationNameRequired');
+    }
 
-        const response = await fetch(
-          'https://formsubmit.co/luanpanno@gmail.com',
-          {
-            method: 'POST',
-            body: formData,
-          },
-        );
+    if (!currentValues.email.trim()) {
+      errors.email = t('validationEmailRequired');
+    } else if (!emailPattern.test(currentValues.email.trim())) {
+      errors.email = t('validationEmailFormat');
+    }
 
-        if (!response.ok) {
-          throw new Error('Unable to submit the contact form');
-        }
+    if (!currentValues.message.trim()) {
+      errors.message = t('validationMessageRequired');
+    }
 
-        formik.resetForm();
-        toast.success(t('contactFormSuccess'));
-      } catch {
-        toast.error(t('contactFormError'));
-      }
-    },
-  });
-
-  const getFormikError = (field: Fields): string =>
-    (formik.touched[field] && formik.errors[field]) || '';
-
-  const isDisabled = () => {
-    const { name, email, message } = formik.values;
-
-    return (
-      !name ||
-      !email ||
-      !message ||
-      !isObjectEmpty(formik.errors) ||
-      formik.isSubmitting
-    );
+    return errors;
   };
+
+  const errors = getErrors(values);
+
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = event.target;
+
+    setValues((currentValues) => ({
+      ...currentValues,
+      [name]: value,
+    }));
+
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle');
+    }
+  };
+
+  const handleBlur = (
+    event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name } = event.target;
+
+    setTouched((currentTouched) => ({
+      ...currentTouched,
+      [name]: true,
+    }));
+  };
+
+  const handleSubmit = async (
+    event: FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
+    event.preventDefault();
+
+    const nextErrors = getErrors(values);
+
+    if (Object.keys(nextErrors).length > 0) {
+      setTouched({
+        name: true,
+        email: true,
+        message: true,
+      });
+      setSubmitStatus('idle');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const formData = new FormData();
+
+      formData.append('name', values.name.trim());
+      formData.append('email', values.email.trim());
+      formData.append('message', values.message.trim());
+      formData.append('_captcha', 'false');
+
+      const response = await fetch(
+        'https://formsubmit.co/luanpanno@gmail.com',
+        {
+          method: 'POST',
+          body: formData,
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error('Unable to submit the contact form');
+      }
+
+      setValues({ ...initialValues });
+      setTouched({ ...initialTouched });
+      setSubmitStatus('success');
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const getFieldError = (field: Field) => (touched[field] ? errors[field] : '');
+
+  const isDisabled =
+    isSubmitting ||
+    Object.keys(errors).length > 0 ||
+    !values.name.trim() ||
+    !values.email.trim() ||
+    !values.message.trim();
 
   return (
     <Form
-      onSubmit={formik.handleSubmit}
+      onSubmit={handleSubmit}
       role="form"
       aria-label={t('contactFormTitle')}
-      aria-busy={formik.isSubmitting}
+      aria-busy={isSubmitting}
       noValidate
     >
       <div className="wrapper">
@@ -96,10 +156,10 @@ const ContactForm = () => {
             placeholder={t('contactFormNamePlaceholder')}
             autoComplete="name"
             required
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            errorMessage={getFormikError('name')}
+            value={values.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            errorMessage={getFieldError('name')}
           />
           <Input
             name="email"
@@ -108,10 +168,10 @@ const ContactForm = () => {
             placeholder={t('contactFormEmailPlaceholder')}
             autoComplete="email"
             required
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            errorMessage={getFormikError('email')}
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            errorMessage={getFieldError('email')}
           />
           <Input
             type="textarea"
@@ -119,15 +179,25 @@ const ContactForm = () => {
             label={t('contactFormMessageLabel')}
             placeholder={t('contactFormMessagePlaceholder')}
             required
-            value={formik.values.message}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            errorMessage={getFormikError('message')}
+            value={values.message}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            errorMessage={getFieldError('message')}
           />
         </div>
-        <button type="submit" disabled={isDisabled()}>
-          {formik.isSubmitting ? t('sending') : t('contactFormSubmit')}
+        <button type="submit" disabled={isDisabled}>
+          {isSubmitting ? t('sending') : t('contactFormSubmit')}
         </button>
+        {submitStatus !== 'idle' && (
+          <div
+            className={`status ${submitStatus}`.trim()}
+            role={submitStatus === 'error' ? 'alert' : 'status'}
+          >
+            {submitStatus === 'success'
+              ? t('contactFormSuccess')
+              : t('contactFormError')}
+          </div>
+        )}
       </div>
     </Form>
   );

@@ -31,6 +31,25 @@ export const Form = styled.form`
     line-height: 1.8;
   }
 
+  .status {
+    padding: 14px 16px;
+    border-radius: 18px;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    background-color: ${(props) => props.theme.colors.surfaceElevated};
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .status.success {
+    border-color: ${(props) => props.theme.colors.green};
+    color: ${(props) => props.theme.colors.green};
+  }
+
+  .status.error {
+    border-color: ${(props) => props.theme.colors.red};
+    color: ${(props) => props.theme.colors.red};
+  }
+
   button {
     display: inline-flex;
     align-items: center;

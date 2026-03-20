@@ -10,11 +10,9 @@ import '@fontsource/plus-jakarta-sans/latin-400.css';
 import '@fontsource/plus-jakarta-sans/latin-500.css';
 import '@fontsource/plus-jakarta-sans/latin-600.css';
 import '@fontsource/plus-jakarta-sans/latin-700.css';
-import { ToastContainer } from 'react-toastify';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { GlobalStyles } from '@assets/styles';
-import { ToastStyles } from '@assets/styles/toast';
 
 import CookieConsent from '@components/CookieConsent';
 
@@ -29,7 +27,7 @@ import { env } from '@utils/env';
 import nextI18NextConfig from '../../next-i18next.config';
 
 const AppShell = ({ Component, pageProps }: AppProps) => {
-  const { theme, isDarkMode } = useTheme();
+  const { theme } = useTheme();
   const { t } = useTranslation('common');
   const { hasConsent } = useCookieConsent();
 
@@ -61,16 +59,6 @@ const AppShell = ({ Component, pageProps }: AppProps) => {
       </a>
       <Component {...pageProps} />
       <GlobalStyles />
-      <ToastStyles />
-      <ToastContainer
-        theme={isDarkMode ? 'dark' : 'light'}
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        closeOnClick
-        pauseOnHover
-        draggable
-      />
       <CookieConsent />
       {hasConsent && env.hotjarProjectId && (
         <Script id="hotjar-script" strategy="afterInteractive">

@@ -13,10 +13,11 @@ const ProfilePicture = () => {
           <Image
             src="/images/profile-pic.webp"
             alt={t('profileImageAlt')}
-            height={300}
-            width={300}
+            fill
             priority
-            sizes="(max-width: 1000px) 280px, 390px"
+            fetchPriority="high"
+            quality={72}
+            sizes="(max-width: 480px) 220px, (max-width: 1000px) 280px, 320px"
           />
         </div>
       </div>

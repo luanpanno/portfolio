@@ -1,6 +1,13 @@
 import { useTranslation } from 'next-i18next';
-import { AiFillGithub, AiFillLinkedin, AiFillFileText } from 'react-icons/ai';
-import { RiGraduationCapLine, RiMapPin2Line, RiMailLine } from 'react-icons/ri';
+
+import {
+  EmailIcon,
+  GitHubIcon,
+  GraduationIcon,
+  LinkedInIcon,
+  LocationIcon,
+  ResumeIcon,
+} from '@components/Icons';
 
 import LinkItem from './LinkItem';
 import {
@@ -42,10 +49,10 @@ const About = () => {
 
       <BasicInfo>
         <li>
-          <RiGraduationCapLine /> {t('homeDegree')}
+          <GraduationIcon /> {t('homeDegree')}
         </li>
         <li>
-          <RiMapPin2Line /> {t('homeLocation')}
+          <LocationIcon /> {t('homeLocation')}
         </li>
       </BasicInfo>
 
@@ -70,7 +77,7 @@ const About = () => {
             href="mailto:luanpanno@gmail.com"
             openInNewTab={false}
           >
-            <RiMailLine />
+            <EmailIcon />
           </LinkItem>
           <LinkItem
             title={t('socialMediaLinkedin')}
@@ -78,7 +85,7 @@ const About = () => {
             label={t('socialMediaLinkedin')}
             href="https://www.linkedin.com/in/luanpanno"
           >
-            <AiFillLinkedin />
+            <LinkedInIcon />
           </LinkItem>
           <LinkItem
             title={t('socialMediaGithub')}
@@ -86,7 +93,7 @@ const About = () => {
             label={t('socialMediaGithub')}
             href="https://www.github.com/luanpanno"
           >
-            <AiFillGithub />
+            <GitHubIcon />
           </LinkItem>
           <LinkItem
             title={t('socialMediaCurriculum')}
@@ -95,7 +102,7 @@ const About = () => {
             // eslint-disable-next-line max-len
             href="https://docs.google.com/document/d/1tHqI4b59Vd-MK_ayUIlvYxXfJVbmzWAnXDkun5ox2LE/edit?usp=sharing"
           >
-            <AiFillFileText />
+            <ResumeIcon />
           </LinkItem>
         </LinksList>
       </div>
