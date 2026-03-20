@@ -26,10 +26,47 @@ import { env } from '@utils/env';
 
 import nextI18NextConfig from '../../next-i18next.config';
 
+const hasAnalyticsIntegrations = Boolean(
+  env.hotjarProjectId || env.clarityProjectId,
+);
+
+const AnalyticsScripts = () => {
+  const { hasConsent } = useCookieConsent();
+
+  return (
+    <>
+      {hasConsent && env.hotjarProjectId && (
+        <Script id="hotjar-script" strategy="afterInteractive">
+          {`
+          (function(h,o,t,j,a,r){
+              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+              h._hjSettings={hjid:${env.hotjarProjectId},hjsv:6};
+              a=o.getElementsByTagName('head')[0];
+              r=o.createElement('script');r.async=1;
+              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+              a.appendChild(r);
+          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        `}
+        </Script>
+      )}
+      {hasConsent && env.clarityProjectId && (
+        <Script id="clarity-script" strategy="afterInteractive">
+          {`
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "${env.clarityProjectId}");
+        `}
+        </Script>
+      )}
+    </>
+  );
+};
+
 const AppShell = ({ Component, pageProps }: AppProps) => {
   const { theme } = useTheme();
   const { t } = useTranslation('common');
-  const { hasConsent } = useCookieConsent();
 
   return (
     <StyledThemeProvider theme={theme}>
@@ -59,41 +96,20 @@ const AppShell = ({ Component, pageProps }: AppProps) => {
       </a>
       <Component {...pageProps} />
       <GlobalStyles />
-      <CookieConsent />
-      {hasConsent && env.hotjarProjectId && (
-        <Script id="hotjar-script" strategy="afterInteractive">
-          {`
-          (function(h,o,t,j,a,r){
-              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-              h._hjSettings={hjid:${env.hotjarProjectId},hjsv:6};
-              a=o.getElementsByTagName('head')[0];
-              r=o.createElement('script');r.async=1;
-              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-              a.appendChild(r);
-          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-        `}
-        </Script>
-      )}
-      {hasConsent && env.clarityProjectId && (
-        <Script id="clarity-script" strategy="afterInteractive">
-          {`
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "${env.clarityProjectId}");
-        `}
-        </Script>
-      )}
+      {hasAnalyticsIntegrations && <CookieConsent />}
+      {hasAnalyticsIntegrations && <AnalyticsScripts />}
     </StyledThemeProvider>
   );
 };
 
-const AppContent = (props: AppProps) => (
-  <CookieConsentProvider>
+const AppContent = (props: AppProps) =>
+  hasAnalyticsIntegrations ? (
+    <CookieConsentProvider>
+      <AppShell {...props} />
+    </CookieConsentProvider>
+  ) : (
     <AppShell {...props} />
-  </CookieConsentProvider>
-);
+  );
 
 const MyApp = (props: AppProps) => (
   <ThemeProvider>
