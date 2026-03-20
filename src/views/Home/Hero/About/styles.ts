@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const blockTitleStyles = css`
   color: ${(props) => props.theme.colors.lightText};
@@ -8,11 +8,24 @@ const blockTitleStyles = css`
   text-transform: uppercase;
 `;
 
+const fadeUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 export const Intro = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
   max-width: min(620px, 100%);
+  animation: ${fadeUp} 0.72s ease both;
 
   @media screen and (max-width: 1000px) {
     align-items: center;
@@ -24,8 +37,9 @@ export const Intro = styled.div`
 export const Supplementary = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 26px;
   width: 100%;
+  animation: ${fadeUp} 0.82s ease 0.08s both;
 
   .skills-block {
     display: flex;
@@ -70,8 +84,8 @@ export const Name = styled.h1`
 export const Position = styled.p`
   color: ${(props) => props.theme.colors.mutedText};
   font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 `;
 
@@ -85,13 +99,25 @@ export const BasicInfo = styled.ul`
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 14px;
+    padding: 10px 15px;
     border: 1px solid ${(props) => props.theme.colors.border};
     border-radius: 999px;
-    background-color: ${(props) => props.theme.colors.surfaceAccent};
+    background-color: ${(props) => props.theme.colors.surfaceElevated};
     color: ${(props) => props.theme.colors.title};
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    box-shadow: ${(props) => props.theme.colors.shadow};
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  li:hover {
+    transform: translateY(-2px);
+    border-color: ${(props) => props.theme.colors.borderStrong};
+    box-shadow: ${(props) => props.theme.colors.shadowStrong};
   }
 
   li a {
@@ -112,20 +138,20 @@ export const BasicInfo = styled.ul`
 `;
 
 export const AboutMe = styled.p`
-  max-width: 58ch;
+  max-width: 52ch;
   color: ${(props) => props.theme.colors.mutedText};
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-size: 1.04rem;
+  line-height: 1.95;
 `;
 
 export const SkillsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
 
   li {
-    padding: 11px 16px;
+    padding: 10px 15px;
     border-radius: 999px;
     border: 1px solid ${(props) => props.theme.colors.border};
     background-color: ${(props) => props.theme.colors.surfaceElevated};
@@ -134,6 +160,16 @@ export const SkillsList = styled.ul`
     font-weight: 600;
     letter-spacing: -0.01em;
     box-shadow: ${(props) => props.theme.colors.shadow};
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  li:hover {
+    transform: translateY(-2px);
+    border-color: ${(props) => props.theme.colors.borderStrong};
+    box-shadow: ${(props) => props.theme.colors.shadowStrong};
   }
 
   @media screen and (max-width: 1000px) {
@@ -161,11 +197,32 @@ export const LinksList = styled.ul`
     font-size: 0.95rem;
     font-weight: 600;
     box-shadow: ${(props) => props.theme.colors.shadow};
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
   li a:hover {
     transform: translateY(-2px);
     border-color: ${(props) => props.theme.colors.borderStrong};
+    background-color: ${(props) => props.theme.colors.primarySoft};
+    box-shadow: ${(props) => props.theme.colors.shadowStrong};
+  }
+
+  li.primary a {
+    background-color: ${(props) => props.theme.colors.primary};
+    border-color: transparent;
+    color: ${(props) => (props.theme.mode === 'dark' ? '#0d1419' : '#ffffff')};
+    box-shadow: ${(props) => props.theme.colors.shadowStrong};
+  }
+
+  li.primary a:hover {
+    background-color: ${(props) =>
+      props.theme.mode === 'dark' ? '#ffffff' : props.theme.colors.title};
+    color: ${(props) => (props.theme.mode === 'dark' ? '#0d1419' : '#ffffff')};
     box-shadow: ${(props) => props.theme.colors.shadowStrong};
   }
 
@@ -175,6 +232,10 @@ export const LinksList = styled.ul`
     justify-content: center;
     font-size: 1.3rem;
     color: ${(props) => props.theme.colors.primary};
+  }
+
+  li.primary .icon {
+    color: inherit;
   }
 
   .label {

@@ -45,7 +45,7 @@ export const InputWrapper = styled.div<Props>`
       return props.theme.colors.border;
     }};
   border-radius: 18px;
-  background-color: ${(props) => props.theme.colors.surfaceElevated};
+  background-color: ${(props) => props.theme.colors.surface};
   box-shadow: ${(props) =>
     props.$hasFocus ? `0 0 0 4px ${props.theme.colors.primarySoft}` : 'none'};
 

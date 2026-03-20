@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: clamp(40px, 6vw, 72px);
+  gap: clamp(36px, 5vw, 64px);
 
   @media screen and (max-width: 768px) {
-    gap: 32px;
+    gap: 28px;
   }
 `;

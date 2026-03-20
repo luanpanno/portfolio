@@ -27,8 +27,6 @@ const coreSkills = [
   'Next.js',
   'TypeScript',
   'Node.js',
-  'Redux',
-  'SASS',
   'Testing',
   'UI/UX',
   'C#',
@@ -75,10 +73,11 @@ const About = () => {
           <span className="skills-title">{t('homeLinksTitle')}</span>
           <LinksList>
             <LinkItem
-              title={t('socialMediaEmail')}
-              ariaLabel={t('socialMediaEmailLinkLabel')}
-              label={t('socialMediaEmail')}
-              href="mailto:luanpanno@gmail.com"
+              className="primary"
+              title={t('homePrimaryCta')}
+              ariaLabel={t('homePrimaryCtaLinkLabel')}
+              label={t('homePrimaryCta')}
+              href="#contact"
               openInNewTab={false}
             >
               <EmailIcon />

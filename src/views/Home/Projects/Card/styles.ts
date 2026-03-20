@@ -7,12 +7,7 @@ export const Container = styled.a`
   height: 100%;
   border: 1px solid ${(props) => props.theme.colors.border};
   border-radius: 28px;
-  background: linear-gradient(
-    180deg,
-    ${(props) => props.theme.colors.surfaceElevated} 0%,
-    ${(props) => props.theme.colors.surface} 100%
-  );
-  box-shadow: ${(props) => props.theme.colors.shadow};
+  background-color: ${(props) => props.theme.colors.surface};
   overflow: hidden;
   transition:
     transform 0.25s ease,
@@ -23,7 +18,6 @@ export const Container = styled.a`
     &:hover {
       transform: translateY(-6px);
       border-color: ${(props) => props.theme.colors.borderStrong};
-      box-shadow: ${(props) => props.theme.colors.shadowStrong};
     }
   }
 
@@ -101,13 +95,16 @@ export const Container = styled.a`
   .text span {
     display: inline-flex;
     align-self: flex-start;
-    padding: 8px 12px;
+    justify-content: center;
+    width: fit-content;
+    padding: 10px 16px;
     border-radius: 999px;
     border: 1px solid ${(props) => props.theme.colors.border};
     background-color: ${(props) => props.theme.colors.primarySoft};
-    color: ${(props) => props.theme.colors.title};
-    font-size: 0.84rem;
+    color: ${(props) => props.theme.colors.primary};
+    font-size: 0.82rem;
     font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
   @media screen and (max-width: 480px) {

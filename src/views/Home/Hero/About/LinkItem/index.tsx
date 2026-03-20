@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react';
 
 type Props = {
+  className?: string;
   href: string;
   title: string;
   ariaLabel: string;
@@ -9,6 +10,7 @@ type Props = {
 };
 
 const LinkItem: React.FC<PropsWithChildren<Props>> = ({
+  className,
   href,
   title,
   ariaLabel,
@@ -16,7 +18,7 @@ const LinkItem: React.FC<PropsWithChildren<Props>> = ({
   openInNewTab = true,
   children,
 }) => (
-  <li>
+  <li className={className}>
     <a
       href={href}
       target={openInNewTab ? '_blank' : undefined}
