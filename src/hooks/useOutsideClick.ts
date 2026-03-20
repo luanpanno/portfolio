@@ -4,23 +4,29 @@ type Handler = (event: MouseEvent | TouchEvent) => void;
 
 export const useOutsideClick = (handler: Handler) => {
   const ref = useRef<HTMLDivElement>(null);
+  const handlerRef = useRef(handler);
+
+  useEffect(() => {
+    handlerRef.current = handler;
+  }, [handler]);
 
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
       if (!ref.current || ref.current.contains(event.target as Node)) {
         return;
       }
-      handler(event);
+
+      handlerRef.current(event);
     };
 
     document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
+    document.addEventListener('touchstart', listener, { passive: true });
 
     return () => {
       document.removeEventListener('mousedown', listener);
       document.removeEventListener('touchstart', listener);
     };
-  }, [handler]);
+  }, []);
 
   return ref;
 };

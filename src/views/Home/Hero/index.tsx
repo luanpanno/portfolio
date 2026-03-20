@@ -3,7 +3,7 @@ import ProfilePicture from './ProfilePicture';
 import { Container, Content } from './styles';
 
 const Hero = () => (
-  <Container id="home">
+  <Container id="home" aria-labelledby="hero-heading">
     <Content>
       <About />
       <ProfilePicture />

@@ -2,10 +2,14 @@ import { PropsWithChildren } from 'react';
 
 import { Container, Border } from './styles';
 
-const Title: React.FC<PropsWithChildren> = ({ children }) => (
+type Props = PropsWithChildren<{
+  id?: string;
+}>;
+
+const Title: React.FC<Props> = ({ children, id }) => (
   <Container>
     <div>
-      <h2>{children}</h2>
+      <h2 id={id}>{children}</h2>
       <Border />
     </div>
   </Container>

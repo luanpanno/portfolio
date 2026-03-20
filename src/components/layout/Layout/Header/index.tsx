@@ -16,15 +16,35 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
 
-  const handleScroll = () => {
-    setIsAtTop(document.querySelector('html').scrollTop === 0);
-  };
-
   useEffect(() => {
-    document.addEventListener('scroll', handleScroll);
+    let frameId: number | null = null;
+
+    const updateIsAtTop = () => {
+      frameId = null;
+      const nextIsAtTop = window.scrollY === 0;
+
+      setIsAtTop((currentValue) =>
+        currentValue === nextIsAtTop ? currentValue : nextIsAtTop,
+      );
+    };
+
+    const handleScroll = () => {
+      if (frameId !== null) {
+        return;
+      }
+
+      frameId = window.requestAnimationFrame(updateIsAtTop);
+    };
+
+    updateIsAtTop();
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      document.removeEventListener('scroll', handleScroll);
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -42,6 +62,7 @@ const Header = () => {
 
         <Menu
           as="nav"
+          id="main-navigation"
           role="navigation"
           aria-label="Main navigation"
           $isAtTop={isAtTop}
@@ -61,6 +82,7 @@ const Header = () => {
         </Menu>
 
         <HamburgerMenu
+          label={t('toggleNavigationMenu')}
           isMenuOpen={isMenuOpen}
           onClick={() => setIsMenuOpen((state) => !state)}
         />

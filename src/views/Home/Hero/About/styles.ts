@@ -32,7 +32,7 @@ export const Hello = styled.div`
   }
 `;
 
-export const Name = styled.p`
+export const Name = styled.h1`
   font-weight: bold;
   font-size: 2.4rem;
 

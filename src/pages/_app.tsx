@@ -3,6 +3,9 @@ import { appWithTranslation, useTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
+import '@fontsource/roboto/latin-300.css';
+import '@fontsource/roboto/latin-400.css';
+import '@fontsource/roboto/latin-700.css';
 import { ToastContainer } from 'react-toastify';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
@@ -28,6 +31,7 @@ const AppContent = ({ Component, pageProps }: AppProps) => {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#1f9cf0" />
+          <meta name="color-scheme" content="dark light" />
           <meta name="robots" content="index, follow" />
           <meta name="author" content={t('metaAuthor')} />
           <meta name="keywords" content={t('metaKeywords')} />
@@ -43,9 +47,11 @@ const AppContent = ({ Component, pageProps }: AppProps) => {
           <meta name="msapplication-config" content="/browserconfig.xml" />
           <meta name="msapplication-TileColor" content="#1f9cf0" />
           <meta name="msapplication-tap-highlight" content="no" />
-          <link rel="canonical" href="https://www.luanpanno.dev" />
           <link rel="manifest" href="/manifest.json" />
         </Head>
+        <a className="skip-link" href="#main-content">
+          {t('skipToContent')}
+        </a>
         <Component {...pageProps} />
         <GlobalStyles />
         <ToastStyles />

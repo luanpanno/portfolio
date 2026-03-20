@@ -1,20 +1,24 @@
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import Container from '@components/layout/Container';
 
 const NotFoundPage = () => {
   const { t } = useTranslation('common');
+  const { locale = 'en' } = useRouter();
+  const canonicalUrl = `https://www.luanpanno.dev${
+    locale === 'pt' ? '/pt' : ''
+  }/404`;
 
   return (
     <>
       <Head>
-        <title>{`${t('websiteTitle')} | 404`}</title>
-        <meta
-          name="description"
-          content="The page you are looking for could not be found."
-        />
+        <title>{`${t('notFoundTitle')} | ${t('websiteTitle')}`}</title>
+        <meta name="description" content={t('notFoundDescription')} />
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href={canonicalUrl} />
       </Head>
       <Container>
         <section
@@ -29,7 +33,7 @@ const NotFoundPage = () => {
           }}
         >
           <h1>404</h1>
-          <p>The page you are looking for could not be found.</p>
+          <p>{t('notFoundDescription')}</p>
         </section>
       </Container>
     </>

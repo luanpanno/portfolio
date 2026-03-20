@@ -5,7 +5,7 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   padding: 32px var(--body-horizontal-gap);
   row-gap: 32px;
 `;

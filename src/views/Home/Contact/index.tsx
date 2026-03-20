@@ -11,8 +11,8 @@ const Contact = () => {
 
   return (
     <Content>
-      <Container id="contact">
-        <Title>{t('titleContact')}</Title>
+      <Container id="contact" aria-labelledby="contact-heading">
+        <Title id="contact-heading">{t('titleContact')}</Title>
         <ContactForm />
       </Container>
     </Content>

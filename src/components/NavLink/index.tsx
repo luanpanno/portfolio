@@ -15,6 +15,7 @@ const NavLink: React.FC<React.PropsWithChildren<LinkProps>> = ({
       href={href}
       locale={locale}
       {...props}
+      aria-current={router.locale === locale ? 'page' : undefined}
       className={router.locale === locale ? 'active' : ''}
     >
       {children}

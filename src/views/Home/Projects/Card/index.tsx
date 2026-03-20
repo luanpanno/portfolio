@@ -17,6 +17,7 @@ const Card: React.FC<Props> = ({ project }) => {
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={t('projectLinkAria', { projectName: t(project.name) })}
       aria-labelledby={`project-${project.name
         .toLowerCase()
         .replace(/\s+/g, '-')}`}

@@ -10,6 +10,7 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.2.10",
     "formik": "2.4.9",
     "i18next": "25.8.20",
     "next": "^16.2.0",

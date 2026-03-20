@@ -22,7 +22,7 @@ const About = () => {
         <span>{t('homeHello')}</span>
       </Hello>
 
-      <Name>Luan Panno</Name>
+      <Name id="hero-heading">Luan Panno</Name>
 
       <Position>{t('homeJob')}</Position>
 
@@ -42,18 +42,21 @@ const About = () => {
       <LinksList>
         <LinkItem
           title={t('socialMediaLinkedin')}
+          ariaLabel={t('socialMediaLinkedinLinkLabel')}
           href="https://www.linkedin.com/in/luanpanno"
         >
           <AiFillLinkedin />
         </LinkItem>
         <LinkItem
           title={t('socialMediaGithub')}
+          ariaLabel={t('socialMediaGithubLinkLabel')}
           href="https://www.github.com/luanpanno"
         >
           <AiFillGithub />
         </LinkItem>
         <LinkItem
           title={t('socialMediaCurriculum')}
+          ariaLabel={t('socialMediaCurriculumLinkLabel')}
           // eslint-disable-next-line max-len
           href="https://docs.google.com/document/d/1tHqI4b59Vd-MK_ayUIlvYxXfJVbmzWAnXDkun5ox2LE/edit?usp=sharing"
         >

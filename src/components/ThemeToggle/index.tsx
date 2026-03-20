@@ -11,7 +11,9 @@ const ThemeToggle = () => {
 
   return (
     <Container
+      type="button"
       onClick={toggleTheme}
+      aria-label={isDarkMode ? t('enableLightMode') : t('enableDarkMode')}
       title={isDarkMode ? t('enableLightMode') : t('enableDarkMode')}
     >
       {isDarkMode ? <BsSun /> : <BsMoon />}

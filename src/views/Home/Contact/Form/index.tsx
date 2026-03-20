@@ -23,8 +23,13 @@ const initialValues: FormFields = {
 };
 
 const ContactForm = () => {
-  const { t, i18n } = useTranslation('common');
-  const validationSchema = makeSchema(i18n.language);
+  const { t } = useTranslation('common');
+  const validationSchema = makeSchema({
+    emailFormat: t('validationEmailFormat'),
+    emailRequired: t('validationEmailRequired'),
+    messageRequired: t('validationMessageRequired'),
+    nameRequired: t('validationNameRequired'),
+  });
 
   const formik = useFormik({
     initialValues,
@@ -39,15 +44,22 @@ const ContactForm = () => {
         formData.append('message', message);
         formData.append('_captcha', 'false');
 
-        await fetch('https://formsubmit.co/luanpanno@gmail.com', {
-          method: 'POST',
-          body: formData,
-        });
+        const response = await fetch(
+          'https://formsubmit.co/luanpanno@gmail.com',
+          {
+            method: 'POST',
+            body: formData,
+          },
+        );
+
+        if (!response.ok) {
+          throw new Error('Unable to submit the contact form');
+        }
 
         formik.resetForm();
         toast.success(t('contactFormSuccess'));
-      } catch (error: any) {
-        toast.error(error);
+      } catch {
+        toast.error(t('contactFormError'));
       }
     },
   });
@@ -78,8 +90,9 @@ const ContactForm = () => {
         <div className="fields">
           <Input
             name="name"
-            label={t('contactFormNamePlaceholder')}
+            label={t('contactFormNameLabel')}
             placeholder={t('contactFormNamePlaceholder')}
+            autoComplete="name"
             required
             value={formik.values.name}
             onChange={formik.handleChange}
@@ -89,8 +102,9 @@ const ContactForm = () => {
           <Input
             name="email"
             type="email"
-            label={t('contactFormEmailPlaceholder')}
+            label={t('contactFormEmailLabel')}
             placeholder={t('contactFormEmailPlaceholder')}
+            autoComplete="email"
             required
             value={formik.values.email}
             onChange={formik.handleChange}
@@ -100,7 +114,7 @@ const ContactForm = () => {
           <Input
             type="textarea"
             name="message"
-            label={t('contactFormMessagePlaceholder')}
+            label={t('contactFormMessageLabel')}
             placeholder={t('contactFormMessagePlaceholder')}
             required
             value={formik.values.message}
@@ -108,7 +122,6 @@ const ContactForm = () => {
             onBlur={formik.handleBlur}
             errorMessage={getFormikError('message')}
           />
-          <input type="hidden" name="_captcha" value="false" />
         </div>
       </div>
       <button type="submit" disabled={isDisabled()}>

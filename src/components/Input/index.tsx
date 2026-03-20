@@ -1,8 +1,11 @@
-import { HTMLAttributes, useState } from 'react';
+import { InputHTMLAttributes, TextareaHTMLAttributes, useState } from 'react';
 
 import { Container, InputWrapper } from './styles';
 
-type Props = HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> & {
+type Props = (
+  | InputHTMLAttributes<HTMLInputElement>
+  | TextareaHTMLAttributes<HTMLTextAreaElement>
+) & {
   name: string;
   type?: string;
   id?: string;
@@ -28,12 +31,22 @@ const Input: React.FC<Props> = ({
   function handleBlur(
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
-    if (onBlur) onBlur(e);
+    if (onBlur) {
+      (onBlur as (event: React.FocusEvent<HTMLElement>) => void)(e);
+    }
 
     setHasFocus(false);
   }
 
   const id = providedId || name;
+  const errorId = errorMessage ? `${id}-error` : undefined;
+  const commonProps = {
+    id,
+    name,
+    'aria-describedby': errorId,
+    'aria-invalid': !!errorMessage,
+    'aria-required': required,
+  };
 
   return (
     <Container $hasError={!!errorMessage}>
@@ -41,26 +54,26 @@ const Input: React.FC<Props> = ({
       <InputWrapper $hasError={!!errorMessage} $hasFocus={hasFocus}>
         {type === 'textarea' ? (
           <textarea
-            id={id}
             onFocus={() => setHasFocus(true)}
             onBlur={handleBlur}
-            name={name}
-            aria-required={required}
-            {...props}
+            {...commonProps}
+            {...(props as TextareaHTMLAttributes<HTMLTextAreaElement>)}
           />
         ) : (
           <input
             type={type}
             onFocus={() => setHasFocus(true)}
             onBlur={handleBlur}
-            id={id}
-            name={name}
-            aria-required={required}
-            {...props}
+            {...commonProps}
+            {...(props as InputHTMLAttributes<HTMLInputElement>)}
           />
         )}
       </InputWrapper>
-      {errorMessage && <span className="error">{errorMessage}</span>}
+      {errorMessage && (
+        <span id={errorId} className="error">
+          {errorMessage}
+        </span>
+      )}
     </Container>
   );
 };

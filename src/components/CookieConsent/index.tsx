@@ -19,10 +19,10 @@ const CookieConsent = () => {
       <Content>
         <p>{t('cookieConsentText')}</p>
         <Actions>
-          <button onClick={rejectCookies} className="reject">
+          <button type="button" onClick={rejectCookies} className="reject">
             {t('cookieConsentReject')}
           </button>
-          <button onClick={acceptCookies} className="accept">
+          <button type="button" onClick={acceptCookies} className="accept">
             {t('cookieConsentAccept')}
           </button>
         </Actions>

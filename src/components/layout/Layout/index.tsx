@@ -8,7 +8,9 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Container>
       <Header />
-      <Main>{children}</Main>
+      <Main id="main-content" tabIndex={-1}>
+        {children}
+      </Main>
       <Footer />
     </Container>
   );
