@@ -11,8 +11,19 @@ export const HamburgerMenuButton = styled.button`
     cursor: pointer;
     border-radius: 999px;
     border: 1px solid ${(props) => props.theme.colors.border};
-    background-color: ${(props) => props.theme.colors.surfaceElevated};
+    background-color: ${(props) => props.theme.colors.surfaceAccent};
     box-shadow: ${(props) => props.theme.colors.shadow};
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      border-color: ${(props) => props.theme.colors.borderStrong};
+      box-shadow: ${(props) => props.theme.colors.shadowStrong};
+    }
   }
 `;
 

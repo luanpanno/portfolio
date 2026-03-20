@@ -57,26 +57,49 @@ export const Actions = styled.div`
   white-space: nowrap;
 
   button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 12px 16px;
+    border: 1px solid transparent;
     border-radius: 999px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
   button.accept {
     background-color: ${(props) => props.theme.colors.primary};
     color: ${(props) => (props.theme.mode === 'dark' ? '#0d1419' : '#ffffff')};
+    box-shadow: ${(props) => props.theme.colors.shadowStrong};
   }
 
   button.reject {
     background-color: ${(props) => props.theme.colors.surfaceElevated};
     color: ${(props) => props.theme.colors.title};
     border: 1px solid ${(props) => props.theme.colors.border};
+    box-shadow: ${(props) => props.theme.colors.shadow};
   }
 
-  button:hover {
+  button.accept:hover {
+    background-color: ${(props) =>
+      props.theme.mode === 'dark' ? '#ffffff' : props.theme.colors.title};
+    color: ${(props) => (props.theme.mode === 'dark' ? '#0d1419' : '#ffffff')};
+    box-shadow: ${(props) => props.theme.colors.shadowStrong};
     transform: translateY(-1px);
+  }
+
+  button.reject:hover {
+    transform: translateY(-1px);
+    border-color: ${(props) => props.theme.colors.borderStrong};
+    background-color: ${(props) => props.theme.colors.primarySoft};
+    box-shadow: ${(props) => props.theme.colors.shadowStrong};
   }
 
   @media screen and (max-width: 768px) {

@@ -14,9 +14,9 @@ export const Container = styled.div<Props>`
   label {
     padding-left: 4px;
     color: ${(props) => props.theme.colors.lightText};
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
 
