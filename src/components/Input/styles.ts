@@ -13,7 +13,7 @@ export const Container = styled.div<Props>`
 
   label {
     padding-left: 4px;
-    color: ${(props) => props.theme.colors.lightText};
+    color: ${(props) => props.theme.colors.mutedText};
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.16em;
@@ -64,8 +64,8 @@ export const InputWrapper = styled.div<Props>`
 
   input::placeholder,
   textarea::placeholder {
-    color: ${(props) => props.theme.colors.lightText};
-    opacity: 0.8;
+    color: ${(props) => props.theme.colors.mutedText};
+    opacity: 1;
   }
 
   textarea {

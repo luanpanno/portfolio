@@ -23,7 +23,7 @@ export const Form = styled.form`
 
   p {
     max-width: 40rem;
-    color: ${(props) => props.theme.colors.mutedText};
+    color: ${(props) => props.theme.colors.text};
     line-height: 1.8;
   }
 
