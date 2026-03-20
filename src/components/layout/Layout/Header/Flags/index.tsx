@@ -6,7 +6,7 @@ import NavLink from '@components/NavLink';
 import { Container } from './styles';
 
 const Flags = () => (
-  <Container language={'pt-BR'}>
+  <Container $language="pt-BR">
     <NavLink href="/" locale="pt" passHref>
       <Image
         src="/images/flags/br_4x3.svg"

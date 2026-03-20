@@ -36,9 +36,9 @@ const Input: React.FC<Props> = ({
   const id = providedId || name;
 
   return (
-    <Container hasError={!!errorMessage}>
+    <Container $hasError={!!errorMessage}>
       {label && <label htmlFor={id}>{label}</label>}
-      <InputWrapper hasError={!!errorMessage} hasFocus={hasFocus}>
+      <InputWrapper $hasError={!!errorMessage} $hasFocus={hasFocus}>
         {type === 'textarea' ? (
           <textarea
             id={id}

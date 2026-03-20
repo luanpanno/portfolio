@@ -46,7 +46,7 @@ export default class MyDocument extends Document {
       this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
 
     return (
-      <Html lang={currentLocale}>
+      <Html lang={currentLocale} data-scroll-behavior="smooth">
         <Head>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.ico" />

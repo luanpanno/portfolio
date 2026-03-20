@@ -32,8 +32,8 @@ const Header = () => {
     <Container
       as="header"
       role="banner"
-      isAtTop={isAtTop}
-      isMenuOpen={isMenuOpen}
+      $isAtTop={isAtTop}
+      $isMenuOpen={isMenuOpen}
     >
       <div ref={useOutsideClick(() => setIsMenuOpen(false))}>
         <Link href="/" className="logo" aria-label="Home">
@@ -44,8 +44,8 @@ const Header = () => {
           as="nav"
           role="navigation"
           aria-label="Main navigation"
-          isAtTop={isAtTop}
-          isMenuOpen={isMenuOpen}
+          $isAtTop={isAtTop}
+          $isMenuOpen={isMenuOpen}
         >
           <ul className={isMenuOpen ? 'active' : ''} role="menubar">
             <NavItem to="#home">{t('navHome')}</NavItem>
