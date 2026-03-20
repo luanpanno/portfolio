@@ -1,13 +1,18 @@
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+import type { FC } from 'react';
 
 import { Container } from './styles';
 
-const ProfilePicture = () => {
+type ProfilePictureProps = {
+  className?: string;
+};
+
+const ProfilePicture: FC<ProfilePictureProps> = ({ className }) => {
   const { t } = useTranslation('common');
 
   return (
-    <Container>
+    <Container className={className}>
       <div className="border">
         <div className="wrapper">
           <Image

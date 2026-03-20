@@ -6,7 +6,7 @@ const Hero = () => (
   <Container id="home" aria-labelledby="hero-heading">
     <Content>
       <About />
-      <ProfilePicture />
+      <ProfilePicture className="hero-picture" />
     </Content>
   </Container>
 );

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
-  width: min(100%, 390px);
+  width: min(100%, 350px);
   margin-left: auto;
   padding: 18px;
   border: 1px solid ${(props) => props.theme.colors.border};
@@ -50,7 +50,6 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width: 1000px) {
-    order: 1;
     margin: 0 auto;
   }
 

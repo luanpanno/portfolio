@@ -9,9 +9,13 @@ export const Container = styled.section`
 export const Content = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.88fr);
-  align-items: center;
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 360px);
+  grid-template-areas:
+    'intro picture'
+    'supplementary supplementary';
+  align-items: start;
+  column-gap: 56px;
+  row-gap: 28px;
   width: 100%;
   max-width: var(--body-max-width);
   margin: 0 auto;
@@ -42,16 +46,30 @@ export const Content = styled.div`
     z-index: 1;
   }
 
+  .hero-intro {
+    grid-area: intro;
+  }
+
+  .hero-supplementary {
+    grid-area: supplementary;
+  }
+
+  .hero-picture {
+    grid-area: picture;
+    justify-self: end;
+    align-self: center;
+  }
+
   @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-areas:
+      'picture'
+      'intro'
+      'supplementary';
+    row-gap: 32px;
 
-    & > div:nth-child(2) {
-      order: 1;
-    }
-
-    & > div:nth-child(1) {
-      order: 2;
+    .hero-picture {
+      align-self: start;
     }
   }
 

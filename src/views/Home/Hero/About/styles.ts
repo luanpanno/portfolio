@@ -1,10 +1,31 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+const blockTitleStyles = css`
+  color: ${(props) => props.theme.colors.lightText};
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+`;
+
+export const Intro = styled.div`
   display: flex;
   flex-direction: column;
   gap: 18px;
-  max-width: 620px;
+  max-width: min(620px, 100%);
+
+  @media screen and (max-width: 1000px) {
+    align-items: center;
+    max-width: 100%;
+    text-align: center;
+  }
+`;
+
+export const Supplementary = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
 
   .skills-block {
     display: flex;
@@ -13,17 +34,11 @@ export const Container = styled.div`
   }
 
   .skills-title {
-    color: ${(props) => props.theme.colors.lightText};
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    ${blockTitleStyles}
   }
 
   @media screen and (max-width: 1000px) {
     align-items: center;
-    max-width: 100%;
-    text-align: center;
   }
 `;
 
@@ -131,6 +146,7 @@ export const LinksList = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
+  width: 100%;
   margin-top: 4px;
 
   li a {
