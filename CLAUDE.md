@@ -28,7 +28,7 @@ There is no test suite. Run lint, type check, and build to verify a change.
 
 - `src/pages`: routes, `<Head>` SEO metadata, `getStaticProps` with `serverSideTranslations`
 - `src/views/Home/*`: page sections (Hero, About, Work, Contact). Each one is a folder with `index.tsx` and `styles.ts`
-- `src/components/*`: shared UI (Section, Input, LanguageSwitch, ThemeToggle, CookieConsent, layout/Layout)
+- `src/components/*`: shared UI (Section, Input, LanguageSwitch, ThemeToggle, LocalTime, CookieConsent, layout/Layout)
 - `src/contexts`: ThemeContext (light/dark: stored choice, otherwise `prefers-color-scheme`) and CookieConsentContext
 - `src/assets/styles`: `theme.ts` (design tokens), `GlobalStyles.ts` (CSS variables, base type, focus ring, reduced motion), `Reset.ts`
 - `src/views/Home/Work/projects.ts`: project data. `name` is an i18n key, `stack` is an array formatted with `Intl.ListFormat`, and images live in `public/images/projects/*.webp`

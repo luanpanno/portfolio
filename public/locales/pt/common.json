@@ -66,6 +66,7 @@
   "cookieConsentReject": "Rejeitar",
   "footerCopyright": "© {{year}} Luan Panno",
   "backToTop": "Voltar ao topo",
+  "localTime": "{{time}} no Rio de Janeiro",
   "notFoundTitle": "Página não encontrada",
   "notFoundDescription": "A página que você procura não existe ou mudou de endereço.",
   "notFoundBack": "Ir para a página inicial"

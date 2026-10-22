@@ -19,4 +19,10 @@ export const Container = styled.footer`
   a:hover {
     color: ${(props) => props.theme.colors.text};
   }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
 `;
