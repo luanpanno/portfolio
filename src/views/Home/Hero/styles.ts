@@ -33,8 +33,6 @@ export const Identity = styled.div`
 
 export const Lead = styled.p`
   max-width: 24ch;
-  font-family: var(--font-display);
-  font-optical-sizing: auto;
   font-size: clamp(2rem, 1.3rem + 3vw, 3rem);
   font-weight: 500;
   line-height: 1.08;

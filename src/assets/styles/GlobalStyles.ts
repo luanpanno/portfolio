@@ -7,14 +7,11 @@ export const GlobalStyles = createGlobalStyle`
 
   :root {
     --font-sans:
-      'Instrument Sans Variable',
+      'Geist Variable',
       system-ui,
       -apple-system,
       'Segoe UI',
       sans-serif;
-    --font-display:
-      'Bricolage Grotesque Variable',
-      var(--font-sans);
     --page-width: 720px;
     --page-gutter: 24px;
     --label-column: 152px;
@@ -52,7 +49,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.6;
-    font-feature-settings: 'ss01';
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -69,8 +65,6 @@ export const GlobalStyles = createGlobalStyle`
   h2,
   h3 {
     margin: 0;
-    font-family: var(--font-display);
-    font-optical-sizing: auto;
     font-weight: 500;
     line-height: 1.25;
     letter-spacing: -0.01em;

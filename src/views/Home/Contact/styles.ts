@@ -12,8 +12,6 @@ export const Email = styled.div`
   margin-top: 20px;
 
   a {
-    font-family: var(--font-display);
-    font-optical-sizing: auto;
     font-size: clamp(1.375rem, 1rem + 1.6vw, 1.75rem);
     font-weight: 500;
     letter-spacing: -0.015em;

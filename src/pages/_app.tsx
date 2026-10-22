@@ -3,8 +3,7 @@ import { appWithTranslation, useTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
-import '@fontsource-variable/bricolage-grotesque/opsz.css';
-import '@fontsource-variable/instrument-sans/wght.css';
+import '@fontsource-variable/geist/wght.css';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { GlobalStyles } from '@assets/styles';

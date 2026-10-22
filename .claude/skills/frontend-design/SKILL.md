@@ -16,19 +16,17 @@ the user asks for a redesign.
 The concept is "Index": a minimalist, typographic page that reads like a
 well-set CV.
 
-- **Type**: two families, imported in `_app.tsx`.
-  - `--font-display`: Bricolage Grotesque Variable (`opsz.css`, with
-    `font-optical-sizing: auto`). Used for `h1`–`h3`, the hero lead, the
-    contact email, and project names.
-  - `--font-sans`: Instrument Sans Variable (`wght.css`) for everything
-    else.
-  Hierarchy comes mostly from **color and weight**. Body text is 16px,
-  section labels are `muted`, and the hero lead is the only large type.
+- **Type**: a single minimal family, Geist Variable (`wght.css`, imported
+  in `_app.tsx`, exposed as `--font-sans`). The owner prefers simple,
+  minimal type, so don't add a decorative display face. Hierarchy comes
+  from **color and weight**. Body text is 16px, section labels are
+  `muted`, and the hero lead is the only large type.
 - **Color**: tokens live in `src/assets/styles/theme.ts`. Light mode uses a
-  very light warm stone background (`#f5f1eb`) with brown-toned text and
+  barely-there warm off-white (`#faf8f5`) with brown-toned text and
   borders. Dark mode is near-neutral. Tokens are `text`, `muted`, `border`,
-  and `borderStrong` (3:1, for form controls). The only accent is cobalt `accent`, used for focus rings,
-  selection, and the active input. Don't add a second accent.
+  and `borderStrong` (3:1, for form controls). The only accent is cobalt
+  `accent`, used for focus rings, selection, and the active input. Don't
+  add a second accent.
 - **Structure**: one column, `--page-width: 720px`. `Section` renders a
   label column (`--label-column`) plus content, which stack at 768px or
   below. Hairline `border` dividers separate list rows. Radii are small
