@@ -14,17 +14,18 @@ export type Theme = {
   };
 };
 
-// Light: soft cool "mist" background. Contrast (WCAG) on background and
-// surface: text ≥ 14:1, muted ≥ 5:1, accent ≥ 5.9:1, borderStrong ≥ 3.4:1.
+// Light: very light warm "stone" background. Contrast (WCAG) on background
+// and surface: text ≥ 13.8:1, muted ≥ 5.1:1, accent ≥ 5.9:1,
+// borderStrong ≥ 3.6:1.
 export const lightTheme: Theme = {
   mode: 'light',
   colors: {
-    background: '#eceff3',
-    surface: '#e1e6ec',
-    text: '#15181d',
-    muted: '#56606c',
-    border: '#d5dbe2',
-    borderStrong: '#717b88',
+    background: '#f5f1eb',
+    surface: '#ebe5dc',
+    text: '#1d1a16',
+    muted: '#665d53',
+    border: '#e3dcd1',
+    borderStrong: '#7f7468',
     accent: '#2747c7',
     onAccent: '#ffffff',
     danger: '#b42318',

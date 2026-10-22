@@ -25,9 +25,9 @@ well-set CV.
   Hierarchy comes mostly from **color and weight**. Body text is 16px,
   section labels are `muted`, and the hero lead is the only large type.
 - **Color**: tokens live in `src/assets/styles/theme.ts`. Light mode uses a
-  soft cool "mist" background (`#eceff3`). Dark mode is near-neutral. Tokens
-  are `text`, `muted`, `border`, and `borderStrong` (3:1, for form
-  controls). The only accent is cobalt `accent`, used for focus rings,
+  very light warm stone background (`#f5f1eb`) with brown-toned text and
+  borders. Dark mode is near-neutral. Tokens are `text`, `muted`, `border`,
+  and `borderStrong` (3:1, for form controls). The only accent is cobalt `accent`, used for focus rings,
   selection, and the active input. Don't add a second accent.
 - **Structure**: one column, `--page-width: 720px`. `Section` renders a
   label column (`--label-column`) plus content, which stack at 768px or
