@@ -15,7 +15,7 @@
   "homeJob": "Engenheiro de Software",
   "homeLead": "Criando produtos web escaláveis e experiências de usuário refinadas e confiáveis.",
   "homeLocation": "Rio de Janeiro, Brasil",
-  "homeDescription": "Engenheiro de Software com 5 anos de experiência na criação de produtos web escaláveis e na transformação de objetivos de produto em experiências de usuário refinadas e confiáveis. Atualmente trabalho na LovelyStay, em Portugal, desenvolvendo experiências front-end guiadas por necessidades reais de negócio e de clientes.",
+  "homeDescription": "Engenheiro de Software com {{years}} anos de experiência na criação de produtos web escaláveis e na transformação de objetivos de produto em experiências de usuário refinadas e confiáveis. Atualmente trabalho na LovelyStay, em Portugal, desenvolvendo experiências front-end guiadas por necessidades reais de negócio e de clientes.",
   "homeDegree": "Bacharel em Ciência da Computação",
   "profileImageAlt": "Retrato de Luan Panno",
   "linksLabel": "Perfis e contato",

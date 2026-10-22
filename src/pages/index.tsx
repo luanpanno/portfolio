@@ -8,12 +8,18 @@ import Layout from '@components/layout/Layout';
 
 import HomeView from '@views/Home';
 
+import { getYearsOfExperience } from '@utils/experience';
 import { links } from '@utils/links';
 
 const siteUrl = 'https://www.luanpanno.dev';
 const socialImageUrl = `${siteUrl}/images/profile-pic.webp`;
+const ONE_DAY_IN_SECONDS = 60 * 60 * 24;
 
-const Home: NextPage = () => {
+type Props = {
+  yearsOfExperience: number;
+};
+
+const Home: NextPage<Props> = ({ yearsOfExperience }) => {
   const { t } = useTranslation('common');
   const { locale = 'en' } = useRouter();
   const isPortuguese = locale === 'pt';
@@ -84,7 +90,7 @@ const Home: NextPage = () => {
         />
       </Head>
       <Layout>
-        <HomeView />
+        <HomeView yearsOfExperience={yearsOfExperience} />
       </Layout>
     </>
   );
@@ -94,7 +100,10 @@ export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common'])),
+      yearsOfExperience: getYearsOfExperience(),
     },
+    // Rebuild daily so the count updates after each August anniversary.
+    revalidate: ONE_DAY_IN_SECONDS,
   };
 }
 

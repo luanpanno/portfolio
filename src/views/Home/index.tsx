@@ -3,10 +3,14 @@ import Contact from './Contact';
 import Hero from './Hero';
 import Work from './Work';
 
-const Home = () => (
+type Props = {
+  yearsOfExperience: number;
+};
+
+const Home: React.FC<Props> = ({ yearsOfExperience }) => (
   <>
     <Hero />
-    <About />
+    <About yearsOfExperience={yearsOfExperience} />
     <Work />
     <Contact />
   </>

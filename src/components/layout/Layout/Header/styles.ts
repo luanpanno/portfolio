@@ -4,27 +4,18 @@ export const Container = styled.header`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 8px 24px;
   padding: 28px 0 0;
   font-size: 0.9375rem;
 
-  .home {
-    margin-right: auto;
-    font-weight: 500;
-  }
-
   @media screen and (max-width: 480px) {
-    gap: 4px 16px;
+    gap: 8px 16px;
     padding-top: 16px;
   }
 `;
 
 export const Nav = styled.nav`
-  @media screen and (max-width: 480px) {
-    order: 1;
-    width: 100%;
-  }
-
   ul {
     display: flex;
     gap: 20px;

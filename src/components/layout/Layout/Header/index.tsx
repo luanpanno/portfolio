@@ -1,5 +1,4 @@
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
 
 import LanguageSwitch from '@components/LanguageSwitch';
 import ThemeToggle from '@components/ThemeToggle';
@@ -11,10 +10,6 @@ const Header = () => {
 
   return (
     <Container>
-      <Link href="/" className="home">
-        Luan Panno
-      </Link>
-
       <Nav aria-label={t('mainNavigation')}>
         <ul>
           <li>
