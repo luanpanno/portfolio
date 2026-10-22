@@ -34,6 +34,9 @@ export const Row = styled.a`
   }
 
   .name {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-size: 1.0625rem;
     font-weight: 500;
   }
 

@@ -9,7 +9,7 @@ there is no backend, database, or API route. It is a single landing page
 - Next.js 16, **Pages Router** (`src/pages`), React 19, TypeScript (`strict: false`)
 - styled-components 6, compiled by the Next.js compiler (`compiler.styledComponents`)
 - next-i18next: locales `en` (default) and `pt`. Translations are in `public/locales/{en,pt}/common.json`
-- One self-hosted font: Instrument Sans Variable (`@fontsource-variable/instrument-sans`)
+- Self-hosted fonts: Bricolage Grotesque Variable for display (`--font-display`) and Instrument Sans Variable for body (`--font-sans`)
 - Yarn Classic 1.x, Node 20+
 
 ## Commands

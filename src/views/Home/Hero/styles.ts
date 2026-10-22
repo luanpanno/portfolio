@@ -21,8 +21,9 @@ export const Identity = styled.div`
   }
 
   h1 {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
   }
 
   p {
@@ -31,11 +32,13 @@ export const Identity = styled.div`
 `;
 
 export const Lead = styled.p`
-  max-width: 30ch;
-  font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.5rem);
-  font-weight: 450;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: clamp(2rem, 1.3rem + 3vw, 3rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 `;
 

@@ -14,21 +14,21 @@ export type Theme = {
   };
 };
 
-// Contrast (WCAG): text ≥ 15:1, muted ≥ 4.7:1, accent ≥ 6.6:1 on
-// background and surface; borderStrong ≥ 3.3:1 for form controls.
+// Light: soft cool "mist" background. Contrast (WCAG) on background and
+// surface: text ≥ 14:1, muted ≥ 5:1, accent ≥ 5.9:1, borderStrong ≥ 3.4:1.
 export const lightTheme: Theme = {
   mode: 'light',
   colors: {
-    background: '#fbfbfa',
-    surface: '#f2f2f0',
-    text: '#1c1c1b',
-    muted: '#6b6b68',
-    border: '#e4e4e1',
-    borderStrong: '#858581',
+    background: '#eceff3',
+    surface: '#e1e6ec',
+    text: '#15181d',
+    muted: '#56606c',
+    border: '#d5dbe2',
+    borderStrong: '#717b88',
     accent: '#2747c7',
     onAccent: '#ffffff',
     danger: '#b42318',
-    success: '#1f7a3a',
+    success: '#1a6a33',
   },
 };
 
