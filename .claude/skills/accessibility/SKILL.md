@@ -32,8 +32,9 @@ description: WCAG 2.2 AA accessibility rules for this site, covering semantics, 
 - Every interactive element is reachable and operable by keyboard, in a
   logical order
 - Never use `outline: none` without a visible replacement
-- The hamburger menu exposes `aria-expanded` and `aria-controls`, closes on
-  Escape, and returns focus to its trigger
+- Any disclosure or menu exposes `aria-expanded` and `aria-controls`, closes
+  on Escape, and returns focus to its trigger (the header currently needs
+  none)
 - Focus is not hidden behind sticky headers or the cookie banner
   (WCAG 2.4.11)
 
@@ -47,7 +48,7 @@ description: WCAG 2.2 AA accessibility rules for this site, covering semantics, 
 **Visual**
 - Contrast meets 4.5:1 for body text and 3:1 for large text, icons, borders
   of inputs, and focus indicators. Check **both** `lightTheme` and
-  `darkTheme`, including `mutedText` and `lightText` on `surface` and
+  `darkTheme`, including `muted` on `surface` and
   `background`
 - Never use color alone to convey state
 - Target size is at least 24×24 CSS px (WCAG 2.5.8), with 44px preferred on

@@ -15,8 +15,8 @@ Targets at p75 are LCP ≤ 2.5s, INP ≤ 200ms, and CLS ≤ 0.1.
   `fetchPriority="high"` and is not lazy. Everything below the fold uses lazy
   loading
 - Give an accurate `sizes`, because an oversized `sizes` downloads oversized
-  images. With `fill`, the parent needs a fixed aspect box (see
-  `Projects/Card`)
+  images. Prefer explicit `width`/`height` (see `Work/index.tsx`), and with
+  `fill` the parent needs a fixed aspect box
 - Source assets are `.webp` in `public/images`, roughly 2× the largest
   rendered size and no more
 

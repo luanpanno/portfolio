@@ -1,7 +1,5 @@
 import { useTranslation } from 'next-i18next';
 
-import Separator from '@components/Separator';
-
 import { Container } from './styles';
 
 const Footer = () => {
@@ -9,8 +7,8 @@ const Footer = () => {
 
   return (
     <Container>
-      <Separator />
       <span>{t('footerCopyright', { year: new Date().getFullYear() })}</span>
+      <a href="#main-content">{t('backToTop')}</a>
     </Container>
   );
 };

@@ -16,11 +16,11 @@ Use the `ui-ux-reviewer` subagent if it fits. Otherwise do it here:
    screenshot the target and note any:
    - visual hierarchy, alignment, spacing rhythm, or typographic scale issues
    - overflow, clipping, wrapping, or long Portuguese strings breaking layout
-   - contrast or legibility problems (especially `mutedText` and `lightText`)
+   - contrast or legibility problems (especially `muted`)
    - hover, focus, active, disabled, empty, error, or success states (for
      example, submit the contact form empty, but **never** send a real message)
-   - keyboard flow: tab order, visible focus, skip link, and the hamburger
-     menu
+   - keyboard flow: tab order, visible focus, skip link, and the language and
+     theme switches
    - motion that feels gratuitous, or ignores reduced motion
 3. Judge against the `frontend-design` and `accessibility` skills.
 

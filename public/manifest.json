@@ -1,7 +1,7 @@
 {
   "short_name": "Luan Panno",
-  "name": "Luan Panno - Front-End Developer",
-  "description": "Portfolio of Luan Panno, showing all his work and experience as a developer.",
+  "name": "Luan Panno | Software Engineer",
+  "description": "Portfolio of Luan Panno, Software Engineer building web products with React, Next.js, TypeScript, and Node.js.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,6 +11,6 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#1f9cf0",
-  "background_color": "#ffffff"
+  "theme_color": "#fbfbfa",
+  "background_color": "#fbfbfa"
 }

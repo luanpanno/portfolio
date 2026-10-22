@@ -94,6 +94,7 @@ const ContactForm = () => {
         message: true,
       });
       setSubmitStatus('idle');
+      document.getElementById(Object.keys(nextErrors)[0])?.focus();
       return;
     }
 
@@ -132,72 +133,61 @@ const ContactForm = () => {
 
   const getFieldError = (field: Field) => (touched[field] ? errors[field] : '');
 
-  const isDisabled =
-    isSubmitting ||
-    Object.keys(errors).length > 0 ||
-    !values.name.trim() ||
-    !values.email.trim() ||
-    !values.message.trim();
-
   return (
     <Form
       onSubmit={handleSubmit}
-      role="form"
-      aria-label={t('contactFormTitle')}
+      aria-labelledby="contact-form-heading"
       aria-busy={isSubmitting}
       noValidate
     >
-      <div className="wrapper">
-        <p>{t('contactFormP')}</p>
-        <div className="fields">
-          <Input
-            name="name"
-            label={t('contactFormNameLabel')}
-            placeholder={t('contactFormNamePlaceholder')}
-            autoComplete="name"
-            required
-            value={values.name}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            errorMessage={getFieldError('name')}
-          />
-          <Input
-            name="email"
-            type="email"
-            label={t('contactFormEmailLabel')}
-            placeholder={t('contactFormEmailPlaceholder')}
-            autoComplete="email"
-            required
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            errorMessage={getFieldError('email')}
-          />
-          <Input
-            type="textarea"
-            name="message"
-            label={t('contactFormMessageLabel')}
-            placeholder={t('contactFormMessagePlaceholder')}
-            required
-            value={values.message}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            errorMessage={getFieldError('message')}
-          />
-        </div>
-        <button type="submit" disabled={isDisabled}>
+      <div>
+        <h3 id="contact-form-heading">{t('contactFormTitle')}</h3>
+        <p className="hint">{t('contactFormP')}</p>
+      </div>
+      <div className="row">
+        <Input
+          name="name"
+          label={t('contactFormNameLabel')}
+          placeholder={t('contactFormNamePlaceholder')}
+          autoComplete="name"
+          required
+          value={values.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          errorMessage={getFieldError('name')}
+        />
+        <Input
+          name="email"
+          type="email"
+          label={t('contactFormEmailLabel')}
+          placeholder={t('contactFormEmailPlaceholder')}
+          autoComplete="email"
+          required
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          errorMessage={getFieldError('email')}
+        />
+      </div>
+      <Input
+        type="textarea"
+        name="message"
+        label={t('contactFormMessageLabel')}
+        placeholder={t('contactFormMessagePlaceholder')}
+        required
+        value={values.message}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        errorMessage={getFieldError('message')}
+      />
+      <div className="actions">
+        <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? t('sending') : t('contactFormSubmit')}
         </button>
-        {submitStatus !== 'idle' && (
-          <div
-            className={`status ${submitStatus}`.trim()}
-            role={submitStatus === 'error' ? 'alert' : 'status'}
-          >
-            {submitStatus === 'success'
-              ? t('contactFormSuccess')
-              : t('contactFormError')}
-          </div>
-        )}
+        <p className={`status ${submitStatus}`} role="status">
+          {submitStatus === 'success' && t('contactFormSuccess')}
+          {submitStatus === 'error' && t('contactFormError')}
+        </p>
       </div>
     </Form>
   );

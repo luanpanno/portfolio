@@ -3,13 +3,7 @@ import { appWithTranslation, useTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
-import '@fontsource/newsreader/latin-400.css';
-import '@fontsource/newsreader/latin-500.css';
-import '@fontsource/newsreader/latin-600.css';
-import '@fontsource/plus-jakarta-sans/latin-400.css';
-import '@fontsource/plus-jakarta-sans/latin-500.css';
-import '@fontsource/plus-jakarta-sans/latin-600.css';
-import '@fontsource/plus-jakarta-sans/latin-700.css';
+import '@fontsource-variable/instrument-sans/wght.css';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { GlobalStyles } from '@assets/styles';
@@ -74,22 +68,10 @@ const AppShell = ({ Component, pageProps }: AppProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content={theme.colors.background} />
         <meta name="color-scheme" content="light dark" />
-        <meta name="robots" content="index, follow" />
         <meta name="author" content={t('metaAuthor')} />
-        <meta name="keywords" content={t('metaKeywords')} />
-        <meta name="application-name" content={t('websiteTitle')} />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content={t('websiteTitle')} />
+        <meta name="application-name" content={t('metaAuthor')} />
+        <meta name="apple-mobile-web-app-title" content={t('metaAuthor')} />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta
-          name="msapplication-TileColor"
-          content={theme.colors.background}
-        />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <link rel="manifest" href="/manifest.json" />
       </Head>
       <a className="skip-link" href="#main-content">
         {t('skipToContent')}

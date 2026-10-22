@@ -1,14 +1,15 @@
+import About from './About';
 import Contact from './Contact';
 import Hero from './Hero';
-import Projects from './Projects';
-import { Container } from './styles';
+import Work from './Work';
 
 const Home = () => (
-  <Container>
+  <>
     <Hero />
-    <Projects />
+    <About />
+    <Work />
     <Contact />
-  </Container>
+  </>
 );
 
 export default Home;

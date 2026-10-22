@@ -4,57 +4,67 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import Container from '@components/layout/Container';
+import Layout from '@components/layout/Layout';
 
 import HomeView from '@views/Home';
+
+import { links } from '@utils/links';
+
+const siteUrl = 'https://www.luanpanno.dev';
+const socialImageUrl = `${siteUrl}/images/profile-pic.webp`;
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common');
   const { locale = 'en' } = useRouter();
   const isPortuguese = locale === 'pt';
-  const canonicalUrl = `https://www.luanpanno.dev${isPortuguese ? '/pt' : ''}`;
-  const socialImageUrl = 'https://www.luanpanno.dev/images/profile-pic.webp';
+  const canonicalUrl = isPortuguese ? `${siteUrl}/pt` : siteUrl;
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person',
+        '@id': `${siteUrl}/#person`,
+        name: 'Luan Panno',
+        jobTitle: t('homeJob'),
+        description: t('websiteDescription'),
+        email: `mailto:${links.email}`,
+        url: siteUrl,
+        image: socialImageUrl,
+        worksFor: { '@type': 'Organization', name: 'LovelyStay' },
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Rio de Janeiro',
+          addressCountry: 'BR',
+        },
+        sameAs: [links.linkedin, links.github],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
+        url: siteUrl,
+        name: 'Luan Panno',
+        inLanguage: ['en', 'pt-BR'],
+        publisher: { '@id': `${siteUrl}/#person` },
+      },
+    ],
+  };
 
   return (
     <>
       <Head>
         <title>{t('websiteTitle')}</title>
-        <link rel="canonical" href={canonicalUrl} />
-        <link rel="alternate" hrefLang="en" href="https://www.luanpanno.dev" />
-        <link
-          rel="alternate"
-          hrefLang="pt-BR"
-          href="https://www.luanpanno.dev/pt"
-        />
-        <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Luan Panno',
-              jobTitle: t('homeJob'),
-              description: t('websiteDescription'),
-              email: 'luanpanno@gmail.com',
-              url: 'https://www.luanpanno.dev',
-              sameAs: [
-                'https://www.linkedin.com/in/luanpanno',
-                'https://www.github.com/luanpanno',
-              ],
-              image: socialImageUrl,
-              address: {
-                '@type': 'PostalAddress',
-                addressLocality: t('homeLocation'),
-              },
-            }),
-          }}
-        />
         <meta name="description" content={t('websiteDescription')} />
-        <meta property="og:site_name" content={t('websiteTitle')} />
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hrefLang="en" href={siteUrl} />
+        <link rel="alternate" hrefLang="pt-BR" href={`${siteUrl}/pt`} />
+        <link rel="alternate" hrefLang="x-default" href={siteUrl} />
+        <meta property="og:site_name" content="Luan Panno" />
         <meta property="og:title" content={t('websiteTitle')} />
         <meta property="og:description" content={t('websiteDescription')} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="profile" />
+        <meta property="profile:first_name" content="Luan" />
+        <meta property="profile:last_name" content="Panno" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:locale" content={isPortuguese ? 'pt_BR' : 'en_US'} />
         <meta
@@ -62,15 +72,20 @@ const Home: NextPage = () => {
           content={isPortuguese ? 'en_US' : 'pt_BR'}
         />
         <meta property="og:image" content={socialImageUrl} />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image:alt" content={t('ogImageAlt')} />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={t('websiteTitle')} />
         <meta name="twitter:description" content={t('websiteDescription')} />
         <meta name="twitter:image" content={socialImageUrl} />
-        <meta name="twitter:url" content={canonicalUrl} />
+        <meta name="twitter:image:alt" content={t('ogImageAlt')} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </Head>
-      <Container>
+      <Layout>
         <HomeView />
-      </Container>
+      </Layout>
     </>
   );
 };

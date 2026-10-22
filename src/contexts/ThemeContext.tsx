@@ -11,13 +11,28 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 const THEME_STORAGE_KEY = 'theme';
 const THEME_CHANGE_EVENT = 'theme-change';
+const DARK_SCHEME_QUERY = '(prefers-color-scheme: dark)';
+
+const readStoredTheme = () => {
+  try {
+    return localStorage.getItem(THEME_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+};
 
 const getStoredTheme = () => {
   if (typeof window === 'undefined') {
     return 'light';
   }
 
-  return localStorage.getItem(THEME_STORAGE_KEY) === 'dark' ? 'dark' : 'light';
+  const storedTheme = readStoredTheme();
+
+  if (storedTheme === 'dark' || storedTheme === 'light') {
+    return storedTheme;
+  }
+
+  return window.matchMedia(DARK_SCHEME_QUERY).matches ? 'dark' : 'light';
 };
 
 const subscribeToTheme = (callback: () => void) => {
@@ -26,13 +41,16 @@ const subscribeToTheme = (callback: () => void) => {
   }
 
   const handleChange = () => callback();
+  const mediaQuery = window.matchMedia(DARK_SCHEME_QUERY);
 
   window.addEventListener('storage', handleChange);
   window.addEventListener(THEME_CHANGE_EVENT, handleChange);
+  mediaQuery.addEventListener('change', handleChange);
 
   return () => {
     window.removeEventListener('storage', handleChange);
     window.removeEventListener(THEME_CHANGE_EVENT, handleChange);
+    mediaQuery.removeEventListener('change', handleChange);
   };
 };
 
@@ -54,12 +72,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   const toggleTheme = () => {
-    const newTheme = !isDarkMode;
-
-    if (newTheme) {
-      localStorage.setItem(THEME_STORAGE_KEY, 'dark');
-    } else {
-      localStorage.removeItem(THEME_STORAGE_KEY);
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, isDarkMode ? 'light' : 'dark');
+    } catch {
+      return;
     }
 
     window.dispatchEvent(new Event(THEME_CHANGE_EVENT));

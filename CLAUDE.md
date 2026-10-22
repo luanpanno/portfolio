@@ -9,7 +9,7 @@ there is no backend, database, or API route. It is a single landing page
 - Next.js 16, **Pages Router** (`src/pages`), React 19, TypeScript (`strict: false`)
 - styled-components 6, compiled by the Next.js compiler (`compiler.styledComponents`)
 - next-i18next: locales `en` (default) and `pt`. Translations are in `public/locales/{en,pt}/common.json`
-- Self-hosted fonts via `@fontsource`: Newsreader (serif, headings) and Plus Jakarta Sans (sans, body)
+- One self-hosted font: Instrument Sans Variable (`@fontsource-variable/instrument-sans`)
 - Yarn Classic 1.x, Node 20+
 
 ## Commands
@@ -27,11 +27,12 @@ There is no test suite. Run lint, type check, and build to verify a change.
 ## Layout
 
 - `src/pages`: routes, `<Head>` SEO metadata, `getStaticProps` with `serverSideTranslations`
-- `src/views/Home/*`: page sections. Each one is a folder with `index.tsx` and `styles.ts`
-- `src/components/*`: shared UI (Input, Title, ThemeToggle, CookieConsent, layout/*)
-- `src/contexts`: ThemeContext (light/dark through `localStorage` and `useSyncExternalStore`) and CookieConsentContext
+- `src/views/Home/*`: page sections (Hero, About, Work, Contact). Each one is a folder with `index.tsx` and `styles.ts`
+- `src/components/*`: shared UI (Section, Input, LanguageSwitch, ThemeToggle, CookieConsent, layout/Layout)
+- `src/contexts`: ThemeContext (light/dark: stored choice, otherwise `prefers-color-scheme`) and CookieConsentContext
 - `src/assets/styles`: `theme.ts` (design tokens), `GlobalStyles.ts` (CSS variables, base type, focus ring, reduced motion), `Reset.ts`
-- `src/views/Home/Projects/projects.ts`: project data. `name` is an i18n key and images live in `public/images/projects/*.webp`
+- `src/views/Home/Work/projects.ts`: project data. `name` is an i18n key, `stack` is an array formatted with `Intl.ListFormat`, and images live in `public/images/projects/*.webp`
+- `src/utils/links.ts`: email and profile URLs, shared by the Hero, Contact, and JSON-LD
 - Static SEO files: `public/sitemap.xml`, `public/robots.txt`, `public/manifest.json`
 
 ## Conventions
@@ -41,7 +42,7 @@ There is no test suite. Run lint, type check, and build to verify a change.
 - Import order is enforced by ESLint. Groups are modules, @assets, @components, @contexts, @hooks, @views, @pages, @utils, then relative imports, with a blank line between groups
 - Prettier uses single quotes, trailing commas, and an 80 column limit (`max-len` 80 is an ESLint error)
 - Read colors only from `props.theme.colors.*`. Never hard-code hex values in components. Every new token goes into **both** `lightTheme` and `darkTheme`
-- Read spacing and layout from the CSS variables in `GlobalStyles` (`--section-padding`, `--content-spacing`, `--body-horizontal-gap`, `--body-max-width`)
+- Read spacing and layout from the CSS variables in `GlobalStyles` (`--page-width`, `--page-gutter`, `--label-column`, `--section-gap`)
 - All user-visible text goes through `t('key')` from `useTranslation('common')`, and every key is added to **both** locale files
 - Analytics (Hotjar and Clarity) load only when their env vars are set **and** the visitor has given cookie consent. Keep it that way
 
@@ -49,6 +50,7 @@ There is no test suite. Run lint, type check, and build to verify a change.
 
 - `next-env.d.ts` is rewritten by `next dev`/`next build`. Don't commit those changes
 - The theme is read on the client, so SSR always renders the light theme. Avoid layout that depends on the theme during render
+- `next dev` caches the locale JSON files. Restart it after editing `public/locales/*`
 - `public/sitemap.xml` is hand-maintained. Update `lastmod` when page content changes meaningfully
 - The contact form posts to formsubmit.co, so there is no server code to change
 

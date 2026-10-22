@@ -1,28 +1,46 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 18px;
-  padding: var(--section-padding);
-  border: 1px solid ${(props) => props.theme.colors.border};
-  border-radius: 36px;
-  background: ${(props) => props.theme.colors.surface};
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: ${(props) => props.theme.colors.shadow};
-
-  @media screen and (max-width: 480px) {
-    padding: 24px;
-    border-radius: 28px;
-  }
+export const Lead = styled.p`
+  max-width: 52ch;
 `;
 
-export const Intro = styled.p`
-  max-width: 660px;
-  text-align: center;
-  line-height: 1.8;
-  color: ${(props) => props.theme.colors.mutedText};
+export const Email = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 20px;
+
+  a {
+    font-size: clamp(1.25rem, 1rem + 1.2vw, 1.5rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    text-decoration: underline;
+    text-decoration-color: ${(props) => props.theme.colors.borderStrong};
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
+    transition: text-decoration-color 0.15s ease;
+  }
+
+  a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  button {
+    min-height: 32px;
+    padding: 0 12px;
+    border: 1px solid ${(props) => props.theme.colors.border};
+    border-radius: 6px;
+    color: ${(props) => props.theme.colors.muted};
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  button:hover {
+    border-color: ${(props) => props.theme.colors.borderStrong};
+    color: ${(props) => props.theme.colors.text};
+  }
 `;

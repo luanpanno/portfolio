@@ -36,7 +36,7 @@ export default Foo;
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  padding: var(--section-padding) 0;
+  gap: var(--section-gap);
   color: ${(props) => props.theme.colors.text};
 `;
 ```
@@ -50,11 +50,11 @@ export const Container = styled.section`
 - A new color token goes into `Theme` plus both `lightTheme` and
   `darkTheme` in `src/assets/styles/theme.ts`.
 - Spacing and width come from the CSS variables in `GlobalStyles.ts`.
-- Breakpoints are max-width `1024px`, `768px`, and `480px`
+- Breakpoints are max-width `768px` and `480px`
   (`@media screen and (max-width: …)`), matching what's already there.
 - Hover goes inside `@media (hover: hover) { &:hover { … } }`.
 - Nested element and class selectors inside one `Container` are the house
-  style (see `Projects/Card/styles.ts`). Prefer that over many tiny styled
+  style (see `Work/styles.ts`). Prefer that over many tiny styled
   components.
 - For custom props, use transient props (`$active`) so they don't leak into
   the DOM.

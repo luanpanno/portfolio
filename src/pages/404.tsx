@@ -1,41 +1,46 @@
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
+import styled from 'styled-components';
 
-import Container from '@components/layout/Container';
+import Layout from '@components/layout/Layout';
+
+const Content = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+
+  p {
+    max-width: 44ch;
+    color: ${(props) => props.theme.colors.muted};
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+`;
 
 const NotFoundPage = () => {
   const { t } = useTranslation('common');
-  const { locale = 'en' } = useRouter();
-  const canonicalUrl = `https://www.luanpanno.dev${
-    locale === 'pt' ? '/pt' : ''
-  }/404`;
 
   return (
     <>
       <Head>
-        <title>{`${t('notFoundTitle')} | ${t('websiteTitle')}`}</title>
+        <title>{`${t('notFoundTitle')} | Luan Panno`}</title>
         <meta name="description" content={t('notFoundDescription')} />
         <meta name="robots" content="noindex, follow" />
-        <link rel="canonical" href={canonicalUrl} />
       </Head>
-      <Container>
-        <section
-          style={{
-            alignItems: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            justifyContent: 'center',
-            minHeight: '60vh',
-            textAlign: 'center',
-          }}
-        >
-          <h1>404</h1>
+      <Layout>
+        <Content aria-labelledby="not-found-heading">
+          <h1 id="not-found-heading">{t('notFoundTitle')}</h1>
           <p>{t('notFoundDescription')}</p>
-        </section>
-      </Container>
+          <Link href="/">{t('notFoundBack')}</Link>
+        </Content>
+      </Layout>
     </>
   );
 };

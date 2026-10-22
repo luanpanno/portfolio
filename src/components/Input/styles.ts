@@ -6,70 +6,65 @@ type Props = {
 };
 
 export const Container = styled.div<Props>`
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+  width: 100%;
 
   label {
-    padding-left: 4px;
-    color: ${(props) => props.theme.colors.mutedText};
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 500;
   }
 
   .error {
-    color: ${(props) => props.theme.colors.red};
-    font-size: 0.82rem;
-    line-height: 1.5;
-    margin: 0 4px;
+    color: ${(props) => props.theme.colors.danger};
+    font-size: 0.8125rem;
   }
 `;
 
 export const InputWrapper = styled.div<Props>`
   display: flex;
-  align-items: stretch;
   width: 100%;
   border: 1px solid
     ${(props) => {
       if (props.$hasError) {
-        return props.theme.colors.red;
+        return props.theme.colors.danger;
       }
 
       if (props.$hasFocus) {
-        return props.theme.colors.primary;
+        return props.theme.colors.accent;
       }
 
-      return props.theme.colors.border;
+      return props.theme.colors.borderStrong;
     }};
-  border-radius: 18px;
-  background-color: ${(props) => props.theme.colors.surface};
+  border-radius: 6px;
   box-shadow: ${(props) =>
-    props.$hasFocus ? `0 0 0 4px ${props.theme.colors.primarySoft}` : 'none'};
+    props.$hasFocus ? `0 0 0 1px ${props.theme.colors.accent}` : 'none'};
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 
   input,
   textarea {
     width: 100%;
     min-width: 0;
+    padding: 10px 12px;
     border: none;
     outline: none;
     background-color: transparent;
-    color: ${(props) => props.theme.colors.title};
+    color: ${(props) => props.theme.colors.text};
     font-size: 1rem;
-    line-height: 1.6;
-    padding: 16px 18px;
+    line-height: 1.5;
   }
 
   input::placeholder,
   textarea::placeholder {
-    color: ${(props) => props.theme.colors.mutedText};
+    color: ${(props) => props.theme.colors.muted};
     opacity: 1;
   }
 
   textarea {
-    min-height: 170px;
+    min-height: 140px;
     resize: vertical;
   }
 `;
